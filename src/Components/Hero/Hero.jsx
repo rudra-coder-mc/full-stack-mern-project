@@ -1,11 +1,11 @@
-import img1 from "../../assets/img1.jpg";
+import hero_img1 from "../../assets/hero_img1.jpeg";
 
 const Hero = () => {
   return (
     <>
-      <div className="Hero flex justify-center items-center m-3 p-3 gap-3 ">
+      <div className="Hero flex justify-center items-center m-3 p-3 gap-3 bg-[#B4D4FF] ">
         <div className="Hero-left flex flex-col justify-center items-center gap-3">
-          <h2 className="text-lg font-semibold size-1/3 text-center">
+          <h2 className="text-xl font-semibold size-1/3 text-center">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam
             eligendi veniam maiores quis
           </h2>
@@ -32,7 +32,7 @@ const Hero = () => {
           </button>
         </div>
         <div className="Hero-right">
-          <img src={img1} className=" rounded-3xl" alt="hero-image" />
+          <img src={hero_img1} className=" rounded-3xl" alt="hero-image" />
         </div>
       </div>
     </>

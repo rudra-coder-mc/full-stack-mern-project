@@ -9,7 +9,7 @@ import Signup from "./Pages/Signup";
 
 function App() {
   return (
-    <>
+    <div className="bg-[#EEF5FF]">
       <BrowserRouter>
         <Navbar />
         <Routes>
@@ -20,7 +20,7 @@ function App() {
           <Route path="/Signup" element={<Signup />} />
         </Routes>
       </BrowserRouter>
-    </>
+    </div>
   );
 }
 
