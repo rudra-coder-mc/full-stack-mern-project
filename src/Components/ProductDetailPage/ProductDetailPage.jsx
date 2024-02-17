@@ -31,12 +31,12 @@ const ProductDetailPage = () => {
         <div>
           <h1 className="text-3xl font-bold mb-4">{product.name}</h1>
           <p className="text-gray-600 text-sm mb-4">{product.description}</p>
-          <p className="text-sm mb-4">
-            <span className="line-through text-gray-500 mr-2">
+          <div className="flex items-center mb-4">
+            <span className="text-gray-500 line-through mr-2">
               ${product.oldPrice}
             </span>
             <span className="text-red-500">${product.newPrice}</span>
-          </p>
+          </div>
           <p className="text-sm text-gray-600 mb-4">{product.type}</p>
           <div className="mb-4">
             <label
@@ -53,11 +53,11 @@ const ProductDetailPage = () => {
               onChange={handleFittingOptionChange}
             >
               <option value="">Select...</option>
-              <option value="Option 1">Option 1</option>
-              <option value="Option 2">Option 2</option>
-              <option value="Option 3">Option 3</option>
-              <option value="Option 4">Option 4</option>
-              <option value="Option 5">Option 5</option>
+              {[1, 2, 3, 4, 5].map((option) => (
+                <option key={option} value={`Option ${option}`}>
+                  Option {option}
+                </option>
+              ))}
             </select>
           </div>
           <button className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg">

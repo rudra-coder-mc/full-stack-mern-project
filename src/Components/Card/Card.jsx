@@ -5,7 +5,7 @@ const Card = () => {
     name: "Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport",
     description:
       "Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.",
-    starRating: 5,
+    starRating: 3,
     price: {
       old: 799,
       new: 599,
