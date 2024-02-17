@@ -4,10 +4,9 @@ const Hero = () => {
   return (
     <>
       <div className="Hero flex justify-center items-center m-3 p-3 gap-3 bg-[#B4D4FF] ">
-        <div className="Hero-left flex flex-col justify-center items-center gap-3">
-          <h2 className="text-xl font-semibold size-1/3 text-center">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam
-            eligendi veniam maiores quis
+        <div className="Hero-left flex flex-col justify-center items-center gap-3 size-1/2">
+          <h2 className="text-xl font-semibold  text-center">
+            YOUR CAR NEEDS MORE
           </h2>
           <button
             type="button"
@@ -31,7 +30,7 @@ const Hero = () => {
             </svg>
           </button>
         </div>
-        <div className="Hero-right">
+        <div className="Hero-right size-1/2">
           <img src={hero_img1} className=" rounded-3xl" alt="hero-image" />
         </div>
       </div>

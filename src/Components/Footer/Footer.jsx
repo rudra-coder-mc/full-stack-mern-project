@@ -1,3 +1,5 @@
+import final_logo from "../../assets/final_logo.png";
+
 const Footer = () => {
   return (
     <footer className="bg-gray-800 text-gray-300 py-8">
@@ -5,14 +7,11 @@ const Footer = () => {
         <div className="flex flex-wrap justify-center">
           <div className="w-full md:w-1/4 mb-4 md:mb-0">
             <img
-              src="/logo.png"
+              src={final_logo}
               alt="Company Logo"
               className="w-16 h-16 mx-auto mb-4"
             />
-            <p className="text-sm text-center">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-              adipiscing erat.
-            </p>
+            <p className="text-sm text-center">YOUR CAR NEEDS MORE</p>
           </div>
           <div className="w-full md:w-1/4 mb-4 md:mb-0">
             <h3 className="text-lg mb-2">About Us</h3>

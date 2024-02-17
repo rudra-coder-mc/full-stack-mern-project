@@ -1,11 +1,13 @@
 import { NavLink } from "react-router-dom";
-
+import final_logo from "../../assets/final_logo.png";
 export default function Navbar() {
   return (
     <>
       <header className=" bg-[#176B87] text-white">
         <nav className="container mx-auto flex items-center justify-between p-4">
-          <div className="text-2xl font-bold">Logo</div>
+          <div className="text-2xl font-bold">
+            <img src={final_logo} className="w-12 h-12" alt="logo" />
+          </div>
           <ul className="flex items-center space-x-4">
             <li>
               <NavLink to="/" className="hover:text-gray-300">

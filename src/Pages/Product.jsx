@@ -1,4 +1,10 @@
+import ProductDetailPage from "../Components/ProductDetailPage/ProductDetailPage";
+
 const Product = () => {
-  return <div>Product</div>;
+  return (
+    <>
+      <ProductDetailPage />
+    </>
+  );
 };
 export default Product;
