@@ -14,7 +14,11 @@ const Footer = () => {
             <p className="text-sm text-center">YOUR CAR NEEDS MORE</p>
           </div>
           <div className="w-full md:w-1/4 mb-4 md:mb-0">
-            <h3 className="text-lg mb-2">About Us</h3>
+            <h3 className="text-lg mb-2">
+              <a href="#" className="hover:text-blue-400">
+                About Us
+              </a>
+            </h3>
             <ul className="text-sm">
               <li>
                 <a href="#" className="hover:text-blue-400">
