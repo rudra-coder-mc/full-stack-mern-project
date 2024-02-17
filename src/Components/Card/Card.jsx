@@ -14,7 +14,7 @@ const Card = () => {
   };
 
   return (
-    <div className="w-full max-w-sm bg-blue-200 border border-gray-200 rounded-lg shadow">
+    <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow">
       <a href="#">
         <img
           className="p-8 rounded-t-lg"

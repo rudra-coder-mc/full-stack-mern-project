@@ -1,5 +1,7 @@
 import { NavLink } from "react-router-dom";
 import final_logo from "../../assets/final_logo.png";
+import NavItem from "./NavItem";
+import AuthButton from "./AuthButton";
 
 const Navbar = () => {
   return (
@@ -21,24 +23,6 @@ const Navbar = () => {
         </div>
       </nav>
     </header>
-  );
-};
-
-const NavItem = ({ to, label }) => {
-  return (
-    <li>
-      <NavLink to={to} className="hover:text-gray-300">
-        {label}
-      </NavLink>
-    </li>
-  );
-};
-
-const AuthButton = ({ to, label }) => {
-  return (
-    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
-      <NavLink to={to}>{label}</NavLink>
-    </button>
   );
 };
 
