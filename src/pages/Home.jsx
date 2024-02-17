@@ -1,6 +1,7 @@
 import Hero from "../Components/Hero/Hero";
 import Card from "../Components/Card/Card";
 import Offers from "../Components/Offers/Offers";
+import Footer from "../Components/Footer/Footer";
 
 const Home = () => {
   return (
@@ -18,6 +19,7 @@ const Home = () => {
         <Card />
       </div>
       <Offers />
+      <Footer />
     </>
   );
 };
