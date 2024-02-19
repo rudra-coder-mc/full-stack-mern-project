@@ -6,7 +6,7 @@ import Service from "./pages/Service";
 import Product from "./Pages/Product";
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
-import AboutUs from "./Components/Footer/aboutus";
+import AboutUs from "./Pages/About";
 
 function App() {
   return (
