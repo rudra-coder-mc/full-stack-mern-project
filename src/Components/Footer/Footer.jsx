@@ -1,5 +1,6 @@
 import final_logo from "../../assets/final_logo.png";
 
+
 const Footer = () => {
   return (
     <footer className="bg-gray-800 text-gray-300 py-8">
@@ -15,7 +16,7 @@ const Footer = () => {
           </div>
           <div className="w-full md:w-1/4 mb-4 md:mb-0">
             <h3 className="text-lg mb-2">
-              <a href="#" className="hover:text-blue-400">
+              <a href="aboutus" className="hover:text-blue-400">
                 About Us
               </a>
             </h3>
@@ -40,16 +41,16 @@ const Footer = () => {
           <div className="w-full md:w-1/4 mb-4 md:mb-0">
             <h3 className="text-lg mb-2">Contact Us</h3>
             <ul className="text-sm">
-              <li>123 Main Street</li>
-              <li>City, State ZIP</li>
-              <li>Email: info@example.com</li>
-              <li>Phone: 123-456-7890</li>
+              <li>12 UNIQ'S Studio'</li>
+              <li>vesu , surat</li>
+              <li>Email: uniqauto11@gmail.com</li>
+              <li>Phone: 9432786534</li>
             </ul>
           </div>
         </div>
       </div>
       <div className="mt-8 text-center">
-        <p className="text-sm">© 2024 Your Company. All rights reserved.</p>
+        <p className="text-sm">© 2024 UNIQ'S AUTOMOTIVE'. All rights reserved.</p>
         <p className="text-sm">
           Built with{" "}
           <a

@@ -30,7 +30,7 @@ const Hero = () => {
             </svg>
           </button>
         </div>
-        <div className="Hero-right size-1/2">
+        <div className="Hero-right size-1/1">
           <img src={hero_img1} className=" rounded-3xl" alt="hero-image" />
         </div>
       </div>
