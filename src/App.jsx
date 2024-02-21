@@ -7,6 +7,7 @@ import Product from "./Pages/Product";
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
 import AboutUs from "./Components/Footer/aboutus";
+import ProductInsertPage from "./admin/ProductInsertPage"
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/Login" element={<Login />} />
           <Route path="/Signup" element={<Signup />} />
           <Route path="/aboutus" element={<AboutUs />} />
+          <Route path="/ProductInsertPage" element={<ProductInsertPage />} />
         </Routes>
       </BrowserRouter>
     </div>
