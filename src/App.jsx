@@ -7,7 +7,7 @@ import Product from "./Pages/Product";
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
 
-import AboutUs from "./Components/Footer/aboutus";
+
 import ProductInsertPage from "./admin/ProductInsertPage"
 
 import AboutUs from "./Pages/About";
