@@ -6,14 +6,10 @@ import Service from "./pages/Service";
 import Product from "./Pages/Product";
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
-
-import AboutUs from "./Components/Footer/aboutus";
-import ProductInsertPage from "./admin/ProductInsertPage"
-
+import ProductInsertPage from "./admin/ProductInsertPage";
 import AboutUs from "./Pages/About";
 import Cart from "./Pages/Cart";
 import Footer from "./Components/Footer/Footer";
-
 
 function App() {
   return (
