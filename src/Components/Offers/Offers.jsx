@@ -1,4 +1,5 @@
 import hero_img1 from "../../assets/hero_img1.jpeg";
+import autosale from "../../assets/autosale.jpg";
 
 const Offers = () => {
   const offerData = {
@@ -6,7 +7,7 @@ const Offers = () => {
     subtitle: "Offers For You",
     description: "ONLY ON BEST PRODUCTS AND SERVICES",
     buttonText: "Check Now",
-    imageUrl: hero_img1,
+    imageUrl: autosale,
   };
 
   return (
