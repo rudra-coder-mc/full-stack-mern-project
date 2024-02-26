@@ -1,4 +1,3 @@
-// ProductInsertPage.js
 import { useState } from "react";
 
 const ProductInsertPage = () => {
@@ -36,7 +35,7 @@ const ProductInsertPage = () => {
   };
 
   return (
-    <div className="container mx-auto mt-8">
+    <div className="container mx-auto m-8 w-3/4">
       <h1 className="text-3xl font-bold mb-4">Insert New Accessories</h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
@@ -48,7 +47,7 @@ const ProductInsertPage = () => {
             id="productName"
             value={productName}
             onChange={handleProductNameChange}
-            className="w-full mt-1 p-2 border rounded-md"
+            className="w-full mt-1 p-2 border rounded-md focus:outline-none focus:border-blue-500"
             required
           />
         </div>
@@ -63,7 +62,7 @@ const ProductInsertPage = () => {
             id="productDescription"
             value={productDescription}
             onChange={handleProductDescriptionChange}
-            className="w-full mt-1 p-2 border rounded-md"
+            className="w-full mt-1 p-2 border rounded-md resize-none focus:outline-none focus:border-blue-500"
             required
           />
         </div>
@@ -76,7 +75,7 @@ const ProductInsertPage = () => {
             id="productPrice"
             value={productPrice}
             onChange={handleProductPriceChange}
-            className="w-full mt-1 p-2 border rounded-md"
+            className="w-full mt-1 p-2 border rounded-md focus:outline-none focus:border-blue-500"
             required
           />
         </div>
@@ -88,13 +87,13 @@ const ProductInsertPage = () => {
             type="file"
             id="productImage"
             onChange={handleProductImageChange}
-            className="mt-1 p-2 border rounded-md"
+            className="mt-1 p-2 border rounded-md focus:outline-none focus:border-blue-500"
             required
           />
         </div>
         <button
           type="submit"
-          className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
+          className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
         >
           Insert Accessories
         </button>
