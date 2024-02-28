@@ -21,13 +21,13 @@ const Navbar = () => {
           <NavItem
             NavItemStyle={`${
               menuOpened
-                ? "flex items-start flex-col gap-y-12 fixed top-20 right-8 p-12 bg-white-300 shadow-md w-34 text-black rounded-md font-medium right-1 ring-slate-900/5 transition-all duration-300 "
-                : "flex items-start flex-col gap-y-12 fixed top-20  p-12 bg-white-300 shadow-md w-34 text-black rounded-md font-medium right-1 ring-slate-900/5 transition-all duration-300 -right-[100%]"
+                ? "flex items-start flex-col gap-y-12 fixed top-20 right-8 p-12 bg-gray-100 shadow-md w-34 text-black rounded-md font-medium right-1 ring-slate-900/5 transition-all duration-300 z-10"
+                : "flex items-start flex-col gap-y-12 fixed top-20 right-8 p-12 bg-white shadow-md w-34 text-black rounded-md font-medium right-1 ring-slate-900/5 transition-all duration-300 -right-full z-10"
             }`}
           />
         </div>
 
-        <div className="flex items-center justify-between sm:gap-x-6 space-x-4">
+        <div className="flex items-center justify-between sm:gap-x-6 space-x-2 ">
           {!menuOpened ? (
             <MdMenu
               className="md:hidden cursor-pointer mr-2 p-1 ring-1 ring-white-900/30 h-8 w-8 rounded-full"
@@ -44,7 +44,9 @@ const Navbar = () => {
               <FaOpencart className="p-1 ring-1 ring-white-900/30 h-8 w-8 rounded-full" />
               <span className="relative w-5 h-5 rounded-full -top-2">0</span>
             </NavLink>
-            <AuthButton AuthButtonStyle={""} />
+
+            <AuthButton to="/login" label="Log In" />
+            <AuthButton to="/signup" label="Sign Up" />
           </div>
         </div>
       </nav>

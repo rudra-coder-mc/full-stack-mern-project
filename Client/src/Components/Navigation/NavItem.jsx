@@ -6,19 +6,13 @@ const NavItem = (prop) => {
   return (
     <ul className={NavItemStyle}>
       <li>
-        <NavLink to="/" className="hover:text-gray-300">
-          Home
-        </NavLink>
+        <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <NavLink to="/product" className="hover:text-gray-300">
-          Product
-        </NavLink>
+        <NavLink to="/product">Product</NavLink>
       </li>
       <li>
-        <NavLink to="/service" className="hover:text-gray-300">
-          Service
-        </NavLink>
+        <NavLink to="/service">Service</NavLink>
       </li>
     </ul>
   );
