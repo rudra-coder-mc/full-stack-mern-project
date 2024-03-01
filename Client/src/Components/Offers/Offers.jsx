@@ -1,4 +1,4 @@
-import hero_img1 from "../../assets/hero_img1.jpeg";
+// import hero_img1 from "../../assets/hero_img1.jpeg";
 import autosale from "../../assets/autosale.jpg";
 
 const Offers = () => {

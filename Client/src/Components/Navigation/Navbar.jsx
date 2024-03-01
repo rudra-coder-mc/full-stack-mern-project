@@ -22,7 +22,7 @@ const Navbar = () => {
             NavItemStyle={`${
               menuOpened
                 ? "flex items-start flex-col gap-y-12 fixed top-20 right-8 p-12 bg-gray-100 shadow-md w-34 text-black rounded-md font-medium right-1 ring-slate-900/5 transition-all duration-300 z-10"
-                : "flex items-start flex-col gap-y-12 fixed top-20 right-8 p-12 bg-white shadow-md w-34 text-black rounded-md font-medium right-1 ring-slate-900/5 transition-all duration-300 -right-full z-10"
+                : "hidden"
             }`}
           />
         </div>
