@@ -1,44 +1,23 @@
-import { useState } from "react";
-import axios from "axios";
+import { useState, useContext } from "react";
+import { AuthContext } from "../Components/AuthProvider/AuthProvider";
 import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [name, setname] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(null); // State to store any errors
+  const [error, setError] = useState(null); //
+  const { SignUp } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent default form submission behavior
-
-    try {
-      const response = await axios.post(
-        "http://localhost:4000/api/v1/register",
-        { name, email, password }
-      );
-
-      if (response.data.success) {
-        // Handle successful signup
-        console.log("Signup successful!");
-        navigate("/login"); // Redirect to login page
-      } else {
-        setError(response.data.message); // Set error message from response
-      }
-    } catch (error) {
-      console.error(error);
-      if (error.response) {
-        // Specific error handling based on response status code
-        setError(
-          error.response.data.message || "An error occurred during signup."
-        );
-      } else if (error.request) {
-        setError(
-          "No response received from the server. Please check your internet connection."
-        );
-      } else {
-        setError("An error occurred while processing your request.");
-      }
+    const responce = SignUp(name, email, password);
+    if (responce === true) {
+      navigate("/");
+    } else {
+      setError(responce);
     }
   };
   return (
@@ -128,30 +107,19 @@ const Signup = () => {
               type="submit"
               className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
-              <span className="absolute left-0 inset-y-0 flex items-center pl-3">
-                {/* Heroicon name: lock-closed */}
-                <svg
-                  className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 12a2 2 0 100-4 2 2 0 000 4z"
-                    clipRule="evenodd"
-                  />
-                  <path
-                    fillRule="evenodd"
-                    d="M3 7a7 7 0 1114 0H3zm14 2a5 5 0 10-10 0v3h10v-3z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </span>
               Sign Up
             </button>
           </div>
+          <p className="mb-0 mt-2 pt-1 text-sm font-semibold">
+            already have account?{" "}
+            <NavLink
+              to="/login"
+              className="text-danger transition duration-150 ease-in-out hover:text-danger-600 focus:text-danger-600 active:text-danger-700"
+            >
+              {" "}
+              LogIn
+            </NavLink>
+          </p>
         </form>
       </div>
     </div>

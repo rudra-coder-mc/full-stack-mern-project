@@ -1,5 +1,4 @@
 import { NavLink } from "react-router-dom";
-import PropTypes from "prop-types";
 
 const NavItem = (prop) => {
   const { NavItemStyle } = prop;
@@ -17,7 +16,5 @@ const NavItem = (prop) => {
     </ul>
   );
 };
-NavItem.prototype = {
-  NavItemStyle: PropTypes.node,
-};
+
 export default NavItem;

@@ -7,6 +7,7 @@ import { MdMenu, MdClose } from "react-icons/md";
 import { FaOpencart } from "react-icons/fa";
 const Navbar = () => {
   const [menuOpened, setmenuOpened] = useState(false);
+  console.log(localStorage.getItem("token"));
   const toggleMenu = () => setmenuOpened(!menuOpened);
   return (
     <header className="m-auto w-full bg-[#176B87] text-white right-1 z-10">
@@ -22,10 +23,7 @@ const Navbar = () => {
             NavItemStyle={`${
               menuOpened
                 ? "flex items-start flex-col gap-y-12 fixed top-20 right-8 p-12 bg-gray-100 shadow-md w-34 text-black rounded-md font-medium right-1 ring-slate-900/5 transition-all duration-300 z-10"
-
-                
                 : "hidden"
-
             }`}
           />
         </div>
@@ -47,9 +45,7 @@ const Navbar = () => {
               <FaOpencart className="p-1 ring-1 ring-white-900/30 h-8 w-8 rounded-full" />
               <span className="relative w-5 h-5 rounded-full -top-2">0</span>
             </NavLink>
-
-            <AuthButton to="/login" label="Log In" />
-            <AuthButton to="/signup" label="Sign Up" />
+            <AuthButton />
           </div>
         </div>
       </nav>

@@ -1,4 +1,3 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
 
 const SideBar = () => {
@@ -12,19 +11,19 @@ const SideBar = () => {
           {/* SideBar links */}
           <ul>
             <li className="py-2 hover:bg-gray-700">
-            <NavLink to="/Dashbord/page1">page1</NavLink>
+              <NavLink to="/Dashbord/page1">page1</NavLink>
             </li>
             <li className="py-2 hover:bg-gray-700">
-            <NavLink to="/Dashbord/page2">page2</NavLink>
+              <NavLink to="/Dashbord/page2">page2</NavLink>
             </li>
             <li className="py-2 hover:bg-gray-700">
-            <NavLink to="/Dashbord/page3">page3</NavLink>
+              <NavLink to="/Dashbord/page3">page3</NavLink>
             </li>
             {/* Add more links as needed */}
           </ul>
         </div>
       </div>
-      <div >
+      <div>
         {/* Main content */}
         <div className="p-4">Main Content</div>
       </div>
