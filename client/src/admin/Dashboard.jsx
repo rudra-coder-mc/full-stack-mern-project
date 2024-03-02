@@ -1,16 +1,11 @@
-import React from "react";
 import SideBar from "./Sidebar/SideBar";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-function Dashboard() {
+
+const DashBoard = () => {
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/Dashboards" element={<SideBar />} />
-        </Routes>
-      </BrowserRouter>
+      <SideBar />
+      <div className="flex-grow"></div>
     </>
   );
-}
-
-export default Dashboard;
+};
+export default DashBoard;
