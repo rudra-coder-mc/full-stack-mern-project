@@ -5,7 +5,9 @@ import Service from "./Pages/Service";
 import Product from "./Pages/Product";
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
+
 import Admin from "./admin/DashBoard";
+
 import AboutUs from "./Pages/About";
 import Cart from "./Pages/Cart";
 import Footer from "./Components/Footer/Footer";
@@ -16,8 +18,11 @@ function App() {
   return (
     <div className="bg-[#EEF5FF]">
       <BrowserRouter>
-        {currentPath !== "/Dashboard" && <Navbar />}{" "}
-        {/* Render Navbar only if not dashboard */}
+
+        {currentPath !== "/Dashboard" && <Navbar />} {/* Render Navbar only if not dashboard */}
+
+       
+
         <Routes>
           <Route path="/Dashboard" element={<Admin />} />
           <Route path="/" element={<Home />} />
@@ -31,9 +36,12 @@ function App() {
           <Route path="/Signup" element={<Signup />} />
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/Cart" element={<Cart />} />
-        </Routes>
-        {currentPath !== "/Dashboard" && <Footer />}{" "}
-        {/* Render Footer only if not dashboard */}
+          </Routes>
+
+        {currentPath !== "/Dashboard" && <Footer />} {/* Render Footer only if not dashboard */}
+
+      
+
       </BrowserRouter>
     </div>
   );

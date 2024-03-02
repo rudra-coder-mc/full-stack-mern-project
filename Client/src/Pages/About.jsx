@@ -1,6 +1,8 @@
 import ppf from "../assets/ppf.jpg";
-import interior from "../assets/INTERIOR.JPG";
-import sunroof from "../assets/SUNROOF.JPG";
+// import interior from "../assets/INTERIOR.JPG";
+import interior from "../assets/INTERIOR.jpg"
+// import sunroof from "../assets/SUNROOF.JPG";
+import sunroof from "../assets/SUNROOF.jpg";
 
 export default function About() {
   return (

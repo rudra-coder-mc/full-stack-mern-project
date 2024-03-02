@@ -22,7 +22,10 @@ const Navbar = () => {
             NavItemStyle={`${
               menuOpened
                 ? "flex items-start flex-col gap-y-12 fixed top-20 right-8 p-12 bg-gray-100 shadow-md w-34 text-black rounded-md font-medium right-1 ring-slate-900/5 transition-all duration-300 z-10"
+
+                
                 : "hidden"
+
             }`}
           />
         </div>
@@ -39,7 +42,7 @@ const Navbar = () => {
               onClick={toggleMenu}
             />
           )}
-          <div className="flex items-center justify-between sm:gap-x-6 gap-2">
+          <div className="flex items-center justify-between sm:gap-x-6 gap-2 ">
             <NavLink to="/Cart" className={"flex"}>
               <FaOpencart className="p-1 ring-1 ring-white-900/30 h-8 w-8 rounded-full" />
               <span className="relative w-5 h-5 rounded-full -top-2">0</span>
