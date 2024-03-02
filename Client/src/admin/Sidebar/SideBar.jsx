@@ -1,29 +1,24 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
-const Sidebar = () => {
+const SideBar = () => {
   return (
     <div className="flex h-screen bg-gray-200">
       <div className="w-64 bg-gray-800">
-        {/* Sidebar content */}
+        {/* SideBar content */}
         <div className="p-4 text-white">
-          {/* Sidebar heading */}
-          <h2 className="text-lg font-semibold mb-4">Sidebar</h2>
-          {/* Sidebar links */}
+          {/* SideBar heading */}
+          <h2 className="text-lg font-semibold mb-4">SideBar</h2>
+          {/* SideBar links */}
           <ul>
             <li className="py-2 hover:bg-gray-700">
-              <a href="#" className="block px-4">
-                Link 1
-              </a>
+            <NavLink to="/Dashbord/page1">page1</NavLink>
             </li>
             <li className="py-2 hover:bg-gray-700">
-              <a href="#" className="block px-4">
-                Link 2
-              </a>
+            <NavLink to="/Dashbord/page2">page2</NavLink>
             </li>
             <li className="py-2 hover:bg-gray-700">
-              <a href="#" className="block px-4">
-                Link 3
-              </a>
+            <NavLink to="/Dashbord/page3">page3</NavLink>
             </li>
             {/* Add more links as needed */}
           </ul>
@@ -37,4 +32,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default SideBar;
