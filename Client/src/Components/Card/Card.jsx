@@ -79,7 +79,7 @@ const Card = () => {
           </div>
         </div>
         <div className="flex justify-between">
-          <span className="sm:text-[1rem] md:text-[2rem] xl:text-[3rem] font-bold text-gray-900">
+          <span className="sm:text-[1rem] md:text-[1.5rem] font-bold text-gray-900">
             ${product.price.new}
           </span>
           <a
