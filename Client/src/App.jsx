@@ -5,7 +5,7 @@ import Service from "./Pages/Service";
 import Product from "./Pages/Product";
 import LoginPage from "./Pages/LoginPage";
 import Signup from "./Pages/Signup";
-import DashBoard from "./admin/DashBoard/";
+import DashBoard from "./admin/Dashboard/";
 import AboutUs from "./Pages/About";
 import Cart from "./Pages/Cart";
 import Footer from "./Components/Footer/Footer";
