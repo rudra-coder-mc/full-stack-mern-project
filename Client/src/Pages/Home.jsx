@@ -6,13 +6,15 @@ const Home = () => {
   return (
     <>
       <Hero />
-      <div className="flex items-center justify-center gap-3 ">
+      <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-1 items-center justify-center">
+        <Card />
+        <Card />
         <Card />
         <Card />
         <Card />
       </div>
       <Offers />
-      <div className="flex items-center justify-center gap-3 ">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1">
         <Card />
         <Card />
         <Card />
@@ -21,4 +23,5 @@ const Home = () => {
     </>
   );
 };
+
 export default Home;
