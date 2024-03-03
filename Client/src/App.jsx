@@ -11,6 +11,7 @@ import Cart from "./Pages/Cart";
 import Footer from "./Components/Footer/Footer";
 import Page1 from "./admin/Components/Page1";
 import ChangPassword from "./Components/Login/ChangPassword";
+import ProductInsertPage from "./admin/ProductInsertPage/ProductInsertPage";
 
 function App() {
   const currentPath = window.location.pathname; // Get current path
@@ -24,6 +25,8 @@ function App() {
           <Routes>
             <Route path="/Dashboard" element={<DashBoard />} />
             <Route path="/Dashbord/page1" element={<Page1 />} />
+            <Route path="/ProductInsertPage" element={<ProductInsertPage />} />
+
             <Route path="/" element={<Home />} />
             <Route path="/service" element={<Service />}>
               <Route path=":ServiceId" element={<Service />} />
