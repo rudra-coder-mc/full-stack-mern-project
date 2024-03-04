@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import { AuthContext } from "../AuthProvider/AuthProvider";
+import { AuthContext } from "../../Context/AuthProvider";
 // import { FaSignOutAlt } from "react-icons/fa";
 
 const AuthButton = () => {

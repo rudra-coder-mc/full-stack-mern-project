@@ -1,8 +1,10 @@
 import productImage from "../../assets/img1.jpg";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Card = () => {
   const product = {
+    id: 1,
     name: "Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport",
     description:
       "Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.",
@@ -22,6 +24,7 @@ const Card = () => {
 
   return (
     <div className="w-full max-w-72 bg-white border border-gray-200 rounded-lg shadow">
+      <Link to={`product/${product.id}`}></Link>
       <a href="#">
         <img className="p-2 rounded-3xl" src={product.imageUrl} alt="Product" />
       </a>

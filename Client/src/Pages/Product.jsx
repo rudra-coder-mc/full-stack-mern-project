@@ -1,9 +1,10 @@
-import ProductDetailPage from "../Components/ProductDetailPage/ProductDetailPage";
+// import ProductDetailPage from "../Components/ProductDetailPage/ProductDetailPage";
 
 const Product = () => {
   return (
     <>
-      <ProductDetailPage />
+      {/* <ProductDetailPage /> */}
+      
     </>
   );
 };
