@@ -1,30 +1,58 @@
 import { useState } from "react";
+import axios from "axios";
 
 function ProductInsertPage() {
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [price, setPrice] = useState(0);
-  const [category, setCategory] = useState("");
-  const [stock, setStock] = useState(0);
+  const [formData, setFormData] = useState({
+    name: "",
+    image: null,
+    description: "",
+    price: 0,
+    category: "",
+    stock: 0,
+  });
+  // const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  const handleSubmit = (event) => {
+  const handleChange = (event) => {
+    const { name, value, files } = event.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: files ? files[0] : value, // Handle file or text input
+    }));
+  };
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    // setIsLoading(true);
+    setError(null); // Clear previous error messages
 
-    // Implement product insertion logic here (e.g., API call, database interaction)
-    console.log("Product details:", {
-      name,
-      description,
-      price,
-      category,
-      stock,
-    });
+    try {
+      const response = await axios.post(
+        "http://localhost:4000/api/v1/admin/product/new",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
 
-    // Clear form after submission (optional)
-    setName("");
-    setDescription("");
-    setPrice(0);
-    setCategory("");
-    setStock(0);
+      // Handle successful submission (e.g., redirect, clear form)
+      console.log("Product inserted successfully!", response.data);
+      setFormData({
+        name: "",
+        image: null,
+        description: "",
+        price: 0,
+        category: "",
+        stock: 0,
+      });
+    } catch (error) {
+      setError(error.response?.data?.message || "Product insertion failed.");
+      console.error(error);
+    } finally {
+      // setIsLoading(false);
+    }
   };
 
   return (
@@ -39,8 +67,8 @@ function ProductInsertPage() {
             type="text"
             id="name"
             className="rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            value={formData.name}
+            onChange={handleChange}
             required
           />
         </div>
@@ -51,8 +79,8 @@ function ProductInsertPage() {
           <textarea
             id="description"
             className="rounded-md border border-gray-300 p-2 h-24 resize-none focus:outline-none focus:ring-1 focus:ring-blue-500"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
+            value={formData.description}
+            onChange={handleChange}
             required
           />
         </div>
@@ -64,8 +92,8 @@ function ProductInsertPage() {
             type="number"
             id="price"
             className="rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
-            value={price}
-            onChange={(e) => setPrice(e.target.value)}
+            value={formData.price}
+            onChange={handleChange}
             required
           />
         </div>
@@ -77,8 +105,8 @@ function ProductInsertPage() {
             type="text"
             id="category"
             className="rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
+            value={formData.category}
+            onChange={handleChange}
             required
           />
         </div>
@@ -90,11 +118,29 @@ function ProductInsertPage() {
             type="number"
             id="stock"
             className="rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
-            value={stock}
-            onChange={(e) => setStock(e.target.value)}
+            value={formData.stock}
+            onChange={handleChange}
             required
           />
         </div>
+        <div className="flex flex-col">
+          <label htmlFor="image" className="text-sm font-medium mb-2">
+            image
+          </label>
+          <input
+            type="file"
+            id="image"
+            className="rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
+            value={formData.image}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        {error && (
+          <span className="text-red-500 font-bold text-sm block mb-4">
+            {error}
+          </span>
+        )}
         <button
           type="submit"
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md"

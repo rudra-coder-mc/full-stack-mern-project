@@ -5,14 +5,17 @@ import "./index.css";
 import AuthProvider from "./Context/AuthProvider.jsx";
 import ShopContextProvider from "./Context/ShopContex.jsx";
 import ServicesContexProvider from "./Context/ServicesContex.jsx";
+import { CartProvider } from "./Context/ContextReducer.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ShopContextProvider>
       <ServicesContexProvider>
-        <AuthProvider>
-          <App />
-        </AuthProvider>
+        <CartProvider>
+          <AuthProvider>
+            <App />
+          </AuthProvider>
+        </CartProvider>
       </ServicesContexProvider>
     </ShopContextProvider>
   </React.StrictMode>

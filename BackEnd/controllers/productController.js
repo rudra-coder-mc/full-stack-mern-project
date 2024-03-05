@@ -4,16 +4,54 @@ const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 const ApiFeatures = require("../utility/apifetures");
 const { query } = require("express");
 const cloudinary = require("cloudinary");
+const multer = require("multer");
+
+// Set up multer storage
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "../upload/"); // Where to store uploaded files
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + "-" + file.originalname); // Rename files with unique name
+  },
+});
+
+// Initialize multer upload
+
+exports.upload = multer({ storage: storage });
+
 // Create Product --Admin
 exports.createProduct = catchAsyncErrors(async (req, res, next) => {
+  console.log(req.file);
+  // req.body.user = req.user.id;
+  // // const product = await Product.create(req.body);
+  // const Image = req.body.Image;
 
-  req.body.user = req.user.id;
-  const product = await Product.create(req.body);
-
-  res.status(201).json({
-    success: true,
-    product,
-  });
+  try {
+    // Save image information to MongoDB
+    const product = await Product.create({
+      name: req.body.name,
+      description: req.body.description,
+      price: req.body.price,
+      image: [
+        {
+          public_id: req.file.filename, // Assuming the filename is used as the public_id
+          url: req.file.path, // Assuming the path is used as the URL
+        },
+      ],
+      category: req.body.category,
+      Stock: req.body.Stock,
+      numOfReviews: null,
+      reviews: [],
+    });
+    res.status(201).json({
+      success: true,
+      product,
+    });
+    res.send("Product uploaded successfully");
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
 });
 
 // Create Product -- Admin
