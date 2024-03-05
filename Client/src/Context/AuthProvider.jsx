@@ -6,9 +6,12 @@ export const AuthContext = createContext();
 
 const AuthProvider = (prop) => {
   const { children } = prop;
-  // const tto = localStorage.getItem("token");
+
   const [token, settoken] = useState(localStorage.getItem("token"));
   const [User, setUser] = useState({});
+  const axiosInstance = axios.create({
+    withCredentials: true,
+  });
 
   const login = async (email, password) => {
     // Make an API call to login the user
@@ -27,7 +30,7 @@ const AuthProvider = (prop) => {
             "'Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token'",
         },
       };
-      const response = await axios.post(
+      const response = await axiosInstance.post(
         "http://localhost:4000/api/v1/login",
         data,
         config
