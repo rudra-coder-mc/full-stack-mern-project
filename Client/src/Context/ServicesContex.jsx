@@ -3,11 +3,11 @@ import { createContext } from "react";
 export const ServicesContex = createContext(null);
 
 const ServicesContexProvider = (prop) => {
-  //   const contextValue = "";
+  const contextValue = "hii";
   return (
-    <ServicesContexProvider.Provider value={null}>
+    <ServicesContex.Provider value={contextValue}>
       {prop.children}
-    </ServicesContexProvider.Provider>
+    </ServicesContex.Provider>
   );
 };
 

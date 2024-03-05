@@ -8,10 +8,10 @@ const NavItem = (prop) => {
         <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <NavLink to="/product">Product</NavLink>
+        <NavLink to="/ProductCategory">Product</NavLink>
       </li>
       <li>
-        <NavLink to="/service">Service</NavLink>
+        <NavLink to="/ServicesCategory">Service</NavLink>
       </li>
     </ul>
   );

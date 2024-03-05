@@ -3,11 +3,11 @@ import { createContext } from "react";
 export const ShopContext = createContext(null);
 
 const ShopContextProvider = (prop) => {
-  //   const contextValue = "";
+  const contextValue = "";
   return (
-    <ShopContextProvider.Provider value={null}>
+    <ShopContext.Provider value={contextValue}>
       {prop.children}
-    </ShopContextProvider.Provider>
+    </ShopContext.Provider>
   );
 };
 

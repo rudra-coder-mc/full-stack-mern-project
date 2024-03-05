@@ -7,7 +7,7 @@ import { MdMenu, MdClose } from "react-icons/md";
 import { FaOpencart } from "react-icons/fa";
 const Navbar = () => {
   const [menuOpened, setmenuOpened] = useState(false);
-  console.log(localStorage.getItem("token"));
+  // console.log(localStorage.getItem("token"));
   const toggleMenu = () => setmenuOpened(!menuOpened);
   return (
     <header className="m-auto w-full bg-[#176B87] text-white right-1 z-10">

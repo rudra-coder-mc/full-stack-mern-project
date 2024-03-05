@@ -9,10 +9,7 @@ const Card = () => {
     description:
       "Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.",
     starRating: 3,
-    price: {
-      old: 799,
-      new: 599,
-    },
+    price: 300,
     imageUrl: productImage,
   };
 
@@ -74,17 +71,18 @@ const Card = () => {
           </p>
         )}
         <div className="flex justify-between mb-2">
-          <div className="text-sm text-gray-500">
+          {/* <div className="text-sm text-gray-500">
             Old Price: <del>${product.price.old}</del>
-          </div>
+          </div> */}
           <div className="text-sm font-semibold text-gray-900">
-            New Price: ${product.price.new}
+            {/* New Price: ${product.price.new} */}
+            Price: ${product.price}
           </div>
         </div>
         <div className="flex justify-between">
-          <span className="sm:text-[1rem] md:text-[1.5rem] font-bold text-gray-900">
-            ${product.price.new}
-          </span>
+          {/* <span className="sm:text-[1rem] md:text-[1.5rem] font-bold text-gray-900">
+            ${product.price}
+          </span> */}
           <a
             href="#"
             className="inline-block bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 text-white font-medium rounded-lg text-sm px-5 py-2.5"

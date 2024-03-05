@@ -7,7 +7,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null); // State to store any errors
-  const { login } = useContext(AuthContext);
+  const { login, User } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -16,7 +16,9 @@ const Login = () => {
 
     // Prepare data for the request
     const response = await login(email, password);
+    const user = await User;
     console.log(response);
+    console.log(user);
     if (response === true) {
       navigate("/");
     } else setError(response);

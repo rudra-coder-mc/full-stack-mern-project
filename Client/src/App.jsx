@@ -1,17 +1,19 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home";
 import Navbar from "./Components/Navigation/Navbar";
-import Service from "./Pages/Service";
+import Service from "./Pages/Services";
 import Product from "./Pages/Product";
 import LoginPage from "./Pages/LoginPage";
 import Signup from "./Pages/Signup";
-import DashBoard from "./admin/DashBoard/";
+import DashBoard from "./admin/Dashboard/";
 import AboutUs from "./Pages/About";
 import Cart from "./Pages/Cart";
 import Footer from "./Components/Footer/Footer";
 import Page1 from "./admin/Components/Page1";
 import ChangPassword from "./Components/Login/ChangPassword";
 import ProductInsertPage from "./admin/ProductInsertPage/ProductInsertPage";
+import ProductCategory from "./Pages/ProductCategory";
+import ServicesCategory from "./Pages/ServicesCategory";
 
 function App() {
   const currentPath = window.location.pathname; // Get current path
@@ -28,9 +30,13 @@ function App() {
             <Route path="/ProductInsertPage" element={<ProductInsertPage />} />
 
             <Route path="/" element={<Home />} />
+            <Route path="/ProductCategory" element={<ProductCategory />} />
+            <Route path="/ServicesCategory" element={<ServicesCategory />} />
+
             <Route path="/service" element={<Service />}>
               <Route path=":ServiceId" element={<Service />} />
             </Route>
+
             <Route path="/product" element={<Product />}>
               <Route path=":ProductId" element={<Product />} />
             </Route>

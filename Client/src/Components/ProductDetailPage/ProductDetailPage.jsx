@@ -1,19 +1,16 @@
 import { useState } from "react";
 import hero_img1 from "../../assets/hero_img1.jpeg";
-// import { useParams } from "react-router-dom";
 
-const ProductDetailPage = () => {
+const ProductDetailPage = (prop) => {
+  const { id, name, image, description, price, category, stock } = prop;
   const product = {
     name: "Example Product",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec dui justo. Donec suscipit arcu ut metus malesuada, ac posuere nulla vestibulum.",
-    oldPrice: 50,
-    newPrice: 40,
+    Price: 50,
     type: "Example Type",
     image: "example.jpg", // Replace with your actual image URL
   };
-  // const { ProductId } = useParams();
-  // const product = all_product.find((e) => e.id === Number(ProductId));
 
   const [fittingOption, setFittingOption] = useState("");
 
@@ -35,10 +32,7 @@ const ProductDetailPage = () => {
           <h1 className="text-3xl font-bold mb-4">{product.name}</h1>
           <p className="text-gray-600 text-sm mb-4">{product.description}</p>
           <div className="flex items-center mb-4">
-            <span className="text-gray-500 line-through mr-2">
-              ${product.oldPrice}
-            </span>
-            <span className="text-red-500">${product.newPrice}</span>
+            <span className="text-red-500">${product.Price}</span>
           </div>
           <p className="text-sm text-gray-600 mb-4">{product.type}</p>
           <div className="mb-4">
