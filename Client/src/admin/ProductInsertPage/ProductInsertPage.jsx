@@ -10,11 +10,14 @@ function ProductInsertPage() {
     category: "",
     stock: 0,
   });
-  // const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const axiosInstance = axios.create({
+    withCredentials: true,
+  });
 
   const handleChange = (event) => {
     const { name, value, files } = event.target;
+    // console.log(name);
     setFormData((prevData) => ({
       ...prevData,
       [name]: files ? files[0] : value, // Handle file or text input
@@ -23,11 +26,21 @@ function ProductInsertPage() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // setIsLoading(true);
     setError(null); // Clear previous error messages
+    const formData = new FormData(); // Create a new FormData object
+    formData.append("name", formData.name);
+    formData.append("description", formData.description);
+    formData.append("price", formData.price);
+    formData.append("category", formData.category);
+    formData.append("stock", formData.stock);
+
+    if (formData.image) {
+      // Check if image is selected before appending
+      formData.append("image", formData.image, formData.image.name); // Include filename
+    }
 
     try {
-      const response = await axios.post(
+      const response = await axiosInstance.post(
         "http://localhost:4000/api/v1/admin/product/new",
         formData,
         {
@@ -37,7 +50,7 @@ function ProductInsertPage() {
         }
       );
 
-      // Handle successful submission (e.g., redirect, clear form)
+      // ... (existing code)
       console.log("Product inserted successfully!", response.data);
       setFormData({
         name: "",
@@ -50,8 +63,6 @@ function ProductInsertPage() {
     } catch (error) {
       setError(error.response?.data?.message || "Product insertion failed.");
       console.error(error);
-    } finally {
-      // setIsLoading(false);
     }
   };
 
@@ -66,8 +77,8 @@ function ProductInsertPage() {
           <input
             type="text"
             id="name"
+            name="name"
             className="rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
-            value={formData.name}
             onChange={handleChange}
             required
           />
@@ -78,8 +89,8 @@ function ProductInsertPage() {
           </label>
           <textarea
             id="description"
+            name="description"
             className="rounded-md border border-gray-300 p-2 h-24 resize-none focus:outline-none focus:ring-1 focus:ring-blue-500"
-            value={formData.description}
             onChange={handleChange}
             required
           />
@@ -91,8 +102,8 @@ function ProductInsertPage() {
           <input
             type="number"
             id="price"
+            name="price"
             className="rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
-            value={formData.price}
             onChange={handleChange}
             required
           />
@@ -104,8 +115,8 @@ function ProductInsertPage() {
           <input
             type="text"
             id="category"
+            name="category"
             className="rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
-            value={formData.category}
             onChange={handleChange}
             required
           />
@@ -117,8 +128,8 @@ function ProductInsertPage() {
           <input
             type="number"
             id="stock"
+            name="stock"
             className="rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
-            value={formData.stock}
             onChange={handleChange}
             required
           />
@@ -130,8 +141,8 @@ function ProductInsertPage() {
           <input
             type="file"
             id="image"
+            name="image"
             className="rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
-            value={formData.image}
             onChange={handleChange}
             required
           />

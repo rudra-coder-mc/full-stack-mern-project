@@ -18,41 +18,62 @@ const storage = multer.diskStorage({
 
 // Initialize multer upload
 
-exports.upload = multer({ storage: storage });
+upload = multer({ storage: storage });
 
 // Create Product --Admin
-exports.createProduct = catchAsyncErrors(async (req, res, next) => {
-  console.log(req.file);
-  // req.body.user = req.user.id;
-  // // const product = await Product.create(req.body);
-  // const Image = req.body.Image;
+exports.createProduct = catchAsyncErrors(
+  upload.single("image"),
+  async (req, res, next) => {
+    // console.log(req.file);
+    // req.body.user = req.user.id;
+    // // const product = await Product.create(req.body);
+    // const Image = req.body.Image;
+    if (
+      !req.body.name ||
+      !req.body.description ||
+      !req.body.price ||
+      !req.body.category ||
+      !req.body.Stock
+    ) {
+      return res
+        .status(400)
+        .json({ message: "Missing required fields in request body." });
+    }
 
-  try {
-    // Save image information to MongoDB
-    const product = await Product.create({
-      name: req.body.name,
-      description: req.body.description,
-      price: req.body.price,
-      image: [
-        {
-          public_id: req.file.filename, // Assuming the filename is used as the public_id
-          url: req.file.path, // Assuming the path is used as the URL
-        },
-      ],
-      category: req.body.category,
-      Stock: req.body.Stock,
-      numOfReviews: null,
-      reviews: [],
-    });
-    res.status(201).json({
-      success: true,
-      product,
-    });
-    res.send("Product uploaded successfully");
-  } catch (err) {
-    res.status(500).send(err.message);
+    // Assuming you are using Multer middleware
+    if (!req.file) {
+      return res
+        .status(400)
+        .json({ message: "Please select an image to upload." });
+    }
+
+    try {
+      // Save image information to MongoDB
+      const product = await Product.create({
+        name: req.body.name,
+        description: req.body.description,
+        price: req.body.price,
+        image: [
+          {
+            public_id: req.file.filename, // Assuming the filename is used as the public_id
+            url: req.file.path, // Assuming the path is used as the URL
+          },
+        ],
+        category: req.body.category,
+        Stock: req.body.Stock,
+        numOfReviews: null,
+        reviews: [],
+      });
+      res.status(201).json({
+        success: true,
+        product,
+      });
+      res.send("Product uploaded successfully");
+    } catch (err) {
+      res.status(500).send(err.message);
+    }
   }
-});
+);
 
 // Create Product -- Admin
 // exports.createProduct = catchAsyncErrors(async (req, res, next) => {
