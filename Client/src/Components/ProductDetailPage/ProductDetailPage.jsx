@@ -1,5 +1,6 @@
 import { useState } from "react";
 import hero_img1 from "../../assets/hero_img1.jpeg";
+// import { useParams } from "react-router-dom";
 
 const ProductDetailPage = () => {
   const product = {
@@ -11,6 +12,8 @@ const ProductDetailPage = () => {
     type: "Example Type",
     image: "example.jpg", // Replace with your actual image URL
   };
+  // const { ProductId } = useParams();
+  // const product = all_product.find((e) => e.id === Number(ProductId));
 
   const [fittingOption, setFittingOption] = useState("");
 
