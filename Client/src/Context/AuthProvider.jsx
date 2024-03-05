@@ -7,7 +7,7 @@ export const AuthContext = createContext();
 const AuthProvider = (prop) => {
   const { children } = prop;
 
-  const [token, settoken] = useState(localStorage.getItem("token"));
+  const [token, settoken] = useState("");
   const [User, setUser] = useState({});
 
   const axiosInstance = axios.create({

@@ -18,13 +18,14 @@ const storage = multer.diskStorage({
 
 // Initialize multer upload
 
-upload = multer({ storage: storage });
+const upload = multer({ storage: storage });
 
 // Create Product --Admin
-exports.createProduct = catchAsyncErrors(
-  upload.single("image"),
+exports.createProduct =
+  (upload.single("image"),
   async (req, res, next) => {
-    // console.log(req.file);
+    console.log(req.file);
+    console.log(req.body);
     // req.body.user = req.user.id;
     // // const product = await Product.create(req.body);
     // const Image = req.body.Image;
@@ -33,7 +34,7 @@ exports.createProduct = catchAsyncErrors(
       !req.body.description ||
       !req.body.price ||
       !req.body.category ||
-      !req.body.Stock
+      !req.body.stock
     ) {
       return res
         .status(400)
@@ -72,8 +73,7 @@ exports.createProduct = catchAsyncErrors(
     } catch (err) {
       res.status(500).send(err.message);
     }
-  }
-);
+  });
 
 // Create Product -- Admin
 // exports.createProduct = catchAsyncErrors(async (req, res, next) => {

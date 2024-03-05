@@ -17,7 +17,7 @@ function ProductInsertPage() {
 
   const handleChange = (event) => {
     const { name, value, files } = event.target;
-    // console.log(name);
+    console.log(files[0]);
     setFormData((prevData) => ({
       ...prevData,
       [name]: files ? files[0] : value, // Handle file or text input
@@ -27,22 +27,19 @@ function ProductInsertPage() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setError(null); // Clear previous error messages
-    const formData = new FormData(); // Create a new FormData object
-    formData.append("name", formData.name);
-    formData.append("description", formData.description);
-    formData.append("price", formData.price);
-    formData.append("category", formData.category);
-    formData.append("stock", formData.stock);
-
-    if (formData.image) {
-      // Check if image is selected before appending
-      formData.append("image", formData.image, formData.image.name); // Include filename
-    }
+    console.log(formData.image);
+    const Data = new FormData();
+    Data.append("name", formData.name);
+    Data.append("description", formData.description);
+    Data.append("price", formData.price);
+    Data.append("category", formData.category);
+    Data.append("stock", formData.stock);
+    Data.append("image", formData.image);
 
     try {
       const response = await axiosInstance.post(
-        "http://localhost:4000/api/v1/admin/product/new",
-        formData,
+        "http://localhost:3000/upload",
+        Data,
         {
           headers: {
             "Content-Type": "multipart/form-data",

@@ -1,7 +1,6 @@
 const express = require("express");
 const {
   getAllProducts,
-
   createProduct,
   updateProduct,
   deleteProduct,
