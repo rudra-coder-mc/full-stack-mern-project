@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(fileUpload());
 app.use(cors({ origin: "http://localhost:5173" }));
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "your-frontend-domain.com"); // Replace with your allowed origin
+  res.header("Access-Control-Allow-Origin", "http://localhost:5173"); // Replace with your allowed origin
   res.header("Access-Control-Allow-Credentials", "true");
   res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
   res.header(

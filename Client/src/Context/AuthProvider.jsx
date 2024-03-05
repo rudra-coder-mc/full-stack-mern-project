@@ -9,6 +9,7 @@ const AuthProvider = (prop) => {
 
   const [token, settoken] = useState(localStorage.getItem("token"));
   const [User, setUser] = useState({});
+
   const axiosInstance = axios.create({
     withCredentials: true,
   });
@@ -23,11 +24,6 @@ const AuthProvider = (prop) => {
       const config = {
         headers: {
           "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Credentials": "true",
-          "Access-Control-Allow-Methods": "*",
-          "Access-Control-Allow-Headers":
-            "'Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token'",
         },
       };
       const response = await axiosInstance.post(
@@ -57,7 +53,9 @@ const AuthProvider = (prop) => {
     // Set the user state to null
     try {
       // Send POST request to your backend API endpoint
-      const response = await axios.get("http://localhost:4000/api/v1/logout");
+      const response = await axiosInstance.get(
+        "http://localhost:4000/api/v1/logout"
+      );
 
       // Handle successful login (e.g., redirect, store user data)
       //   console.log("Login successful!", response.data);
@@ -76,7 +74,7 @@ const AuthProvider = (prop) => {
   const SignUp = async (name, email, password) => {
     const data = { name, email, password };
     try {
-      const response = await axios.post(
+      const response = await axiosInstance.post(
         "http://localhost:4000/api/v1/register",
         data
       );
