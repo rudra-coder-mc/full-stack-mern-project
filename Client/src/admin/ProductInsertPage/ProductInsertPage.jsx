@@ -4,20 +4,22 @@ import axios from "axios";
 function ProductInsertPage() {
   const [formData, setFormData] = useState({
     name: "",
-    image: null,
+    image: [],
     description: "",
     price: 0,
     category: "",
     stock: 0,
   });
   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
   const axiosInstance = axios.create({
     withCredentials: true,
   });
 
   const handleChange = (event) => {
     const { name, value, files } = event.target;
-    console.log(files[0]);
+    // console.log(name);
+    // console.log(value);
     setFormData((prevData) => ({
       ...prevData,
       [name]: files ? files[0] : value, // Handle file or text input
@@ -27,19 +29,13 @@ function ProductInsertPage() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setError(null); // Clear previous error messages
-    console.log(formData.image);
-    const Data = new FormData();
-    Data.append("name", formData.name);
-    Data.append("description", formData.description);
-    Data.append("price", formData.price);
-    Data.append("category", formData.category);
-    Data.append("stock", formData.stock);
-    Data.append("image", formData.image);
+    setIsLoading(true);
+    // console.log(formData);
 
     try {
       const response = await axiosInstance.post(
-        "http://localhost:3000/upload",
-        Data,
+        "http://localhost:4000/api/v1/admin/product/new",
+        formData,
         {
           headers: {
             "Content-Type": "multipart/form-data",
@@ -48,25 +44,46 @@ function ProductInsertPage() {
       );
 
       // ... (existing code)
-      console.log("Product inserted successfully!", response.data);
+      const validationError = await validateApiResponse(response.data);
+      if (validationError) {
+        setError(validationError);
+      } else {
+        console.log("Product inserted successfully!", response.data);
+        // Clear form state after successful insertion
+
+        console.log(formData);
+      }
+    } catch (error) {
+      setError(error.response?.data?.message || "Product insertion failed.");
+      console.error(error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const validateApiResponse = async (responseData) => {
+    if (responseData) {
       setFormData({
         name: "",
-        image: null,
+        image: [],
         description: "",
         price: 0,
         category: "",
         stock: 0,
       });
-    } catch (error) {
-      setError(error.response?.data?.message || "Product insertion failed.");
-      console.error(error);
     }
+    return null; // Return null if no validation errors found
   };
 
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-6">Product Insert</h1>
       <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
+        {error && ( // Conditionally display error message
+          <span className="text-red-500 font-bold text-sm block mb-4">
+            {error}
+          </span>
+        )}
         <div className="flex flex-col">
           <label htmlFor="name" className="text-sm font-medium mb-2">
             Product Name
@@ -152,8 +169,9 @@ function ProductInsertPage() {
         <button
           type="submit"
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md"
+          disabled={isLoading}
         >
-          Insert Product
+          {isLoading ? "Inserting..." : "Insert Product"}
         </button>
       </form>
     </div>

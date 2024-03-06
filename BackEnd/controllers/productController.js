@@ -13,7 +13,7 @@ exports.createProduct = catchAsyncErrors(async (req, res, next) => {
   req.files.image.mv(newPath);
   req.body.user = req.user.id;
   // const product = await Product.create(req.body);
-
+  // console.log(req.body);
   if (
     !req.body.name ||
     !req.body.description ||
@@ -41,7 +41,7 @@ exports.createProduct = catchAsyncErrors(async (req, res, next) => {
       price: req.body.price,
       image: [
         {
-          url: req.files.image.name,
+          url: fileName,
         },
       ],
       category: req.body.category,
