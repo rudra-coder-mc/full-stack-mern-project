@@ -45,7 +45,7 @@ exports.createProduct = catchAsyncErrors(async (req, res, next) => {
         },
       ],
       category: req.body.category,
-      Stock: req.body.Stock,
+      stock: req.body.stock,
       numOfReviews: null,
       reviews: [],
     });

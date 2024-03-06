@@ -17,7 +17,7 @@ const productSchema = new mongoose.Schema({
   },
   ratings: {
     type: Number,
-    default: 0,
+    default: 3,
   },
   image: [
     {
@@ -35,7 +35,7 @@ const productSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please Enter Product Category"],
   },
-  Stock: {
+  stock: {
     type: Number,
     require: [true, "Please Enter Product Stock"],
     maxLength: [4, "Stock can not exeed 4 charaters"],
@@ -43,7 +43,7 @@ const productSchema = new mongoose.Schema({
   },
   numOfReviews: {
     type: Number,
-    default: 0,
+    default: 5,
   },
   reviews: [
     {

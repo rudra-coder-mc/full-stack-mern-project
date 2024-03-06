@@ -11,6 +11,7 @@ function ProductInsertPage() {
     stock: 0,
   });
   const [error, setError] = useState(null);
+  const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const axiosInstance = axios.create({
     withCredentials: true,
@@ -18,6 +19,7 @@ function ProductInsertPage() {
 
   const handleChange = (event) => {
     const { name, value, files } = event.target;
+    setMessage(null);
     // console.log(name);
     // console.log(value);
     setFormData((prevData) => ({
@@ -44,14 +46,21 @@ function ProductInsertPage() {
       );
 
       // ... (existing code)
-      const validationError = await validateApiResponse(response.data);
-      if (validationError) {
-        setError(validationError);
-      } else {
-        console.log("Product inserted successfully!", response.data);
-        // Clear form state after successful insertion
 
-        console.log(formData);
+      if (response.data && response.data.success) {
+        // Success case: reset form data
+        setFormData({
+          name: "",
+          image: [],
+          description: "",
+          price: 0,
+          category: "",
+          stock: 0,
+        });
+        setMessage("Product inserted successfully!");
+      } else {
+        // Handle validation or other errors
+        setError(response.data?.message || "Product insertion failed.");
       }
     } catch (error) {
       setError(error.response?.data?.message || "Product insertion failed.");
@@ -59,20 +68,6 @@ function ProductInsertPage() {
     } finally {
       setIsLoading(false);
     }
-  };
-
-  const validateApiResponse = async (responseData) => {
-    if (responseData) {
-      setFormData({
-        name: "",
-        image: [],
-        description: "",
-        price: 0,
-        category: "",
-        stock: 0,
-      });
-    }
-    return null; // Return null if no validation errors found
   };
 
   return (
@@ -84,6 +79,11 @@ function ProductInsertPage() {
             {error}
           </span>
         )}
+        {message && ( // Conditionally display error message
+          <span className="text-green-500 font-bold text-sm block mb-4">
+            {message}
+          </span>
+        )}
         <div className="flex flex-col">
           <label htmlFor="name" className="text-sm font-medium mb-2">
             Product Name
@@ -93,6 +93,7 @@ function ProductInsertPage() {
             id="name"
             name="name"
             className="rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
+            value={formData.name}
             onChange={handleChange}
             required
           />
@@ -106,6 +107,7 @@ function ProductInsertPage() {
             name="description"
             className="rounded-md border border-gray-300 p-2 h-24 resize-none focus:outline-none focus:ring-1 focus:ring-blue-500"
             onChange={handleChange}
+            value={formData.description}
             required
           />
         </div>
@@ -119,6 +121,7 @@ function ProductInsertPage() {
             name="price"
             className="rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
             onChange={handleChange}
+            value={formData.price}
             required
           />
         </div>
@@ -132,6 +135,7 @@ function ProductInsertPage() {
             name="category"
             className="rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
             onChange={handleChange}
+            value={formData.category}
             required
           />
         </div>
@@ -145,6 +149,7 @@ function ProductInsertPage() {
             name="stock"
             className="rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
             onChange={handleChange}
+            value={formData.stock}
             required
           />
         </div>

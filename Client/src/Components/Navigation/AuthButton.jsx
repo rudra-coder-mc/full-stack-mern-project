@@ -5,7 +5,9 @@ import { AuthContext } from "../../Context/AuthProvider";
 
 const AuthButton = () => {
   // setisLogin(token ? true : false);
-  const { logout, token } = useContext(AuthContext);
+  const { logout } = useContext(AuthContext);
+  const token = localStorage.getItem("token");
+
   const handelLogout = async () => {
     const result = await logout();
     console.log(result);

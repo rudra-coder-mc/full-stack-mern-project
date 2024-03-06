@@ -7,7 +7,6 @@ export const AuthContext = createContext();
 const AuthProvider = (prop) => {
   const { children } = prop;
 
-  const [token, settoken] = useState("");
   const [User, setUser] = useState({});
 
   const axiosInstance = axios.create({
@@ -38,7 +37,7 @@ const AuthProvider = (prop) => {
       // Example: store token in local storage for future requests
       localStorage.setItem("token", response.data.token);
       // Cookies.set("token", response.data.token, { expires: 7, httpOnly: true });
-      settoken(response.data.token);
+
       setUser(response.data.user);
 
       return response.data.success;
@@ -63,7 +62,7 @@ const AuthProvider = (prop) => {
       // Example: store token in local storage for future requests
       localStorage.removeItem("token");
       Cookies.remove("token");
-      settoken(null);
+
       return response.data.success;
     } catch (error) {
       // Handle errors here, e.g., display error message to the user
@@ -103,7 +102,7 @@ const AuthProvider = (prop) => {
   };
 
   return (
-    <AuthContext.Provider value={{ User, token, login, logout, SignUp }}>
+    <AuthContext.Provider value={{ User, login, logout, SignUp }}>
       {children}
     </AuthContext.Provider>
   );
