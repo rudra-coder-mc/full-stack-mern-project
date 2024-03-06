@@ -9,7 +9,7 @@ const path = require("path");
 
 exports.createProduct = catchAsyncErrors(async (req, res, next) => {
   let fileName = Date.now() + "-" + req.files.image.name;
-  let newPath = path.join(process.cwd(), "uploads", fileName);
+  let newPath = path.join(process.cwd(), "./Client/public/Uploads", fileName);
   req.files.image.mv(newPath);
   req.body.user = req.user.id;
   // const product = await Product.create(req.body);
@@ -82,7 +82,7 @@ exports.getAllProducts = catchAsyncErrors(async (req, res, next) => {
 
 //Get Single Product
 exports.getSingleProduct = async (req, res, next) => {
-  const product = await Product.findById(req.params.id).search();
+  const product = await Product.findById(req.body.id).search();
 
   if (!product) {
     return next(new ErrorHander("Product not found", 404));
