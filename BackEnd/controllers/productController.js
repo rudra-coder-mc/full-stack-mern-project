@@ -9,15 +9,54 @@ const path = require("path");
 
 exports.createProduct = catchAsyncErrors(async (req, res, next) => {
   let fileName = Date.now() + "-" + req.files.image.name;
-  let newPath = path.join(process.cwd(), "test", fileName);
+  let newPath = path.join(process.cwd(), "uploads", fileName);
   console.log(req.files.image.mv(newPath));
   req.body.user = req.user.id;
-  const product = await Product.create(req.body);
+  // const product = await Product.create(req.body);
 
-  res.status(201).json({
-    success: true,
-    product,
-  });
+  if (
+    !req.body.name ||
+    !req.body.description ||
+    !req.body.price ||
+    !req.body.category ||
+    !req.body.stock
+  ) {
+    return res
+      .status(400)
+      .json({ message: "Missing required fields in request body." });
+  }
+
+  // Assuming you are using Multer middleware
+  if (!newPath) {
+    return res
+      .status(400)
+      .json({ message: "Please select an image to upload." });
+  }
+
+  try {
+    // Save image information to MongoDB
+    const product = await Product.create({
+      name: req.body.name,
+      description: req.body.description,
+      price: req.body.price,
+      image: [
+        {
+          url: newPath,
+        },
+      ],
+      category: req.body.category,
+      Stock: req.body.Stock,
+      numOfReviews: null,
+      reviews: [],
+    });
+    res.status(201).json({
+      success: true,
+      product,
+    });
+    res.send("Product uploaded successfully");
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
 });
 
 // // Set up multer storage
