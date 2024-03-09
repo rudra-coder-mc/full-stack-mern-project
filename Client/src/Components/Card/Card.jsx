@@ -1,28 +1,31 @@
 import productImage from "../../assets/img1.jpg";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Card = () => {
   const product = {
+    id: 1,
     name: "Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport",
     description:
       "Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.",
     starRating: 3,
-    price: {
-      old: 799,
-      new: 599,
-    },
+    price: 300,
     imageUrl: productImage,
   };
 
+  const [showFullDescription, setShowFullDescription] = useState(false);
+
+  const toggleDescription = () => setShowFullDescription(!showFullDescription);
+
+  const truncatedDescription = product.description.slice(0, 50);
+
   return (
-    <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+    <div className="w-full max-w-72 bg-white border border-gray-200 rounded-lg shadow">
+      <Link to={`product/${product.id}`}></Link>
       <a href="#">
-        <img
-          className="p-8 rounded-t-lg"
-          src={product.imageUrl}
-          alt="Product"
-        />
+        <img className="p-2 rounded-3xl" src={product.imageUrl} alt="Product" />
       </a>
-      <div className="p-5">
+      <div className="p-1">
         <a href="#" className="mb-3 block">
           <h5 className="text-xl font-semibold tracking-tight text-gray-900">
             {product.name}
@@ -45,19 +48,41 @@ const Card = () => {
             {product.starRating}
           </span>
         </div>
-        <p className="mb-3 text-gray-700">{product.description}</p>
+        {!showFullDescription && (
+          <p className="mb-3 text-gray-700">
+            {truncatedDescription}...
+            <span
+              onClick={toggleDescription}
+              className="text-blue-500 hover:text-blue-700 cursor-pointer"
+            >
+              Read More
+            </span>
+          </p>
+        )}
+        {showFullDescription && (
+          <p className="mb-3 text-gray-700">
+            {product.description}
+            <span
+              onClick={toggleDescription}
+              className="text-blue-500 hover:text-blue-700 cursor-pointer"
+            >
+              Read Less
+            </span>
+          </p>
+        )}
         <div className="flex justify-between mb-2">
-          <div className="text-sm text-gray-500">
+          {/* <div className="text-sm text-gray-500">
             Old Price: <del>${product.price.old}</del>
-          </div>
+          </div> */}
           <div className="text-sm font-semibold text-gray-900">
-            New Price: ${product.price.new}
+            {/* New Price: ${product.price.new} */}
+            Price: ${product.price}
           </div>
         </div>
         <div className="flex justify-between">
-          <span className="text-3xl font-bold text-gray-900">
-            ${product.price.new}
-          </span>
+          {/* <span className="sm:text-[1rem] md:text-[1.5rem] font-bold text-gray-900">
+            ${product.price}
+          </span> */}
           <a
             href="#"
             className="inline-block bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 text-white font-medium rounded-lg text-sm px-5 py-2.5"

@@ -1,12 +1,14 @@
 import hero_img1 from "../../assets/hero_img1.jpeg";
 
-
 const Hero = () => {
   return (
     <>
       <div className="Hero flex justify-center items-center m-3 p-3 gap-3 bg-[#B4D4FF] ">
         <div className="Hero-left flex flex-col justify-center items-center gap-3 size-1/2">
-          <h2 className="text-xl font-semibold  text-center">
+          <h1 className="sm:text-[1.5rem] md:text-[2.5rem] font-semibold  text-center text-blue-950">
+            UNIQ`S AUTOMOTIVE
+          </h1>
+          <h2 className="sm:text-[1rem] md:text-[2rem] font-semibold  text-center">
             YOUR CAR NEEDS MORE
           </h2>
           <button
@@ -31,7 +33,7 @@ const Hero = () => {
             </svg>
           </button>
         </div>
-        <div className="Hero-right size-1/1">
+        <div className="Hero-right size-1/2">
           <img src={hero_img1} className=" rounded-3xl" alt="hero-image" />
         </div>
       </div>

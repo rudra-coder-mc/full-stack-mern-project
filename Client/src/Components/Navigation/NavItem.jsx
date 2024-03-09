@@ -1,17 +1,20 @@
 import { NavLink } from "react-router-dom";
-import PropTypes from "prop-types";
 
 const NavItem = (prop) => {
-  const { to, label } = prop;
+  const { NavItemStyle } = prop;
   return (
-    <li>
-      <NavLink to={to} className="hover:text-gray-300">
-        {label}
-      </NavLink>
-    </li>
+    <ul className={NavItemStyle}>
+      <li>
+        <NavLink to="/">Home</NavLink>
+      </li>
+      <li>
+        <NavLink to="/ProductCategory">Product</NavLink>
+      </li>
+      <li>
+        <NavLink to="/ServicesCategory">Service</NavLink>
+      </li>
+    </ul>
   );
 };
-NavItem.prototype = {
-  prop: PropTypes.node,
-};
+
 export default NavItem;

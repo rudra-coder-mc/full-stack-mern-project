@@ -1,18 +1,18 @@
 import Hero from "../Components/Hero/Hero";
 import Card from "../Components/Card/Card";
 import Offers from "../Components/Offers/Offers";
+import Products from "../Components/Products/Products";
+// import { uploads } from "../improt";
 
 const Home = () => {
   return (
     <>
       <Hero />
-      <div className="flex items-center justify-center gap-3 ">
-        <Card />
-        <Card />
-        <Card />
+      <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-1 items-center justify-center">
+        <Products />
       </div>
       <Offers />
-      <div className="flex items-center justify-center gap-3 ">
+      <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-1 items-center justify-center">
         <Card />
         <Card />
         <Card />
@@ -21,4 +21,5 @@ const Home = () => {
     </>
   );
 };
+
 export default Home;
