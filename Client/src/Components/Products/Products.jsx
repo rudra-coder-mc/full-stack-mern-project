@@ -13,7 +13,7 @@ const Products = () => {
   if (error) {
     return <p>Error fetching products: {error}</p>; // Handle errors gracefully
   }
-
+  // console.log(data);
   return (
     <>
       {data.map((product) => (

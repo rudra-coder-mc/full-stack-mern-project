@@ -1,24 +1,27 @@
 import { useContext, useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 const AuthButton = () => {
   const { logout, token } = useContext(AuthContext);
   const [localToken, setLocalToken] = useState(token); // Sync with context
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (token) {
       setLocalToken(true);
     }
 
-    console.log(token); // Update local state when context changes
+    // console.log(token); // Update local state when context changes
   }, [token]);
-  console.log(localToken);
+  // console.log(localToken);
 
   const handleLogout = async () => {
     setLocalToken(false); // Clear local token immediately
     try {
       await logout(); // Perform logout asynchronously
+      navigate("/");
     } catch (error) {
       console.error("Logout error:", error);
       // Handle logout errors if needed (e.g., display a message)
