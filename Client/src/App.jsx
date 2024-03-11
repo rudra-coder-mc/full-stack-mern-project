@@ -11,9 +11,11 @@ import Cart from "./Pages/Cart";
 import Footer from "./Components/Footer/Footer";
 import Page1 from "./admin/Components/Page1";
 import ChangPassword from "./Components/Login/ChangPassword";
-import ProductInsertPage from "./admin/ProductInsertPage/ProductInsertPage";
+import ProductInsertPage from "./admin/Components/Product/ProductInsertPage";
+
 import ProductCategory from "./Pages/ProductCategory";
 import ServicesCategory from "./Pages/ServicesCategory";
+import ProductEditePage from "./admin/Components/Product/ProductEditePage";
 
 function App() {
   const currentPath = window.location.pathname; // Get current path
@@ -22,12 +24,14 @@ function App() {
     <>
       <div className="bg-[#EEF5FF]">
         <BrowserRouter>
-          {currentPath !== "/Dashboard" && <Navbar />}{" "}
+          {/* {currentPath !== "/Dashboard" && <Navbar />}{" "} */}
+          <Navbar />
           {/* Render Navbar only if not dashboard */}
           <Routes>
             <Route path="/Dashboard" element={<DashBoard />} />
             <Route path="/Dashbord/page1" element={<Page1 />} />
             <Route path="/ProductInsertPage" element={<ProductInsertPage />} />
+            <Route path="/ProductEditePage" element={<ProductEditePage />} />
 
             <Route path="/" element={<Home />} />
             <Route path="/ProductCategory" element={<ProductCategory />} />

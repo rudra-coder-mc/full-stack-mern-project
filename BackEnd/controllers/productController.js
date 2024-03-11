@@ -6,29 +6,32 @@ const { query } = require("express");
 const multer = require("multer");
 const path = require("path");
 
-
-
-const cloudinary = require('cloudinary').v2; // Assuming you have Cloudinary npm package installed
+const cloudinary = require("cloudinary").v2; // Assuming you have Cloudinary npm package installed
 
 exports.createProduct = catchAsyncErrors(async (req, res, next) => {
   // Configure Cloudinary with your account details
   cloudinary.config({
-    cloud_name: 'dlc1in1ax',
-    api_key: '915151645357372',
-    api_secret: 'X_6Jckw5QVCWHwfVJgt8yvrgDcI'
+    cloud_name: "dlc1in1ax",
+    api_key: "915151645357372",
+    api_secret: "X_6Jckw5QVCWHwfVJgt8yvrgDcI",
   });
 
   // Validate image presence (adapt as needed for single/multiple image uploads)
   if (!req.files.image) {
-    return res.status(400).json({ message: "Please select an image to upload." });
+    return res
+      .status(400)
+      .json({ message: "Please select an image to upload." });
   }
 
   try {
     // Upload the image to Cloudinary
-    const uploadResult = await cloudinary.uploader.upload(req.files.image.tempFilePath, {
-      public_id: `${Date.now()}-${req.files.image.name}`, // Set a unique public ID
-      resource_type: 'auto' // Automatically detect image/video type
-    });
+    const uploadResult = await cloudinary.uploader.upload(
+      req.files.image.tempFilePath,
+      {
+        public_id: `${Date.now()}-${req.files.image.name}`, // Set a unique public ID
+        resource_type: "auto", // Automatically detect image/video type
+      }
+    );
 
     req.body.user = req.user.id;
 
@@ -39,11 +42,13 @@ exports.createProduct = catchAsyncErrors(async (req, res, next) => {
       !req.body.category ||
       !req.body.stock
     ) {
-      return res.status(400).json({ message: "Missing required fields in request body." });
+      return res
+        .status(400)
+        .json({ message: "Missing required fields in request body." });
     }
 
     const imageData = {
-      url: uploadResult.secure_url // Use the secure image URL provided by Cloudinary
+      url: uploadResult.secure_url, // Use the secure image URL provided by Cloudinary
     };
 
     // Save image information and other product details to MongoDB
@@ -67,7 +72,6 @@ exports.createProduct = catchAsyncErrors(async (req, res, next) => {
     res.status(500).json({ message: "Error uploading product." });
   }
 });
-
 
 // exports.createProduct = catchAsyncErrors(async (req, res, next) => {
 //   exports.fileName = Date.now() + "-" + req.files.image.name;

@@ -13,9 +13,9 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent default form submission behavior
-    const responce = SignUp(name, email, password);
+    const responce = await SignUp(name, email, password);
     if (responce === true) {
-      navigate("/");
+      navigate("/login");
     } else {
       setError(responce);
     }

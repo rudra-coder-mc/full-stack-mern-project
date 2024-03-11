@@ -1,12 +1,10 @@
+import SideBar from "./Components/Sidebar/SideBar";
 
-import SideBar from './Sidebar/SideBar'
-function DashBoard() {
+const Dashboard = () => {
   return (
     <>
-      <SideBar/>
-      <div className="flex-grow"></div>
+      <SideBar />
     </>
-  )
-}
-
-export default DashBoard;
+  );
+};
+export default Dashboard;

@@ -7,7 +7,8 @@ export const AuthContext = createContext();
 const AuthProvider = (prop) => {
   const { children } = prop;
 
-  const [User, setUser] = useState({});
+  const [user, setUser] = useState(null);
+  const [token, setToken] = useState(null);
 
   const axiosInstance = axios.create({
     withCredentials: true,
@@ -32,14 +33,16 @@ const AuthProvider = (prop) => {
       );
 
       // Handle successful login (e.g., redirect, store user data)
-      //   console.log("Login successful!", response.data);
+      // console.log("Login successful!", response.data);
 
       // Example: store token in local storage for future requests
+
       localStorage.setItem("token", response.data.token);
       // Cookies.set("token", response.data.token, { expires: 7, httpOnly: true });
-
-      setUser(response.data.user);
-
+      setToken(response.data.token);
+      setUser(response.data.user.role);
+      console.log(response.data.token);
+      console.log(token);
       return response.data.success;
     } catch (error) {
       // Handle errors here, e.g., display error message to the user
@@ -62,7 +65,8 @@ const AuthProvider = (prop) => {
       // Example: store token in local storage for future requests
       localStorage.removeItem("token");
       Cookies.remove("token");
-
+      setUser(null);
+      setToken(null);
       return response.data.success;
     } catch (error) {
       // Handle errors here, e.g., display error message to the user
@@ -81,6 +85,7 @@ const AuthProvider = (prop) => {
       if (response.data.success) {
         // Handle successful signup
         console.log("Signup successful!");
+        // localStorage.setItem("token", response.data.token);
         return true;
         // Redirect to login page
       } else {
@@ -102,7 +107,7 @@ const AuthProvider = (prop) => {
   };
 
   return (
-    <AuthContext.Provider value={{ User, login, logout, SignUp }}>
+    <AuthContext.Provider value={{ token, user, login, logout, SignUp }}>
       {children}
     </AuthContext.Provider>
   );

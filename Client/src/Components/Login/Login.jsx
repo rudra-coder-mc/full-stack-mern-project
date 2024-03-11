@@ -16,7 +16,7 @@ const Login = () => {
 
     // Prepare data for the request
     const response = await login(email, password);
-    // const user = await User;
+    console.log(response);
 
     if (response === true) {
       navigate("/");
