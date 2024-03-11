@@ -1,44 +1,61 @@
+
+
 import { useContext, useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 
 const NavItem = (prop) => {
   const { NavItemStyle } = prop;
-  const { user } = useContext(AuthContext);
-  const [User, setUser] = useState();
+  const { user, isLoading } = useContext(AuthContext);
+  const [isAdmin, setIsAdmin] = useState(false); // Use clear variable name
+
+
+
   useEffect(() => {
     (async () => {
       const response = await user;
-      console.log(response);
-      setUser(response);
+      // console.log(response);
+      if (response == "admin") {
+        setIsAdmin(true);
+      } else {
+        setIsAdmin(false);
+      }
     })();
   }, [user]);
-  console.log(user);
 
-  return User ? (
-    <ul className={NavItemStyle}>
-      <li>
-        <NavLink to="/">Home</NavLink>
-      </li>
-      <li>
-        <NavLink to="/ProductInsertPage">Inset Product</NavLink>
-      </li>
-      <li>
-        <NavLink to="/ProductEditePage">Edite Product</NavLink>
-      </li>
-    </ul>
-  ) : (
-    <ul className={NavItemStyle}>
-      <li>
-        <NavLink to="/">Home</NavLink>
-      </li>
-      <li>
-        <NavLink to="/ProductCategory">Product</NavLink>
-      </li>
-      <li>
-        <NavLink to="/ServicesCategory">Service</NavLink>
-      </li>
-    </ul>
+  return (
+    <>
+      {isLoading ? (
+        // Show loading indicator while user data is being fetched
+        <p>Loading...</p>
+      ) : (
+        <ul className={NavItemStyle}>
+          <li>
+            <NavLink to="/">Home</NavLink>
+          </li>
+          {isAdmin && ( // Conditionally render admin links
+            <>
+              <li>
+                <NavLink to="/ProductInsertPage">Insert Product</NavLink>
+              </li>
+              <li>
+                <NavLink to="/ProductEditePage">Edit Product</NavLink>
+              </li>
+            </>
+          )}
+          {!isAdmin && ( // Conditionally render non-admin links
+            <>
+              <li>
+                <NavLink to="/ProductCategory">Product</NavLink>
+              </li>
+              <li>
+                <NavLink to="/ServicesCategory">Service</NavLink>
+              </li>
+            </>
+          )}
+        </ul>
+      )}
+    </>
   );
 };
 
