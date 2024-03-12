@@ -2,6 +2,7 @@ const Services = require("../models/serviceModel"); // Assuming your services mo
 const ErrorHander = require("../utility/errorhander");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 const cloudinary = require("cloudinary").v2;
+const ApiFeatures = require("../utility/apifetures");
 
 // exports.createService = catchAsyncErrors(async (req, res, next) => {
 
@@ -13,8 +14,6 @@ const cloudinary = require("cloudinary").v2;
 //     service,
 //   });
 // });
-
-
 
 exports.createService = catchAsyncErrors(async (req, res, next) => {
   // Configure Cloudinary with your account details
@@ -42,15 +41,8 @@ exports.createService = catchAsyncErrors(async (req, res, next) => {
     );
 
     req.body.user = req.user.id;
-
-    if (
-      !req.body.name ||
-      !req.body.description ||
-      !req.body.price ||
-      !req.body.category ||
-      !req.body.Branch ||
-      !req.body.Dos
-    ) {
+    console.log(req.body);
+    if (!req.body.name || !req.body.description || !req.body.category) {
       return res
         .status(400)
         .json({ message: "Missing required fields in request body." });
@@ -64,11 +56,8 @@ exports.createService = catchAsyncErrors(async (req, res, next) => {
     const service = await Services.create({
       name: req.body.name,
       description: req.body.description,
-      price: req.body.price,
       image: [imageData],
       category: req.body.category,
-      Branch: req.body.Branch,
-      Dos:req.body.Dos,
       numOfReviews: null,
       reviews: [],
     });
@@ -95,5 +84,81 @@ exports.deleteService = catchAsyncErrors(async (req, res, next) => {
   res.status(200).json({
     success: true,
     message: "service successfully Deleted",
+  });
+});
+
+//get all services
+exports.getAllServices = catchAsyncErrors(async (req, res, next) => {
+  const resultPerPage = 8;
+  const servicesCount = await Services.countDocuments();
+
+  const apiFeature = new ApiFeatures(Services.find(), req.query)
+    .search()
+    .filter();
+  const services = await apiFeature.query;
+  let filteredServicesCount = services.length;
+
+  apiFeature.pagination(resultPerPage);
+
+  res.status(200).json({
+    success: true,
+    services,
+    servicesCount,
+    resultPerPage,
+    filteredServicesCount,
+  });
+});
+
+// //Get Single service
+// exports.getSingleService = async (req, res, next) => {
+//   const service = await Services.findById(req.body.id).search();
+
+//   if (!service) {
+//     return next(new ErrorHander("Product not found", 404));
+//   }
+//   res.status(200).json({
+//     success: true,
+//     service,
+//   });
+// };
+
+//Get Single service
+exports.getSingleService = async (req, res, next) => {
+  try {
+    const service = await Services.findById(req.params.id);
+
+    if (!service) {
+      return res.status(404).json({
+        success: false,
+        message: "Service not found",
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      service,
+    });
+  } catch (error) {
+    return next(error);
+  }
+};
+
+//Update service --Admin
+exports.updateService = catchAsyncErrors(async (req, res, next) => {
+  let service = Services.findById(req.params.id);
+
+  if (!service) {
+    return next(new ErrorHander("Product not found", 404));
+  }
+
+  service = await Services.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+    runValidators: true,
+    useFindAndModify: false,
+  });
+
+  res.status(200).json({
+    success: true,
+    service,
   });
 });

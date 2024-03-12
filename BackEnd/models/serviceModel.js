@@ -12,20 +12,11 @@ const ServicesSchema = new mongoose.Schema({
   },
   price: {
     type: Number,
-    required: [true, "Please Enter Services Price"],
-    maxLength: [8, "Price cannot exceed 8 characters"],
-  },
-  Branch: {
-    type: String,
-    required: [true, "Please Enter Branch Name"],
-  },
-  Dos: {
-    type: Date,
-    required: [true, "Please Enter Date"],
+    default: 1000,
   },
   ratings: {
     type: Number,
-    default: 3,
+    default: 4,
   },
   image: [
     {

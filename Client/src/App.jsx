@@ -5,20 +5,22 @@ import Service from "./Pages/Services";
 import Product from "./Pages/Product";
 import LoginPage from "./Pages/LoginPage";
 import Signup from "./Pages/Signup";
-import DashBoard from "./admin/Dashboard/";
+// import DashBoard from "./admin/Dashboard/";
 import AboutUs from "./Pages/About";
 import Cart from "./Pages/Cart";
 import Footer from "./Components/Footer/Footer";
-import Page1 from "./admin/Components/Page1";
+// import Page1 from "./admin/Components/Page1";
 import ChangPassword from "./Components/Login/ChangPassword";
 import ProductInsertPage from "./admin/Components/Product/ProductInsertPage";
 
 import ProductCategory from "./Pages/ProductCategory";
 import ServicesCategory from "./Pages/ServicesCategory";
 import ProductEditePage from "./admin/Components/Product/ProductEditePage";
+import ServicesInsertPage from "./admin/Components/Services/ServicesInsertPage";
+import ServicesEditePage from "./admin/Components/Services/ServicesEditePage";
 
 function App() {
-  const currentPath = window.location.pathname; // Get current path
+  // const currentPath = window.location.pathname; // Get current path
 
   return (
     <>
@@ -28,10 +30,16 @@ function App() {
           <Navbar />
           {/* Render Navbar only if not dashboard */}
           <Routes>
-            <Route path="/Dashboard" element={<DashBoard />} />
-            <Route path="/Dashbord/page1" element={<Page1 />} />
+            {/* <Route path="/Dashboard" element={<DashBoard />} />
+            <Route path="/Dashbord/page1" element={<Page1 />} /> */}
             <Route path="/ProductInsertPage" element={<ProductInsertPage />} />
             <Route path="/ProductEditePage" element={<ProductEditePage />} />
+
+            <Route
+              path="/ServicesInsertPage"
+              element={<ServicesInsertPage />}
+            />
+            <Route path="/ServicesEditePage" element={<ServicesEditePage />} />
 
             <Route path="/" element={<Home />} />
             <Route path="/ProductCategory" element={<ProductCategory />} />
@@ -53,7 +61,8 @@ function App() {
             <Route path="/aboutus" element={<AboutUs />} />
             <Route path="/Cart" element={<Cart />} />
           </Routes>
-          {currentPath !== "/Dashboard" && <Footer />}{" "}
+          {/* {currentPath !== "/Dashboard" && <Footer />}{" "} */}
+          <Footer />
           {/* Render Footer only if not dashboard */}
         </BrowserRouter>
       </div>
