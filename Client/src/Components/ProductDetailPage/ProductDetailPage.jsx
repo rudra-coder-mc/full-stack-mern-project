@@ -1,18 +1,46 @@
 import { useState } from "react";
-
+import { useCart } from "../../Context/ContextReducer";
+import { useNavigate } from "react-router-dom";
 const ProductDetailPage = (prop) => {
+  const { state, dispatch } = useCart();
+  const navigate = useNavigate();
+
   const [quantity, setQuantity] = useState(1);
 
   const handleQuantityIncrement = () => {
     if (quantity < prop.stock) {
-      setQuantity(quantity + 1);
+      setQuantity((prev) => prev + 1);
     }
   };
 
   const handleQuantityDecrement = () => {
     if (quantity > 1) {
-      setQuantity(quantity - 1);
+      setQuantity((prev) => prev - 1);
     }
+  };
+
+  const addToCart = () => {
+    if (!localStorage.getItem("token")) {
+      navigate("/login");
+      return;
+    }
+
+    const existingItemIndex = state.findIndex((item) => item.id === prop.id);
+
+    if (existingItemIndex !== -1) {
+      dispatch({
+        type: "UPDATE_QUANTITY",
+        id: prop.id,
+        quantity: quantity,
+      });
+      return;
+    }
+
+    dispatch({
+      type: "ADD",
+      ...prop,
+      quantity: quantity,
+    });
   };
 
   return (
@@ -89,6 +117,7 @@ const ProductDetailPage = (prop) => {
               prop.stock === 0 ? "opacity-50 cursor-not-allowed" : ""
             }`}
             disabled={prop.stock === 0}
+            onClick={addToCart}
           >
             {prop.stock === 0 ? "Out of Stock" : "Add to Cart"}
           </button>

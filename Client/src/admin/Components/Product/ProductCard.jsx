@@ -1,8 +1,27 @@
 import { useState } from "react";
+import axios from "axios";
 
 import { Link } from "react-router-dom";
 
 const ProductCard = (prop) => {
+  const axiosInstance = axios.create({ withCredentials: true });
+
+  const [isLoading, setIsLoading] = useState(null);
+
+  const handelDelete = async (id) => {
+    setIsLoading(true);
+    let url = `http://localhost:4000/api/v1/admin/product/${id}`;
+    try {
+      await axiosInstance.delete(url).then(setIsLoading(false));
+    } catch (error) {
+      setIsLoading(false);
+      console.error("Error fetching data:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+  const handelEdite = () => {};
+
   const [showFullDescription, setShowFullDescription] = useState(false);
 
   const toggleDescription = () => setShowFullDescription(!showFullDescription);
@@ -82,10 +101,20 @@ const ProductCard = (prop) => {
             ${product.price}
           </span> */}
 
-          <button className="inline-block bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 text-white font-medium rounded-lg text-sm px-5 py-2.5">
-            Delete
+          <button
+            className="inline-block bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 text-white font-medium rounded-lg text-sm px-5 py-2.5"
+            onClick={() => {
+              handelDelete(prop.id);
+            }}
+          >
+            {isLoading ? "isloadin" : "Delete"}0
           </button>
-          <button className="inline-block bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 text-white font-medium rounded-lg text-sm px-5 py-2.5">
+          <button
+            className="inline-block bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 text-white font-medium rounded-lg text-sm px-5 py-2.5"
+            onClick={() => {
+              handelEdite(prop.id);
+            }}
+          >
             Edite
           </button>
         </div>

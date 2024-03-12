@@ -41,6 +41,9 @@ function App() {
               <Route path=":ServiceId" element={<Service />} />
             </Route>
 
+            <Route path="/ProductCategory/product" element={<Product />}>
+              <Route path=":ProductId" element={<Product />} />
+            </Route>
             <Route path="/product" element={<Product />}>
               <Route path=":ProductId" element={<Product />} />
             </Route>
