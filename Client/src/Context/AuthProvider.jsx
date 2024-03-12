@@ -97,7 +97,7 @@ const AuthProvider = (prop) => {
       // Optionally fetch user data based on token (if needed)
     }
     const storedRole = localStorage.getItem("role");
-    console.log(storedRole);
+    // console.log(storedRole);
     if (storedRole) {
       setUser(storedRole);
       // Optionally fetch user data based on token (if needed)

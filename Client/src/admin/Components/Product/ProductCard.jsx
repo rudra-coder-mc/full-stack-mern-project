@@ -1,9 +1,8 @@
-// import productImage from "../../assets/img1.jpg";
 import { useState } from "react";
-// import "./card.css";
+
 import { Link } from "react-router-dom";
 
-const Card = (prop) => {
+const ProductCard = (prop) => {
   const [showFullDescription, setShowFullDescription] = useState(false);
 
   const toggleDescription = () => setShowFullDescription(!showFullDescription);
@@ -13,10 +12,10 @@ const Card = (prop) => {
   const truncatedDescription = description.slice(0, 70);
   return (
     <div className="w-full max-w-72 bg-white border border-gray-200 rounded-lg shadow">
-      <Link to={`product/${prop.id}`}>
+      <Link to={`product/${prop.id}`}></Link>
+      <a href="#">
         <img className="p-2 rounded-3xl h-40" src={prop.image} alt="Product" />
-      </Link>
-
+      </a>
       <div className="p-1">
         <a href="#" className="mb-3 block">
           <h5 className="text-xl font-semibold tracking-tight text-gray-900">
@@ -73,23 +72,21 @@ const Card = (prop) => {
             {/* New Price: ${product.price.new} */}
             stock: {prop.stock}
           </div>
+          <div className="text-sm font-semibold text-gray-900">
+            {/* New Price: ${product.price.new} */}
+            Price: ₹ {prop.price}
+          </div>
         </div>
         <div className="flex justify-between">
           {/* <span className="sm:text-[1rem] md:text-[1.5rem] font-bold text-gray-900">
             ${product.price}
           </span> */}
-          <div className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-gray-900">
-            {/* New Price: ${product.price.new} */}
-            Price: ₹ {prop.price}
-          </div>
-          {/* <a
-            href="#"
-            className="inline-block bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 text-white font-medium rounded-lg text-sm px-5 py-2.5"
-          >
-            Add to Cart
-          </a> */}
-          <button className="inline-block bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 text-white font-medium rounded-lg text-sm px-5 py-2.5">
-            Add to Cart
+
+          <button className="inline-block bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 text-white font-medium rounded-lg text-sm px-5 py-2.5">
+            Delete
+          </button>
+          <button className="inline-block bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 text-white font-medium rounded-lg text-sm px-5 py-2.5">
+            Edite
           </button>
         </div>
       </div>
@@ -97,4 +94,4 @@ const Card = (prop) => {
   );
 };
 
-export default Card;
+export default ProductCard;
