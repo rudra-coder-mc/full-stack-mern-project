@@ -1,6 +1,12 @@
+import Services from "../Components/Services/Services";
+
 const ServicesCategory = () => {
   return (
-    <div>ServicesCategory</div>
-  )
-}
-export default ServicesCategory
+    <>
+      <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-1 items-center justify-center">
+        <Services />
+      </div>
+    </>
+  );
+};
+export default ServicesCategory;
