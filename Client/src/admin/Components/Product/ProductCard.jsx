@@ -1,15 +1,26 @@
-// import productImage from "../../assets/img1.jpg";
 import { useState } from "react";
-// import "./card.css";
+import axios from "axios";
+
 import { Link } from "react-router-dom";
-import { useCart } from "../../Context/ContextReducer";
-import { useNavigate } from "react-router-dom";
 
-const Card = (prop) => {
-  const { state, dispatch } = useCart();
-  const navigate = useNavigate();
+const ProductCard = (prop) => {
+  const axiosInstance = axios.create({ withCredentials: true });
 
-  const quantity = 1;
+  const [isLoading, setIsLoading] = useState(null);
+
+  const handelDelete = async (id) => {
+    setIsLoading(true);
+    let url = `http://localhost:4000/api/v1/admin/product/${id}`;
+    try {
+      await axiosInstance.delete(url).then(setIsLoading(false));
+    } catch (error) {
+      setIsLoading(false);
+      console.error("Error fetching data:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+  const handelEdite = () => {};
 
   const [showFullDescription, setShowFullDescription] = useState(false);
 
@@ -18,56 +29,18 @@ const Card = (prop) => {
   // Handle potential undefined prop.description:
   const description = prop.description || "";
   const truncatedDescription = description.slice(0, 70);
-
-  const addToCart = () => {
-    if (!localStorage.getItem("token")) {
-      navigate("/login");
-    } else {
-      let product = [];
-      for (const item of state) {
-        if (item.id === prop.id) {
-          product = item;
-          break;
-        }
-      }
-      if (product) {
-        if (product.quantity === quantity) {
-          dispatch({
-            type: "UPDATE_QUANTITY",
-            id: prop.id,
-            quantity: quantity,
-          });
-          return;
-        } else if (product.quantity !== quantity) {
-          dispatch({
-            type: "ADD",
-            ...prop, // Spread product details
-            quantity: quantity,
-          });
-          return;
-        }
-        return;
-      }
-      dispatch({
-        type: "ADD",
-        ...prop, // Spread product details
-        quantity: quantity,
-      });
-    }
-  };
-
   return (
     <div className="w-full max-w-72 bg-white border border-gray-200 rounded-lg shadow">
-      <Link to={`product/${prop.id}`}>
+      <Link to={`product/${prop.id}`}></Link>
+      <a href="#">
         <img className="p-2 rounded-3xl h-40" src={prop.image} alt="Product" />
-      </Link>
-
+      </a>
       <div className="p-1">
-        <Link to={`product/${prop.id}`} className="mb-3 block">
+        <a href="#" className="mb-3 block">
           <h5 className="text-xl font-semibold tracking-tight text-gray-900">
             {prop.name}
           </h5>
-        </Link>
+        </a>
         <div className="flex items-center mb-2">
           {[...Array(prop.ratings)].map((_, index) => (
             <svg
@@ -118,20 +91,31 @@ const Card = (prop) => {
             {/* New Price: ${product.price.new} */}
             stock: {prop.stock}
           </div>
-        </div>
-        <div className="flex justify-between">
-          {/* Price and quantity display */}
-          <div className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-gray-900">
+          <div className="text-sm font-semibold text-gray-900">
+            {/* New Price: ${product.price.new} */}
             Price: ₹ {prop.price}
           </div>
+        </div>
+        <div className="flex justify-between">
+          {/* <span className="sm:text-[1rem] md:text-[1.5rem] font-bold text-gray-900">
+            ${product.price}
+          </span> */}
 
-          {/* Add to Cart button */}
           <button
-            className="inline-block bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 text-white font-medium rounded-lg text-sm px-5 py-2.5"
-            // Disable if out of stock
-            onClick={addToCart}
+            className="inline-block bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 text-white font-medium rounded-lg text-sm px-5 py-2.5"
+            onClick={() => {
+              handelDelete(prop.id);
+            }}
           >
-            Add to Cart
+            {isLoading ? "isloadin" : "Delete"}0
+          </button>
+          <button
+            className="inline-block bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 text-white font-medium rounded-lg text-sm px-5 py-2.5"
+            onClick={() => {
+              handelEdite(prop.id);
+            }}
+          >
+            Edite
           </button>
         </div>
       </div>
@@ -139,4 +123,4 @@ const Card = (prop) => {
   );
 };
 
-export default Card;
+export default ProductCard;

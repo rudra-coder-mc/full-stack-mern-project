@@ -3,90 +3,75 @@ const ErrorHander = require("../utility/errorhander");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 const ApiFeatures = require("../utility/apifetures");
 const { query } = require("express");
-const cloudinary = require("cloudinary");
 const multer = require("multer");
+const path = require("path");
 
-// Set up multer storage
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "../upload/"); // Where to store uploaded files
-  },
-  filename: function (req, file, cb) {
-    cb(null, Date.now() + "-" + file.originalname); // Rename files with unique name
-  },
-});
+const cloudinary = require("cloudinary").v2; // Assuming you have Cloudinary npm package installed
 
-// Initialize multer upload
-
-exports.upload = multer({ storage: storage });
-
-// Create Product --Admin
 exports.createProduct = catchAsyncErrors(async (req, res, next) => {
-  console.log(req.file);
-  // req.body.user = req.user.id;
-  // // const product = await Product.create(req.body);
-  // const Image = req.body.Image;
+  // Configure Cloudinary with your account details
+  cloudinary.config({
+    cloud_name: "dlc1in1ax",
+    api_key: "915151645357372",
+    api_secret: "X_6Jckw5QVCWHwfVJgt8yvrgDcI",
+  });
+
+  // Validate image presence (adapt as needed for single/multiple image uploads)
+  if (!req.files.image) {
+    return res
+      .status(400)
+      .json({ message: "Please select an image to upload." });
+  }
 
   try {
-    // Save image information to MongoDB
+    // Upload the image to Cloudinary
+    const uploadResult = await cloudinary.uploader.upload(
+      req.files.image.tempFilePath,
+      {
+        public_id: `${Date.now()}-${req.files.image.name}`, // Set a unique public ID
+        resource_type: "auto", // Automatically detect image/video type
+      }
+    );
+
+    req.body.user = req.user.id;
+
+    if (
+      !req.body.name ||
+      !req.body.description ||
+      !req.body.price ||
+      !req.body.category ||
+      !req.body.stock
+    ) {
+      return res
+        .status(400)
+        .json({ message: "Missing required fields in request body." });
+    }
+
+    const imageData = {
+      url: uploadResult.secure_url, // Use the secure image URL provided by Cloudinary
+    };
+
+    // Save image information and other product details to MongoDB
     const product = await Product.create({
       name: req.body.name,
       description: req.body.description,
       price: req.body.price,
-      image: [
-        {
-          public_id: req.file.filename, // Assuming the filename is used as the public_id
-          url: req.file.path, // Assuming the path is used as the URL
-        },
-      ],
+      image: [imageData],
       category: req.body.category,
-      Stock: req.body.Stock,
+      stock: req.body.stock,
       numOfReviews: null,
       reviews: [],
     });
+
     res.status(201).json({
       success: true,
       product,
     });
-    res.send("Product uploaded successfully");
   } catch (err) {
-    res.status(500).send(err.message);
+    console.error(err);
+    res.status(500).json({ message: "Error uploading product." });
   }
 });
-
-// Create Product -- Admin
-// exports.createProduct = catchAsyncErrors(async (req, res, next) => {
-//   let images = [];
-
-//   if (typeof req.body.images === "string") {
-//     images.push(req.body.images);
-//   } else {
-//     images = req.body.images;
-//   }
-
-//   const imagesLinks = [];
-
-//   for (let i = 0; i < images.length; i++) {
-//     const result = await cloudinary.v2.uploader.upload(images[i], {
-//       folder: "products",
-//     });
-
-//     imagesLinks.push({
-//       public_id: result.public_id,
-//       url: result.secure_url,
-//     });
-//   }
-
-//   req.body.images = imagesLinks;
-//   req.body.user = req.user.id;
-
-//   const product = await Product.create(req.body);
-
-//   res.status(201).json({
-//     success: true,
-//     product,
-//   });
-// });
 
 exports.getAllProducts = catchAsyncErrors(async (req, res, next) => {
   const resultPerPage = 8;
@@ -111,7 +96,7 @@ exports.getAllProducts = catchAsyncErrors(async (req, res, next) => {
 
 //Get Single Product
 exports.getSingleProduct = async (req, res, next) => {
-  const product = await Product.findById(req.params.id).search();
+  const product = await Product.findById(req.body.id).search();
 
   if (!product) {
     return next(new ErrorHander("Product not found", 404));

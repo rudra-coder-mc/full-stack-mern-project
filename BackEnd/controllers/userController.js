@@ -13,13 +13,10 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
     name,
     email,
     password,
-    avatar: {
-      public_id: "this is a simple id",
-      url: "sample.png",
-    },
   });
   sendToken(user, 201, res);
 });
+
 
 // Login User
 exports.loginUser = catchAsyncErrors(async (req, res, next) => {
