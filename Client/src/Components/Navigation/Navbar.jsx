@@ -6,10 +6,12 @@ import { useState, useContext, useEffect } from "react";
 import { MdMenu, MdClose } from "react-icons/md";
 import { FaOpencart } from "react-icons/fa";
 import { AuthContext } from "../../Context/AuthProvider";
+import { useCart } from "../../Context/ContextReducer";
 const Navbar = () => {
   const [menuOpened, setmenuOpened] = useState(false);
   const { user } = useContext(AuthContext);
   const [isAdmin, setIsAdmin] = useState(false); // Use clear variable name
+  const { state } = useCart();
 
   useEffect(() => {
     (async () => {
@@ -59,7 +61,9 @@ const Navbar = () => {
             <div className="flex items-center justify-between sm:gap-x-6 gap-2 ">
               <NavLink to="/Cart" className={"flex"}>
                 <FaOpencart className="p-1 ring-1 ring-white-900/30 h-8 w-8 rounded-full" />
-                <span className="relative w-5 h-5 rounded-full -top-2">0</span>
+                <span className="relative w-5 h-5 rounded-full -top-2">
+                  {state.length}
+                </span>
               </NavLink>
             </div>
           )}
