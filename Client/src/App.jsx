@@ -18,6 +18,8 @@ import ServicesCategory from "./Pages/ServicesCategory";
 import ProductEditePage from "./admin/Components/Product/ProductEditePage";
 import ServicesInsertPage from "./admin/Components/Services/ServicesInsertPage";
 import ServicesEditePage from "./admin/Components/Services/ServicesEditePage";
+import ProductUpdate from "./admin/Components/Product/ProductUpdate";
+import ServicesUpdate from "./admin/Components/Services/ServicesUpdate";
 
 function App() {
   // const currentPath = window.location.pathname; // Get current path
@@ -34,12 +36,24 @@ function App() {
             <Route path="/Dashbord/page1" element={<Page1 />} /> */}
             <Route path="/ProductInsertPage" element={<ProductInsertPage />} />
             <Route path="/ProductEditePage" element={<ProductEditePage />} />
+            <Route
+              path="/ProductEditePage/ProductUpdate"
+              element={<ProductUpdate />}
+            >
+              <Route path=":ProductUpdateId" element={<ProductUpdate />} />
+            </Route>
 
             <Route
               path="/ServicesInsertPage"
               element={<ServicesInsertPage />}
             />
             <Route path="/ServicesEditePage" element={<ServicesEditePage />} />
+            <Route
+              path="/ServicesEditePage/ServicesUpdate"
+              element={<ServicesUpdate />}
+            >
+              <Route path=":ServicesUpdateId" element={<ServicesUpdate />} />
+            </Route>
 
             <Route path="/" element={<Home />} />
             <Route path="/ProductCategory" element={<ProductCategory />} />
