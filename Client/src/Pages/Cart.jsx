@@ -16,18 +16,22 @@ export default function Cart() {
     if (newQuantity <= 0) {
       return; // Handle invalid quantity (e.g., display error message)
     }
-
+    console.log(id);
     dispatch({
       type: "UPDATE_QUANTITY",
-      id,
+      id, // Pass the specific product ID for targeted update
       quantity: newQuantity,
     });
   };
 
   // console.log(state);
-  const totalPrice = state.reduce(
-    (total, product) =>
-      total + Number(product.price) * Number(product.quantity),
+  const ProductPrice = state.reduce(
+    (total, product) => total + product.price * product.quantity,
+    0
+  );
+  const ProductTax = (ProductPrice * 12) / 100;
+  const shipingCost = state.reduce(
+    (total, product) => total + 40 * Number(product.quantity),
     0
   );
   // console.log(totalPrice);
@@ -56,7 +60,7 @@ export default function Cart() {
               Quantity
             </th>
             <th scope="col" className="px-6 py-3 text-left">
-              Total Price
+              Product Price
             </th>
           </tr>
         </thead>
@@ -78,7 +82,7 @@ export default function Cart() {
                   min="1" // Set minimum quantity to 1 (optional)
                   value={product.quantity}
                   onChange={(e) =>
-                    handleQuantityChange(product.id, parseInt(e.target.value))
+                    handleQuantityChange(product.id, Number(e.target.value))
                   }
                   className="w-20 text-center border border-gray-300 rounded-lg px-2 py-1"
                 />
@@ -102,9 +106,22 @@ export default function Cart() {
 
       {/* Total price and checkout button */}
       <div className="flex justify-between items-center mt-4">
-        <h1 className="text-xl font-bold text-gray-800">
-          Total Price: {totalPrice}/-
-        </h1>
+        <div>
+          <p className="text-base font-bold text-gray-800">
+            Product Price: {ProductPrice}/-
+          </p>
+          <p className="text-base font-bold text-gray-800">
+            Tax: {ProductTax}/-
+          </p>
+          <p className="text-base font-bold text-gray-800">
+            shiping Cost: {shipingCost}/-
+          </p>
+          ------------------------------
+          <p className="text-xl font-bold text-gray-800">
+            Total Price: {ProductPrice + ProductTax + shipingCost}/-
+          </p>
+        </div>
+
         <button
           className="btn bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded"
           // onClick={handleCheckOut}

@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { ShopContext } from "../../../Context/ShopContex";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const ProductEditePage = () => {
   const { data, loading, error, fetchData } = useContext(ShopContext); // Access context producterties
@@ -21,7 +22,6 @@ const ProductEditePage = () => {
       setIsLoading(false);
     }
   };
-  const handelEdite = () => {};
 
   if (loading) {
     return <p>Loading products...</p>; // Render loading indicator
@@ -92,14 +92,12 @@ const ProductEditePage = () => {
                 >
                   {isLoading ? "isloadin" : "Delete"}
                 </button>
-                <button
-                  className="inline-block bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 text-white font-medium rounded-lg text-sm px-5 py-2.5"
-                  onClick={() => {
-                    handelEdite(product.id);
-                  }}
-                >
-                  Edite
-                </button>
+
+                <Link to={`ProductUpdate/${product._id}`}>
+                  <button className="inline-block bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 text-white font-medium rounded-lg text-sm px-5 py-2.5">
+                    Edite
+                  </button>
+                </Link>
               </div>
             </div>
           </div>

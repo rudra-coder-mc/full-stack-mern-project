@@ -30,11 +30,10 @@ const reducer = (state, action) => {
     case "DROP":
       return [];
 
-    case "UPDATE_QUANTITY": // Renamed for clarity
-      // console.log(state);
+    case "UPDATE_QUANTITY":
       return state.map((product) =>
-        parseInt(product.id) === parseInt(action.id)
-          ? { ...product, quantity: action.quantity } // Update quantity directly
+        product.id === action.id
+          ? { ...product, quantity: action.quantity }
           : product
       );
 
