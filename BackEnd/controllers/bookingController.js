@@ -6,7 +6,7 @@ const ApiFeatures = require("../utility/apifetures");
 
 //Create booking
 exports.createBooking = catchAsyncErrors(async (req, res, next) => {
-
+  console.log(req.body);
   req.body.user = req.user.id;
   const booking = await Appointment.create(req.body);
 
@@ -18,20 +18,20 @@ exports.createBooking = catchAsyncErrors(async (req, res, next) => {
 
 //Delete Booking
 exports.deleteBooking = catchAsyncErrors(async (req, res, next) => {
-    const booking = await Appointment.findById(req.params.id);
-  
-    if (!booking) {
-      return next(new ErrorHander("service not found", 404));
-    }
-    await booking.deleteOne();
-  
-    res.status(200).json({
-      success: true,
-      message: "booking successfully cancelled",
-    });
-  });
+  const booking = await Appointment.findById(req.params.id);
 
-  //get all services
+  if (!booking) {
+    return next(new ErrorHander("service not found", 404));
+  }
+  await booking.deleteOne();
+
+  res.status(200).json({
+    success: true,
+    message: "booking successfully cancelled",
+  });
+});
+
+//get all services
 exports.getAllBooking = catchAsyncErrors(async (req, res, next) => {
   const resultPerPage = 8;
   const bookingCount = await Appointment.countDocuments();
