@@ -14,7 +14,8 @@ import ProductCategory from "./Pages/ProductCategory";
 import ServicesCategory from "./Pages/ServicesCategory";
 import Page1 from "./admin/Components/Page1";
 import ProductInsertPage from "./admin/Components/Product/ProductInsertPage";
-import ProductEditePage from "./admin/Components/Product/ProductEditePage"
+import ProductEditePage from "./admin/Components/Product/ProductEditePage";
+import ServicesInsertPage from "./admin/Components/Services/ServicesInsertPage"
 
 function App({ location }) {
   const isDashboardRoute = location.pathname.startsWith("/Dashboard");
@@ -29,6 +30,7 @@ function App({ location }) {
               <Route path="users" element={<Page1 />} />
               <Route path="productinsert" element={<ProductInsertPage />} />
               <Route path="allproducts" element={<ProductEditePage/>}/>
+              <Route path="addservice" element={<ServicesInsertPage/>}/>
             </Route>
 
             <Route path="/" element={<Home />} />
