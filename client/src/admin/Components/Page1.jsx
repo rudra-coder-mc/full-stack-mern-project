@@ -1,9 +1,12 @@
-import React from 'react'
-
+import React from "react";
+import SideBar from "./Sidebar/SideBar";
 const Page1 = () => {
   return (
-    <div>Page1</div>
-  )
-}
+    <>
+      {/* <SideBar /> */}
+      <div className="container mx-auto">Page1</div>
+    </>
+  );
+};
 
-export default Page1
+export default Page1;
