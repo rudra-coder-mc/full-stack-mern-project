@@ -11,6 +11,10 @@ const ServicesEditePage = () => {
   const { data, loading, error, fetchData } = useContext(ServicesContex); // Access context Serviceserties
   const axiosInstance = axios.create({ withCredentials: true });
 
+  const [showFullDescription, setShowFullDescription] = useState(false);
+
+  const toggleDescription = () => setShowFullDescription(!showFullDescription);
+
   const [isLoading, setIsLoading] = useState(false);
 
   const handelDelete = async (id) => {
@@ -69,9 +73,28 @@ const ServicesEditePage = () => {
                 </span>
               </div>
 
-              <p className="mb-3 text-gray-700">
-                description: {Services.description}
-              </p>
+              {!showFullDescription && (
+                <p className="mb-3 text-gray-700">
+                  {Services.description.slice(0, 70)}...
+                  <span
+                    onClick={toggleDescription}
+                    className="text-blue-500 hover:text-blue-700 cursor-pointer"
+                  >
+                    Read More
+                  </span>
+                </p>
+              )}
+              {showFullDescription && (
+                <p className="mb-3 text-gray-700">
+                  {Services.description.slice(0, 100)}
+                  <span
+                    onClick={toggleDescription}
+                    className="text-blue-500 hover:text-blue-700 cursor-pointer"
+                  >
+                    Read Less
+                  </span>
+                </p>
+              )}
 
               <div className="flex justify-between mb-2">
                 <div className="text-sm font-semibold text-gray-900">

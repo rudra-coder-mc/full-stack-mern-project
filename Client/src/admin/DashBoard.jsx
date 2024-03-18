@@ -1,7 +1,7 @@
-import { Outlet, Routes, Route } from "react-router-dom";
+import { Outlet, Routes } from "react-router-dom";
 import SideBar from "./Components/Sidebar/SideBar";
-import Page1 from "./Components/Page1";
-import ProductInsertPage from "./Components/Product/ProductInsertPage";
+
+// import ProductInsertPage from "./Components/Product/ProductInsertPage";
 
 const Dashboard = () => {
   return (
@@ -10,9 +10,7 @@ const Dashboard = () => {
         <SideBar />
         <Outlet>
           <Routes>
-            {/* <Route path="/users" element={<Page1 />} />  */}
-            <Route path="/productinsert" element={<ProductInsertPage />} /> 
-            
+            {/* <Route path="/productinsert" element={<ProductInsertPage />} /> */}
           </Routes>
         </Outlet>
       </div>
