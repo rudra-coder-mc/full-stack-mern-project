@@ -13,7 +13,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <ServicesContexProvider>
         <CartProvider>
           <AuthProvider>
-            <App />
+            <App  location={window.location}/>
           </AuthProvider>
         </CartProvider>
       </ServicesContexProvider>
