@@ -21,7 +21,7 @@ const AuthButton = () => {
     setLocalToken(false); // Clear local token immediately
     try {
       await logout(); // Perform logout asynchronously
-      navigate("/");
+      navigate("/login");
     } catch (error) {
       console.error("Logout error:", error);
       // Handle logout errors if needed (e.g., display a message)

@@ -19,7 +19,11 @@ const Login = () => {
     console.log(response);
 
     if (response === true) {
-      navigate("/");
+      if (localStorage.getItem("role") == "admin") {
+        navigate("/Dashboard");
+      } else {
+        navigate("/");
+      }
     } else setError(response);
   };
 
