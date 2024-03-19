@@ -49,13 +49,13 @@ function App(prop) {
               <Route path="UserReport" element={<UserReport />} />
               <Route path="TodyAppointments" element={<TodyAppointments />} />
               <Route
-                path="allProducts/ProductUpdate/"
+                path="ProductEdite/ProductUpdate/"
                 element={<ProductUpdate />}
               >
                 <Route path=":ProductUpdateId" element={<ProductUpdate />} />
               </Route>
               <Route
-                path="allservice/ServicesUpdate/"
+                path="ServicesEdite/ServicesUpdate/"
                 element={<ServicesUpdate />}
               >
                 <Route path=":ServicesUpdateId" element={<ServicesUpdate />} />
