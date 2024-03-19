@@ -6,7 +6,7 @@ const MyOrder = () => {
   const [user, setUser] = useState(null); // Use null for initial state
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false); // Use consistent naming
-  const [order, setOrder] = useState({});
+  const [orders, setOrders] = useState([]); // Use a plural state name for orders
 
   useEffect(() => {
     const fetchOrder = async () => {
@@ -29,12 +29,14 @@ const MyOrder = () => {
         };
 
         const response = await axios.get(
-          "http://localhost:4000/api/v1/order/me",
+          "http://localhost:4000/api/v1/orders/me", // Double-check endpoint URL
           config
         );
-        setOrder(response.data);
+
+        setOrders(response.data.orders); // Set orders from response data
       } catch (error) {
-        console.error("Error fetching orders:", error); // Handle errors more informatively
+        console.error("Error fetching orders:", error); // Log error message
+        // Handle error more informatively (e.g., display error message to user)
       } finally {
         setIsLoading(false); // Clear loading state after success or failure
       }
@@ -60,8 +62,48 @@ const MyOrder = () => {
   const orderContent = isLoading ? (
     <p>Loading orders...</p>
   ) : (
-    // Display order details here (assuming `order` has the necessary data)
-    <div>{/* Display order information */}</div>
+    // Display order details here
+    <table className="table-auto w-full">
+      <thead>
+        <tr>
+          <th className="px-4 py-2 text-left border border-gray-200">
+            Order ID
+          </th>
+          <th className="px-4 py-2 text-left border border-gray-200">
+            Shipping Address
+          </th>
+          <th className="px-4 py-2 text-left border border-gray-200">Items</th>
+          <th className="px-4 py-2 text-left border border-gray-200">
+            Total Price
+          </th>
+          <th className="px-4 py-2 text-left border border-gray-200">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {orders.map((order) => (
+          <tr key={order._id} className="hover:bg-gray-100">
+            <td className="px-4 py-2 border border-gray-200">{order._id}</td>
+            <td className="px-4 py-2 border border-gray-200">
+              {order.shippingInfo.address}, {order.shippingInfo.city},{" "}
+              {order.shippingInfo.state}
+            </td>
+            <td className="px-4 py-2 border border-gray-200">
+              {order.orderItems.map((item) => (
+                <span key={item._id}>
+                  {item.name} (x{item.quantity})
+                </span>
+              ))}
+            </td>
+            <td className="px-4 py-2 border border-gray-200">
+              ₹{order.paymentInfo.totalPrice}
+            </td>
+            <td className="px-4 py-2 border border-gray-200">
+              {order.paymentInfo.orderStatus}
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
   );
 
   return (
