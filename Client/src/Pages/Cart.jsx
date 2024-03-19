@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import { useCart } from "../Context/ContextReducer";
 import axios from "axios";
+import { NavLink } from "react-router-dom";
 
 export default function Cart() {
   const { state, dispatch } = useCart();
-  const [Detail, setDetail] = useState(false);
+
   const [order, setOrder] = useState({
     shippingInfo: {
       address: "",
@@ -51,6 +52,11 @@ export default function Cart() {
       ...prevData,
       paymentInfo: calculatePaymentInfo(prevData.orderItems),
     }));
+    let data = JSON.parse(localStorage.getItem("address"));
+    setOrder((prevData) => ({
+      ...prevData,
+      shippingInfo: data,
+    }));
   }, [state]);
   useEffect(() => {
     const updatedOrderItems = state.map((product) => ({
@@ -70,20 +76,9 @@ export default function Cart() {
   const axiosInstance = axios.create({
     withCredentials: true,
   });
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setMessage(null);
 
-    // Update order state based on input name
-    setOrder((prevData) => ({
-      ...prevData,
-      shippingInfo: {
-        ...prevData.shippingInfo,
-        [name]: value, // Update specific property based on input name
-      },
-    }));
-  };
-  const handleSubmit = async (event) => {
+  // console.log(order.shippingInfo);
+  const handleCheckOut = async (event) => {
     event.preventDefault();
 
     setError(null); // Clear previous error messages
@@ -154,7 +149,8 @@ export default function Cart() {
       paymentInfo: calculatePaymentInfo(updatedOrderItems), // Call the calculation function
     }));
   };
-
+  console.log(error);
+  console.log(message);
   return (
     <div className="container mx-auto mt-5">
       <table className="table-auto w-full shadow-md rounded-lg">
@@ -241,116 +237,20 @@ export default function Cart() {
           </p>
         </div>
         {/* ... */}
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md">
+          <NavLink to="/MyAccount">Edit Address</NavLink>
+        </button>
+
         <button
-          className="btn bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded"
-          // onClick={handleCheckOut}
-          onClick={() => setDetail((pre) => !pre)}
+          type="submit"
+          // className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md"
+          className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-md"
+          disabled={isLoading}
+          onClick={handleCheckOut}
         >
-          Set Detail
+          {isLoading ? "processing..." : "check out"}
         </button>
       </div>
-
-      {Detail && (
-        <div className="container mx-auto px-4 py-8">
-          <h1 className="text-3xl font-bold mb-6">shipping Address</h1>
-          <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
-            {error && ( // Conditionally display error message
-              <span className="text-red-500 font-bold text-sm block mb-4">
-                {error}
-              </span>
-            )}
-            {message && ( // Conditionally display error message
-              <span className="text-green-500 font-bold text-sm block mb-4">
-                {message}
-              </span>
-            )}
-            <div className="flex flex-col">
-              <label htmlFor="address" className="text-sm font-medium mb-2">
-                address
-              </label>
-              <input
-                type="text"
-                id="address"
-                name="address"
-                className="rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                // value={order.shippingInfo.address}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="flex flex-col">
-              <label htmlFor="city" className="text-sm font-medium mb-2">
-                city
-              </label>
-              <input
-                type="text"
-                id="city"
-                name="city"
-                className="rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                // value={order.shippingInfo.city}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="flex flex-col">
-              <label htmlFor="state" className="text-sm font-medium mb-2">
-                state
-              </label>
-              <input
-                type="text"
-                id="state"
-                name="state"
-                className="rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                // value={order.shippingInfo.state}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="flex flex-col">
-              <label htmlFor="pinCode" className="text-sm font-medium mb-2">
-                pinCode
-              </label>
-              <input
-                type="number"
-                id="pinCode"
-                name="pinCode"
-                className="rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                // value={order.shippingInfo.pinCode}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="flex flex-col">
-              <label htmlFor="phoneNo" className="text-sm font-medium mb-2">
-                phoneNo
-              </label>
-              <input
-                type="number"
-                id="phoneNo"
-                name="phoneNo"
-                className="rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                // value={order.shippingInfo.phoneNo}
-                onChange={handleChange}
-                size="10"
-                required
-              />
-            </div>
-
-            {error && (
-              <span className="text-red-500 font-bold text-sm block mb-4">
-                {error}
-              </span>
-            )}
-            <button
-              type="submit"
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md"
-              disabled={isLoading}
-            >
-              {isLoading ? "processing..." : "check out"}
-            </button>
-          </form>
-        </div>
-      )}
     </div>
   );
 }

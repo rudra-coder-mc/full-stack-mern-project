@@ -1,22 +1,12 @@
-import { useContext } from "react";
-import { ShopContext } from "../../Context/ShopContex";
+
+
 import Card from "../Card/Card";
-// import uploads from "../../../public/uploads";
 
-const Products = () => {
-  const { data, loading, error } = useContext(ShopContext); // Access context properties
-
-  if (loading) {
-    return <p>Loading products...</p>; // Render loading indicator
-  }
-
-  if (error) {
-    return <p>Error fetching products: {error}</p>; // Handle errors gracefully
-  }
-  // console.log(data);
+const Products = (prop) => {
+  const { products } = prop;
   return (
     <>
-      {data.map((product) => (
+      {products.map((product) => (
         <Card
           key={product._id}
           id={product._id}

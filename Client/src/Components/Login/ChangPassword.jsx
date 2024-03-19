@@ -4,7 +4,6 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const ChangPassword = () => {
-  const [email, setemail] = useState("");
   const [oldPassword, setoldPassword] = useState("");
   const [newPassword, setnewPassword] = useState("");
   const [confirmPassword, setconfirmPassword] = useState("");
@@ -14,7 +13,7 @@ const ChangPassword = () => {
     e.preventDefault();
 
     // Prepare data for the request
-    const data = { email, oldPassword, newPassword, confirmPassword };
+    const data = { oldPassword, newPassword, confirmPassword };
 
     try {
       // Send POST request to your backend API endpoint
@@ -45,22 +44,6 @@ const ChangPassword = () => {
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <input type="hidden" name="remember" value="true" />
           <div className="rounded-md shadow-sm -space-y-px">
-            <div>
-              <label htmlFor="email" className="sr-only">
-                email
-              </label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                autoComplete="email"
-                required
-                value={email}
-                onChange={(e) => setemail(e.target.value)}
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                placeholder="email"
-              />
-            </div>
             <div>
               <label htmlFor="oldPassword" className="sr-only">
                 old Password
@@ -125,13 +108,13 @@ const ChangPassword = () => {
             </button>
           </div>
           <p className="mb-0 mt-2 pt-1 text-sm font-semibold">
-            go to Login?{" "}
+            go to{" "}
             <NavLink
-              to="/login"
+              to="/MyAccount"
               className="text-danger transition duration-150 ease-in-out hover:text-danger-600 focus:text-danger-600 active:text-danger-700"
             >
               {" "}
-              LogIn
+              MyAccount
             </NavLink>
           </p>
         </form>

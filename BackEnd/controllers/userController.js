@@ -17,7 +17,6 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
   sendToken(user, 201, res);
 });
 
-
 // Login User
 exports.loginUser = catchAsyncErrors(async (req, res, next) => {
   const { email, password } = req.body;
@@ -180,6 +179,7 @@ exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
 
   res.status(200).json({
     success: true,
+    user: user,
   });
 });
 

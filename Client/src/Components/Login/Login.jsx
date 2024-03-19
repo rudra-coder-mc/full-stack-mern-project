@@ -16,7 +16,7 @@ const Login = () => {
 
     // Prepare data for the request
     const response = await login(email, password);
-    console.log(response);
+    // console.log(response);
 
     if (response === true) {
       if (localStorage.getItem("role") == "admin") {
@@ -90,16 +90,6 @@ const Login = () => {
               >
                 Remember me
               </label>
-            </div>
-
-            <div className="text-sm">
-              <NavLink
-                to="/Login/Update"
-                className="font-medium text-indigo-600 hover:text-indigo-500"
-              >
-                {" "}
-                Chang your password?
-              </NavLink>
             </div>
 
             {/* <div className="text-sm">
