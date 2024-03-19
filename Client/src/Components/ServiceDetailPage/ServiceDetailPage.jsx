@@ -95,7 +95,7 @@ const ServiceDetailPage = (prop) => {
           <img
             src={prop.image}
             alt={prop.name}
-            className="w-[80%] h-[70dvh] mb-4 rounded-lg object-cover"
+            className="object-fit object-contain w-96 mb-4 rounded-lg"
           />
         </div>
         <div>

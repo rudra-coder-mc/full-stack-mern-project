@@ -57,9 +57,9 @@ const Card = (prop) => {
   };
 
   return (
-    <div className="w-full max-w-72 bg-white border border-gray-200 rounded-lg shadow">
+    <div className="w-full max-w-72 bg-white border border-gray-200 rounded-lg shadow p-3 mb-2">
       <Link to={`product/${prop.id}`}>
-        <img className="p-2 rounded-3xl h-40" src={prop.image} alt="Product" />
+        <img className="p-2 rounded-3xl object-contain h-48 w-96" src={prop.image} alt="Product" />
       </Link>
 
       <div className="p-1">
