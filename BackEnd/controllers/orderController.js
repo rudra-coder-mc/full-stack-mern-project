@@ -6,7 +6,7 @@ const ApiFeatures = require("../utility/apifetures");
 
 //Create order
 exports.newOrder = catchAsyncErrors(async (req, res, next) => {
-  console.log(req.body);
+  // console.log(req.body);
 
   const {
     shippingInfo,
@@ -51,14 +51,28 @@ exports.getSingleOrder = catchAsyncErrors(async (req, res, next) => {
   });
 });
 //Get logged in user order
+// exports.myOrder = catchAsyncErrors(async (req, res, next) => {
+//   const orders = await Order.findById({ user: req.user._id });
+
+//   res.status(200).json({
+//     success: true,
+//     orders,
+//   });
+// });
+
 exports.myOrder = catchAsyncErrors(async (req, res, next) => {
-  const orders = await Order.findById({ user: req.user._id });
+  console.log("User ID:", req.body);
+  const orders = await Order.find({ user: req.user._id });
+  
 
   res.status(200).json({
     success: true,
     orders,
   });
 });
+
+
+
 
 //Get all order --Admin
 exports.getAllOrder = catchAsyncErrors(async (req, res, next) => {
@@ -103,7 +117,7 @@ exports.updateOrder = catchAsyncErrors(async (req, res, next) => {
 
 async function updateStock(id, quantity) {
   const product = await Product.findById(id);
-  product.Stock = quantity;
+  product.stock = quantity;
   product.save({ validateBeforeSave: false });
 }
 

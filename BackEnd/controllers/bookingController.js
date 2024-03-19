@@ -52,3 +52,14 @@ exports.getAllBooking = catchAsyncErrors(async (req, res, next) => {
     filteredServicesCount,
   });
 });
+
+exports.myBooking = catchAsyncErrors(async (req, res, next) => {
+  // console.log("User ID:", req.body);
+  const bookings = await Appointment.find({ user: req.user._id });
+  
+
+  res.status(200).json({
+    success: true,
+    bookings,
+  });
+});

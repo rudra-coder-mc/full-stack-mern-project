@@ -15,6 +15,7 @@ dotenv.config({ path: "BackEnd/config/config.env" });
 //Connecting Database
 connectDatabase();
 
+//cloudinary configration
 cloudinary.config({
   cloud_name: 'dlc1in1ax', 
   api_key: '915151645357372', 
