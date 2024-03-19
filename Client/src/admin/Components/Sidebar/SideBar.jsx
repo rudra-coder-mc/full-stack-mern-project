@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../Context/AuthProvider";
 
 const SideBar = () => {
+  const { logout } = useContext(AuthContext);
   const [openProductMenu, setOpenProductMenu] = useState(false);
   const [openServiceMenu, setOpenServiceMenu] = useState(false);
   const [openReportMenu, setOpenReportMenu] = useState(false);
-
+  const navigate = useNavigate();
   const handleProductMenuClick = () => {
     setTimeout(() => {
       setOpenProductMenu(!openProductMenu);
@@ -27,6 +30,15 @@ const SideBar = () => {
       setOpenServiceMenu(false);
       setOpenProductMenu(false);
     }, 1000);
+  };
+  const handleLogout = async () => {
+    try {
+      await logout(); // Perform logout asynchronously
+      navigate("/login");
+    } catch (error) {
+      console.error("Logout error:", error);
+      // Handle logout errors if needed (e.g., display a message)
+    }
   };
 
   return (
@@ -70,20 +82,38 @@ const SideBar = () => {
                 <ul className="w-48 absolute left-full top-0 mt-0 ml-4 bg-gray-700 text-gray-200 rounded">
                   <li className="py-2 hover:bg-gray-600">
                     <NavLink
-                      to="/Dashboard/"
+                      to="/Dashboard/ProductRepor"
                       className="px-4"
                       onClick={(e) => e.stopPropagation()}
                     >
-                      report
+                      ProductRepor
                     </NavLink>
                   </li>
                   <li className="py-2 hover:bg-gray-600">
                     <NavLink
-                      to="/Dashboard/"
+                      to="/Dashboard/ServiceReport"
                       className="px-4"
                       onClick={(e) => e.stopPropagation()}
                     >
-                      report
+                      ServiceReport
+                    </NavLink>
+                  </li>
+                  <li className="py-2 hover:bg-gray-600">
+                    <NavLink
+                      to="/Dashboard/UserReport"
+                      className="px-4"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      UserReport
+                    </NavLink>
+                  </li>
+                  <li className="py-2 hover:bg-gray-600">
+                    <NavLink
+                      to="/Dashboard/TodyAppointments"
+                      className="px-4"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      TodyAppointments
                     </NavLink>
                   </li>
                 </ul>
@@ -217,6 +247,12 @@ const SideBar = () => {
             </li>
             {/* Add more links as needed */}
           </ul>
+          <button
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+            onClick={handleLogout}
+          >
+            Log Out
+          </button>
         </div>
       </div>
     </>

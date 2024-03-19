@@ -18,6 +18,10 @@ import ProductUpdate from "./admin/Components/Product/ProductUpdate";
 import ServicesInsertPage from "./admin/Components/Services/ServicesInsertPage";
 import ServicesEditePage from "./admin/Components/Services/ServicesEditePage";
 import ServicesUpdate from "./admin/Components/Services/ServicesUpdate";
+import ProductReport from "./admin/Components/Report/ProductReport";
+import ServiceReport from "./admin/Components/Report/ServiceReport";
+import UserReport from "./admin/Components/Report/UserReport";
+import TodyAppointments from "./admin/Components/Report/TodyAppointments";
 
 function App(prop) {
   const { location } = prop;
@@ -35,6 +39,12 @@ function App(prop) {
               <Route path="ProductEdite" element={<ProductEditePage />} />
               <Route path="ServicesInsert" element={<ServicesInsertPage />} />
               <Route path="ServicesEdite" element={<ServicesEditePage />} />
+
+              <Route path="ProductRepor" element={<ProductReport />} />
+              <Route path="ServiceReport" element={<ServiceReport />} />
+              <Route path="UserReport" element={<UserReport />} />
+              <Route path="TodyAppointments" element={<TodyAppointments />} />
+
               <Route
                 path="allProducts/ProductUpdate/"
                 element={<ProductUpdate />}
