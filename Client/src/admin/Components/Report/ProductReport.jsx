@@ -24,16 +24,21 @@ const ProductReport = () => {
   );
 
   return (
-    <div className="p-4">
+    <div className="p-4 overflow-auto">
       <h2 className="text-xl font-bold mb-4">Product Report</h2>
-      {data.map((order) => (
-        <OrderCard key={order._id} order={order} />
-      ))}
-      {data && (
-        <p className="text-right font-bold mt-4">
-          Total Amount: ₹{totalAmount}
-        </p>
-      )}
+      <div className="overflow-auto grid grid-cols-3 gap-4 ">
+        {data.map((order) => (
+          <OrderCard key={order._id} order={order} />
+        ))}
+        </div>
+        {data && (
+          <div>
+            <p className="text-right font-bold text-2xl my-4">
+              <span className="border py-2 px-3 bg-slate-400 rounded">Total Amount: ₹{totalAmount}</span>
+            </p>
+          </div>
+        )}
+      
     </div>
   );
 };

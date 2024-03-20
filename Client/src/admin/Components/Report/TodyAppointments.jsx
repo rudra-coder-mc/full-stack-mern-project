@@ -1,5 +1,6 @@
 import { useContext, useState, useEffect } from "react";
 import { BookingContex } from "../../../Context/BookingContex"; // Assuming BookingContext
+import { FaCalendarXmark } from "react-icons/fa6";
 
 function TodyAppointments() {
   const { data, loading, error, fetchData } = useContext(BookingContex);
@@ -43,7 +44,18 @@ function TodyAppointments() {
   const bookingCount = filteredServices.length;
 
   if (!bookingCount) {
-    return <p className="text-center p-4">No appointments for today.</p>;
+    return (
+      <>
+        <div className="w-[100%] m-auto flex justify-center">
+          <div className="w-80 py-10 rounded  bg-white">
+            <p className="flex justify-center">
+              <FaCalendarXmark className="text-6xl text-[#DC2626]"/>
+            </p>
+            <p className="text-xl font-normal text-gray-500 mt-5 mb-6 text-center">No appointments for today !</p>
+          </div>
+        </div>
+      </>
+    );
   }
 
   return (

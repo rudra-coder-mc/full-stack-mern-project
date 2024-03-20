@@ -60,12 +60,12 @@ const ServiceReport = () => {
   return (
     <div className="service-report w-full overflow-auto shadow-md rounded-lg p-4">
       <h2 className="text-xl font-semibold text-gray-800 mb-4">Appointments</h2>
-      <p className="text-gray-600">Total Bookings: {bookingCount}</p>
-      <table className="w-full table-auto">
+      <p className="text-neutral-950 text-lg"><span className=" rounded shadow py-2 bg-amber-300 px-3">Total Bookings: {bookingCount} </span></p>
+      <table className="w-full table-auto mt-3 bg-white p-2">
         <thead>
-          <tr className="text-left bg-gray-200 border-b border-gray-400">
+          <tr className="text-left bg-gray-200 border-b border-gray-400 rounded">
             <th className="p-2">ID</th>
-            <th className="p-2">service Name</th>
+            <th className="p-2">Service Name</th>
             <th className="p-2">User Name</th>
             <th className="p-2">Email</th>
             <th className="p-2">Phone</th>
