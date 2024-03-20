@@ -47,7 +47,9 @@ const SideBar = () => {
         {/* SideBar content */}
         <div className="p-4 text-white">
           {/* SideBar heading */}
-          <h2 className="text-lg font-semibold mb-4">Dashboard</h2>
+          <NavLink to="/Dashboard/Home" onClick={(e) => e.stopPropagation()}>
+            <h2 className="text-lg font-semibold mb-4">Dashboard</h2>
+          </NavLink>
           {/* SideBar links */}
           <ul className="mt-3">
             <li
@@ -119,7 +121,7 @@ const SideBar = () => {
                 </ul>
               )}
             </li>
-            <li className="py-2 hover:bg-gray-700 relative flex p-2 rounded">
+            {/* <li className="py-2 hover:bg-gray-700 relative flex p-2 rounded">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -137,7 +139,7 @@ const SideBar = () => {
               <NavLink to="/Dashboard/users" className="mx-2">
                 Customers
               </NavLink>
-            </li>
+            </li> */}
             <li
               className="py-2 hover:bg-gray-700 relative flex p-2 rounded"
               onMouseLeave={handleProductMenuClick}
@@ -248,7 +250,7 @@ const SideBar = () => {
             {/* Add more links as needed */}
           </ul>
           <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 m-4 rounded-full"
             onClick={handleLogout}
           >
             Log Out

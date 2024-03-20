@@ -26,6 +26,7 @@ import MyAccount from "./Pages/MyAccount";
 import MyOrder from "./Components/MyOrder/MyOrder";
 import MyBooking from "./Components/MyBooking/MyBooking";
 import ChangPassword from "./Components/Login/ChangPassword";
+import DHome from "./admin/Components/DHome/DHome";
 
 function App(prop) {
   const { location } = prop;
@@ -38,6 +39,7 @@ function App(prop) {
           {!isDashboardRoute && <Navbar />}
           <Routes>
             <Route path="/Dashboard/*" element={<Dashboard />}>
+              <Route path="Home" element={<DHome />} />
               <Route path="users" element={<Page1 />} />
               <Route path="ProductInsert" element={<ProductInsertPage />} />
               <Route path="ProductEdite" element={<ProductEditePage />} />

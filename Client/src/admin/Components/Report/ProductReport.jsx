@@ -3,33 +3,34 @@ import OrderCard from "./OrderCard";
 import { OrderContext } from "../../../Context/OrderContex";
 
 const ProductReport = () => {
-  const { data, loading, error, fetchData } = useContext(OrderContext);
+  const { OrderData, OrderLoading, OrderError, fetchOrderData } =
+    useContext(OrderContext);
 
-  if (loading) {
-    return <p>Loading Orders...</p>; // Render loading indicator
+  if (OrderLoading) {
+    return <p>OrderLoading Orders...</p>; // Render OrderLoading indicator
   }
 
-  if (error) {
+  if (OrderError) {
     return (
       <div>
-        <p>Error fetching Orders: {error}</p>
-        <button onClick={fetchData}>Retry</button>
+        <p>OrderError fetching Orders: {OrderError}</p>
+        <button onClick={fetchOrderData}>Retry</button>
       </div>
-    ); // Handle errors gracefully with retry button
+    ); // Handle OrderErrors gracefully with retry button
   }
 
-  const totalAmount = data.reduce(
+  const totalAmount = OrderData.reduce(
     (acc, order) => acc + order.paymentInfo.totalPrice,
     0
   );
 
   return (
-    <div className="p-4">
+    <div className="p-4 overflow-auto">
       <h2 className="text-xl font-bold mb-4">Product Report</h2>
-      {data.map((order) => (
+      {OrderData.map((order) => (
         <OrderCard key={order._id} order={order} />
       ))}
-      {data && (
+      {OrderData && (
         <p className="text-right font-bold mt-4">
           Total Amount: ₹{totalAmount}
         </p>

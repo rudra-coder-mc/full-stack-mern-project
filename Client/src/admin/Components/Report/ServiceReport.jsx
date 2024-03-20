@@ -1,13 +1,13 @@
 import { useContext } from "react";
 import { BookingContex } from "../../../Context/BookingContex";
 
-function createServiceReport(data) {
-  if (!data || !data.success || !data.bookings) {
+function createServiceReport(BookingData) {
+  if (!BookingData || !BookingData.success || !BookingData.bookings) {
     // Check for bookings property
-    return null; // Handle invalid or empty data
+    return null; // Handle invalid or empty BookingData
   }
 
-  const bookings = data.bookings.map((booking) => {
+  const bookings = BookingData.bookings.map((booking) => {
     // Format serviceDate for better readability (optional)
     const formattedDate = new Date(booking.serviceDate).toLocaleDateString(
       "en-IN"
@@ -27,7 +27,7 @@ function createServiceReport(data) {
   });
 
   const report = {
-    bookingCount: data.bookingCount,
+    bookingCount: BookingData.bookingCount,
     services: bookings,
   };
 
@@ -35,24 +35,25 @@ function createServiceReport(data) {
 }
 
 const ServiceReport = () => {
-  const { data, loading, error, fetchData } = useContext(BookingContex);
-  const report = createServiceReport(data);
-  console.log(data);
+  const { BookingData, BookingLoading, BookingError, fetchBookingData } =
+    useContext(BookingContex);
+  const report = createServiceReport(BookingData);
+  // console.log(BookingData);
   if (!report) {
-    return <p>Error creating service report. Invalid data.</p>;
+    return <p>BookingError creating service report. Invalid BookingData.</p>;
   }
   // console.log(report);
-  if (loading) {
-    return <p>Loading Orders...</p>; // Render loading indicator
+  if (BookingLoading) {
+    return <p>BookingLoading Orders...</p>; // Render BookingLoading indicator
   }
 
-  if (error) {
+  if (BookingError) {
     return (
       <div>
-        <p>Error fetching Orders: {error}</p>
-        <button onClick={fetchData}>Retry</button>
+        <p>BookingError fetching Orders: {BookingError}</p>
+        <button onClick={fetchBookingData}>Retry</button>
       </div>
-    ); // Handle errors gracefully with retry button
+    ); // Handle BookingErrors gracefully with retry button
   }
 
   const { bookingCount, services } = report;

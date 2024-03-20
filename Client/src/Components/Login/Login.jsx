@@ -20,7 +20,7 @@ const Login = () => {
 
     if (response === true) {
       if (localStorage.getItem("role") == "admin") {
-        navigate("/Dashboard");
+        navigate("/Dashboard/Home");
       } else {
         navigate("/");
       }
