@@ -64,7 +64,7 @@ function Updates(prop) {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="overflow-auto container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-6">Service Update</h1>
       <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
         {error && ( // Conditionally display error message
@@ -137,6 +137,7 @@ function Updates(prop) {
           <label htmlFor="image" className="text-sm font-medium mb-2">
             image
           </label>
+          <img src={formData.image}  width="100" height="100"/>
           <input
             type="file"
             id="image"

@@ -27,14 +27,20 @@ const ProductReport = () => {
   return (
     <div className="p-4 overflow-auto">
       <h2 className="text-xl font-bold mb-4">Product Report</h2>
+
+  <div className="overflow-auto grid md:grid-cols-3 gap-4 sm:grid-cols-1">
       {OrderData.map((order) => (
         <OrderCard key={order._id} order={order} />
       ))}
+    </div>
       {OrderData && (
+        <div>
         <p className="text-right font-bold mt-4">
           Total Amount: ₹{totalAmount}
         </p>
+</div>
       )}
+
     </div>
   );
 };
