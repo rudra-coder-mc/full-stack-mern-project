@@ -42,11 +42,13 @@ const AuthProvider = (prop) => {
       );
 
       setToken(response.data.token);
-      setUser(response.data.user.role); // Assuming more user data is retrieved
+      setUser(response.data.user); // Assuming more user data is retrieved
       setIsLoading(false); // Clear loading state
 
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("role", response.data.user.role);
+      let strUser = JSON.stringify(response.data.user);
+      localStorage.setItem("user", strUser);
       return true;
     } catch (error) {
       setIsLoading(false); // Clear loading state
@@ -60,6 +62,7 @@ const AuthProvider = (prop) => {
 
       localStorage.removeItem("token"); // Choose localStorage or cookies here
       localStorage.removeItem("role"); // Choose localStorage or cookies here
+      localStorage.removeItem("user"); // Choose localStorage or cookies here
       setUser(null);
       setToken(null);
       return true;

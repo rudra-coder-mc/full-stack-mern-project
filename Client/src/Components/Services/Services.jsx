@@ -1,30 +1,20 @@
-import { useContext } from "react";
-import { ServicesContex } from "../../Context/ServicesContex";
 import ServicesCard from "../../admin/Components/Services/ServicesCard";
 
-const Services = () => {
-  const { data, loading, error } = useContext(ServicesContex); // Access context properties
+const Services = (prop) => {
+  const { services } = prop;
 
-  if (loading) {
-    return <p>Loading Services...</p>; // Render loading indicator
-  }
-
-  if (error) {
-    return <p>Error fetching Services: {error}</p>; // Handle errors gracefully
-  }
-//   console.log(data);
   return (
     <>
-      {data.map((Service) => (
+      {services.map((service) => (
         <ServicesCard
-          key={Service._id}
-          id={Service._id}
-          name={Service.name}
-          description={Service.description}
-          price={Service.price}
-          ratings={Service.ratings}
-          image={Service.image[0].url}
-          category={Service.category}
+          key={service._id}
+          id={service._id}
+          name={service.name}
+          description={service.description}
+          price={service.price}
+          ratings={service.ratings}
+          image={service.image[0].url} // Assuming image is stored in an array with url property
+          category={service.category}
         />
       ))}
     </>

@@ -12,9 +12,10 @@ function createServiceReport(data) {
     const formattedDate = new Date(booking.serviceDate).toLocaleDateString(
       "en-IN"
     );
-
+    // console.log(bookings);
     return {
       id: booking._id,
+      serviceName: booking.serviceName,
       name: booking.name,
       email: booking.email,
       phone: booking.phone,
@@ -36,10 +37,11 @@ function createServiceReport(data) {
 const ServiceReport = () => {
   const { data, loading, error, fetchData } = useContext(BookingContex);
   const report = createServiceReport(data);
-
+  console.log(data);
   if (!report) {
     return <p>Error creating service report. Invalid data.</p>;
   }
+  // console.log(report);
   if (loading) {
     return <p>Loading Orders...</p>; // Render loading indicator
   }
@@ -63,7 +65,8 @@ const ServiceReport = () => {
         <thead>
           <tr className="text-left bg-gray-200 border-b border-gray-400">
             <th className="p-2">ID</th>
-            <th className="p-2">Name</th>
+            <th className="p-2">service Name</th>
+            <th className="p-2">User Name</th>
             <th className="p-2">Email</th>
             <th className="p-2">Phone</th>
             <th className="p-2">Service Date</th>
@@ -79,6 +82,7 @@ const ServiceReport = () => {
               className="border-b border-gray-400 hover:bg-gray-100"
             >
               <td className="p-2">{service.id}</td>
+              <td className="p-2">{service.serviceName}</td>
               <td className="p-2">{service.name}</td>
               <td className="p-2">{service.email}</td>
               <td className="p-2">{service.phone}</td>

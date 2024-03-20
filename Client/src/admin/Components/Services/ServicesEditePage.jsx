@@ -40,10 +40,10 @@ const ServicesEditePage = () => {
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-1 items-center justify-center">
+    <div className="mx-4 overflow-auto grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-1 items-center justify-center">
       {data.map((Services) => (
         <div key={Services._id}>
-          <div className="w-full max-w-72 bg-white border border-gray-200 rounded-lg shadow">
+          <div className="w-full max-w-72 bg-white border border-gray-200 rounded-lg shadow p-3">
             <img
               className="p-2 rounded-3xl h-40"
               src={Services.image[0].url}

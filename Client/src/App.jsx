@@ -22,6 +22,10 @@ import ProductReport from "./admin/Components/Report/ProductReport";
 import ServiceReport from "./admin/Components/Report/ServiceReport";
 import UserReport from "./admin/Components/Report/UserReport";
 import TodyAppointments from "./admin/Components/Report/TodyAppointments";
+import MyAccount from "./Pages/MyAccount";
+import MyOrder from "./Components/MyOrder/MyOrder";
+import MyBooking from "./Components/MyBooking/MyBooking";
+import ChangPassword from "./Components/Login/ChangPassword";
 
 function App(prop) {
   const { location } = prop;
@@ -44,15 +48,14 @@ function App(prop) {
               <Route path="ServiceReport" element={<ServiceReport />} />
               <Route path="UserReport" element={<UserReport />} />
               <Route path="TodyAppointments" element={<TodyAppointments />} />
-
               <Route
-                path="allProducts/ProductUpdate/"
+                path="ProductEdite/ProductUpdate/"
                 element={<ProductUpdate />}
               >
                 <Route path=":ProductUpdateId" element={<ProductUpdate />} />
               </Route>
               <Route
-                path="allservice/ServicesUpdate/"
+                path="ServicesEdite/ServicesUpdate/"
                 element={<ServicesUpdate />}
               >
                 <Route path=":ServicesUpdateId" element={<ServicesUpdate />} />
@@ -66,7 +69,6 @@ function App(prop) {
             <Route path="/ServicesCategory/service" element={<Service />}>
               <Route path=":ServiceId" element={<Service />} />
             </Route>
-
             <Route path="/ProductCategory/product" element={<Product />}>
               <Route path=":ProductId" element={<Product />} />
             </Route>
@@ -80,9 +82,13 @@ function App(prop) {
             <Route path="/ProductCategory/product" element={<Product />} />
             <Route path="/product" element={<Product />} />
             <Route path="/Login" element={<LoginPage />} />
+            <Route path="/Login/UpdatePassword" element={<ChangPassword />} />
             <Route path="/Signup" element={<Signup />} />
             <Route path="/aboutus" element={<AboutUs />} />
             <Route path="/Cart" element={<Cart />} />
+            <Route path="/MyAccount" element={<MyAccount />} />
+            <Route path="/MyOrder" element={<MyOrder />} />
+            <Route path="/MyBooking" element={<MyBooking />} />
           </Routes>
           {!isDashboardRoute && <Footer />}
         </Router>
