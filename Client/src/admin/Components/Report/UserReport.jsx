@@ -3,32 +3,33 @@ import { UserContex } from "../../../Context/UserContex"; // Likely typo fixed
 import { FaUserGroup, FaUsers, FaUserTie } from "react-icons/fa6";
 
 function UserReport() {
-  const { data, loading, error, fetchData } = useContext(UserContex);
+  const { UserData, UserLoading, UserError, fetchUserData } =
+    useContext(UserContex);
 
-  if (loading) {
-    return <p className="text-center p-4">Loading Users...</p>; // Render loading indicator
+  if (UserLoading) {
+    return <p className="text-center p-4">UserLoading Users...</p>; // Render UserLoading indicator
   }
 
-  if (error) {
+  if (UserError) {
     return (
       <div className="flex flex-col items-center p-4">
         <p className="text-red-500 text-center">
-          Error fetching Users: {error}
+          UserError fetching Users: {UserError}
         </p>
         <button
           className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          onClick={fetchData}
+          onClick={fetchUserData}
         >
           Retry
         </button>
       </div>
-    ); // Handle errors gracefully with retry button
+    ); // Handle UserErrors gracefully with retry button
   }
-  if (!data || !data.success || !data.users) {
-    return <p>Error: Invalid user data.</p>;
+  if (!UserData || !UserData.success || !UserData.users) {
+    return <p>UserError: Invalid user UserData.</p>;
   }
 
-  const users = data.users;
+  const users = UserData.users;
 
   const totalUsers = users.length;
   const admins = users.filter((user) => user.role === "admin").length;

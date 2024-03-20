@@ -6,6 +6,9 @@ import { Link } from "react-router-dom";
 const ProductEditePage = () => {
   const { data, loading, error, fetchData } = useContext(ShopContext); // Access context producterties
   const axiosInstance = axios.create({ withCredentials: true });
+  const [showFullDescription, setShowFullDescription] = useState(false);
+
+  const toggleDescription = () => setShowFullDescription(!showFullDescription);
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -67,9 +70,28 @@ const ProductEditePage = () => {
                 </span>
               </div>
 
-              <p className="mb-3 text-gray-700 text-balance">
-                description: {product.description}
-              </p>
+              {!showFullDescription && (
+                <p className="mb-3 text-gray-700">
+                  {product.description.slice(0, 70)}...
+                  <span
+                    onClick={toggleDescription}
+                    className="text-blue-500 hover:text-blue-700 cursor-pointer"
+                  >
+                    Read More
+                  </span>
+                </p>
+              )}
+              {showFullDescription && (
+                <p className="mb-3 text-gray-700">
+                  {product.description.slice(0, 100)}
+                  <span
+                    onClick={toggleDescription}
+                    className="text-blue-500 hover:text-blue-700 cursor-pointer"
+                  >
+                    Read Less
+                  </span>
+                </p>
+              )}
 
               <div className="flex justify-between mb-2">
                 <div className="text-sm font-semibold text-gray-900">
