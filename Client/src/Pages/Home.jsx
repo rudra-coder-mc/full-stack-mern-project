@@ -4,17 +4,16 @@ import Offers from "../Components/Offers/Offers";
 import ProductCategory from "./ProductCategory";
 import ServicesCategory from "./ServicesCategory";
 
-
 const Home = () => {
   return (
     <>
       <Hero />
       <>
-        <ProductCategory />
+        <ProductCategory filter={"best selling"} />
       </>
       <Offers />
       <>
-        <ServicesCategory />
+        <ServicesCategory filter={"relevant"} />
       </>
       <Offers />
     </>

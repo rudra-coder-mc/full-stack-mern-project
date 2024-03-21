@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import final_logo from "../../assets/final_logo.png";
+import logo from "../../assets/logo.png";
 import NavItem from "./NavItem";
 import AuthButton from "./AuthButton";
 import { useState, useContext, useEffect } from "react";
@@ -31,7 +31,7 @@ const Navbar = () => {
       <nav className="container mx-auto flex items-center justify-between p-4">
         <div className="text-2xl font-bold">
           <NavLink to="/">
-            <img src={final_logo} className="w-12 h-12" alt="logo" />
+            <img src={logo} className="w-12 h-12 bg-transparent " alt="logo" />
           </NavLink>
         </div>
         <div>

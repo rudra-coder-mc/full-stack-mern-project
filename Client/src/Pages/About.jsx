@@ -1,16 +1,14 @@
 import ppf from "../assets/ppf.jpg";
 // import interior from "../assets/INTERIOR.JPG";
-import interior from "../assets/INTERIOR.jpg"
+import interior from "../assets/INTERIOR.jpg";
 // import sunroof from "../assets/SUNROOF.JPG";
 import sunroof from "../assets/SUNROOF.jpg";
 
 export default function About() {
   return (
-    <div className="about-us bg-blue-500 h-auto flex flex-col items-center justify-center p-8">
-      <h2 className="text-5xl text-white font-bold mb-4">
-        Welcome to Uniq`s Automotive
-      </h2>
-      <p className="text-lg text-white mb-8 leading-relaxed">
+    <div className="about-us bg-blue-200 h-auto flex flex-col items-center justify-center p-8">
+      <h2 className="text-5xl  font-bold mb-4">Welcome to Uniq`s Automotive</h2>
+      <p className="text-lg  mb-8 leading-relaxed">
         Uniq`s Automotive is your premier destination for top-quality car
         accessories and automotive services. Our passion for cars drives us to
         deliver exceptional products and services that meet all your automotive
