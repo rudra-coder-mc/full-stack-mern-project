@@ -11,10 +11,13 @@ const Home = () => {
     <>
       <Hero />
       <>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-center text-gray-900 mt-12 mb-8">Our Best Selling Accessories</h1>
+
         <ProductCategory filter={"best selling"} />
       </>
       <Offers data={Data[0]} />
       <>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-center text-gray-900 mt-12 mb-8">FREQUENTLY BOOKED SERVICES</h1>
         <ServicesCategory filter={"relevant"} />
       </>
       <Offers data={Data[1]}/>
