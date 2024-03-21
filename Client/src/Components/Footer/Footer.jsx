@@ -1,4 +1,4 @@
-import final_logo from "../../assets/final_logo.png";
+import logo from "../../assets/tirthlogo.png";
 
 const Footer = () => {
   return (
@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="flex flex-wrap justify-center">
           <div className="w-full md:w-1/4 mb-4 md:mb-0">
             <img
-              src={final_logo}
+              src={logo}
               alt="Company Logo"
               className="w-16 h-16 mx-auto mb-4"
             />

@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/tirthlogo.png";
 import NavItem from "./NavItem";
 import AuthButton from "./AuthButton";
 import { useState, useContext, useEffect } from "react";
