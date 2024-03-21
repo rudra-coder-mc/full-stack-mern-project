@@ -1,6 +1,7 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import SubNav from "../SubNav/SubNav";
 
 const MyOrder = () => {
   const [user, setUser] = useState(null); // Use null for initial state
@@ -108,26 +109,7 @@ const MyOrder = () => {
 
   return (
     <>
-      <nav className="flex items-center justify-center mt-4">
-        <NavLink
-          to="/MyAccount"
-          className="px-3 py-2 rounded-md text-blue-600 hover:text-blue-800 active:text-blue-700 font-medium"
-        >
-          Profile
-        </NavLink>
-        <NavLink
-          to="/MyOrder"
-          className="px-3 py-2 rounded-md text-blue-600 hover:text-blue-800 active:text-blue-700 font-medium ml-2"
-        >
-          My Orders
-        </NavLink>
-        <NavLink
-          to="/MyBooking"
-          className="px-3 py-2 rounded-md text-blue-600 hover:text-blue-800 active:text-blue-700 font-medium ml-2"
-        >
-          My Bookings
-        </NavLink>
-      </nav>
+      <SubNav />
 
       {orderContent}
     </>

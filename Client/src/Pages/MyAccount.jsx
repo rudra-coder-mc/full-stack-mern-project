@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
+import SubNav from "../Components/SubNav/SubNav";
 
 const MyAccount = () => {
   const [user, setUser] = useState({ name: "", email: "" });
@@ -92,28 +93,7 @@ const MyAccount = () => {
   };
   return (
     <>
-      <nav className="flex items-center justify-center mt-4">
-        <div className=" py-2 px-2 rounded bg-yellow-400 shadow shadow-yellow-400 hover:opacity-80">
-          <NavLink
-            to="/MyAccount"
-            className="px-3 py-2 rounded-md text-blue-600 hover:text-blue-800 active:text-blue-700 font-medium"
-          >
-            Profile
-          </NavLink>
-        </div>
-        <NavLink
-          to="/MyOrder"
-          className="px-3 py-2 rounded-md text-blue-600 hover:text-blue-800 active:text-blue-700 font-medium ml-2"
-        >
-          My Orders
-        </NavLink>
-        <NavLink
-          to="/MyBooking"
-          className="px-3 py-2 rounded-md text-blue-600 hover:text-blue-800 active:text-blue-700 font-medium ml-2"
-        >
-          My Bookings
-        </NavLink>
-      </nav>
+      <SubNav />
 
       <div className="overflow-auto mb-8 bg-white max-w-md mx-auto w-full space-y-8 border p-4 rounded-xl mt-8">
         <h2 className="mt-3 text-center text-3xl font-extrabold text-gray-900">
