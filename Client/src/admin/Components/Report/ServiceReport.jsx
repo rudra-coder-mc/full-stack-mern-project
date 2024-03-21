@@ -1,13 +1,13 @@
 import { useContext } from "react";
 import { BookingContex } from "../../../Context/BookingContex";
 
-function createServiceReport(data) {
-  if (!data || !data.success || !data.bookings) {
+function createServiceReport(BookingData) {
+  if (!BookingData || !BookingData.success || !BookingData.bookings) {
     // Check for bookings property
-    return null; // Handle invalid or empty data
+    return null; // Handle invalid or empty BookingData
   }
 
-  const bookings = data.bookings.map((booking) => {
+  const bookings = BookingData.bookings.map((booking) => {
     // Format serviceDate for better readability (optional)
     const formattedDate = new Date(booking.serviceDate).toLocaleDateString(
       "en-IN"
@@ -27,7 +27,7 @@ function createServiceReport(data) {
   });
 
   const report = {
-    bookingCount: data.bookingCount,
+    bookingCount: BookingData.bookingCount,
     services: bookings,
   };
 
@@ -35,24 +35,25 @@ function createServiceReport(data) {
 }
 
 const ServiceReport = () => {
-  const { data, loading, error, fetchData } = useContext(BookingContex);
-  const report = createServiceReport(data);
-  console.log(data);
+  const { BookingData, BookingLoading, BookingError, fetchBookingData } =
+    useContext(BookingContex);
+  const report = createServiceReport(BookingData);
+  // console.log(BookingData);
   if (!report) {
-    return <p>Error creating service report. Invalid data.</p>;
+    return <p>BookingError creating service report. Invalid BookingData.</p>;
   }
   // console.log(report);
-  if (loading) {
-    return <p>Loading Orders...</p>; // Render loading indicator
+  if (BookingLoading) {
+    return <p>BookingLoading Orders...</p>; // Render BookingLoading indicator
   }
 
-  if (error) {
+  if (BookingError) {
     return (
       <div>
-        <p>Error fetching Orders: {error}</p>
-        <button onClick={fetchData}>Retry</button>
+        <p>BookingError fetching Orders: {BookingError}</p>
+        <button onClick={fetchBookingData}>Retry</button>
       </div>
-    ); // Handle errors gracefully with retry button
+    ); // Handle BookingErrors gracefully with retry button
   }
 
   const { bookingCount, services } = report;
@@ -60,12 +61,12 @@ const ServiceReport = () => {
   return (
     <div className="service-report w-full overflow-auto shadow-md rounded-lg p-4">
       <h2 className="text-xl font-semibold text-gray-800 mb-4">Appointments</h2>
-      <p className="text-gray-600">Total Bookings: {bookingCount}</p>
-      <table className="w-full table-auto">
+      <p className="text-neutral-950 text-lg"><span className=" rounded shadow py-2 bg-amber-300 px-3">Total Bookings: {bookingCount} </span></p>
+      <table className="w-full table-auto mt-3 bg-white p-2">
         <thead>
-          <tr className="text-left bg-gray-200 border-b border-gray-400">
+          <tr className="text-left bg-gray-200 border-b border-gray-400 rounded">
             <th className="p-2">ID</th>
-            <th className="p-2">service Name</th>
+            <th className="p-2">Service Name</th>
             <th className="p-2">User Name</th>
             <th className="p-2">Email</th>
             <th className="p-2">Phone</th>

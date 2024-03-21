@@ -26,6 +26,8 @@ import MyAccount from "./Pages/MyAccount";
 import MyOrder from "./Components/MyOrder/MyOrder";
 import MyBooking from "./Components/MyBooking/MyBooking";
 import ChangPassword from "./Components/Login/ChangPassword";
+import DHome from "./admin/Components/DHome/DHome";
+import Address from "./Pages/Address";
 
 function App(prop) {
   const { location } = prop;
@@ -38,6 +40,7 @@ function App(prop) {
           {!isDashboardRoute && <Navbar />}
           <Routes>
             <Route path="/Dashboard/*" element={<Dashboard />}>
+              <Route path="Home" element={<DHome />} />
               <Route path="users" element={<Page1 />} />
               <Route path="ProductInsert" element={<ProductInsertPage />} />
               <Route path="ProductEdite" element={<ProductEditePage />} />
@@ -86,7 +89,9 @@ function App(prop) {
             <Route path="/Signup" element={<Signup />} />
             <Route path="/aboutus" element={<AboutUs />} />
             <Route path="/Cart" element={<Cart />} />
-            <Route path="/MyAccount" element={<MyAccount />} />
+            <Route path="/MyAccount" element={<MyAccount />}>
+              <Route path="address" element={<Address/>}/>
+            </Route>
             <Route path="/MyOrder" element={<MyOrder />} />
             <Route path="/MyBooking" element={<MyBooking />} />
           </Routes>

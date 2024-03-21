@@ -1,38 +1,43 @@
 import { useContext, useState, useEffect } from "react";
 import { BookingContex } from "../../../Context/BookingContex"; // Assuming BookingContext
+import { FaCalendarXmark } from "react-icons/fa6";
 
 function TodyAppointments() {
-  const { data, loading, error, fetchData } = useContext(BookingContex);
+  const { BookingData, BookingLoading, BookingError, fetchBookingData } =
+    useContext(BookingContex);
   const [filteredServices, setFilteredServices] = useState([]);
 
-  // Filter services on component mount and handle errors
+  // Filter services on component mount and handle BookingErrors
   useEffect(() => {
-    if (data && data.success && data.bookings) {
+    if (BookingData && BookingData.success && BookingData.bookings) {
       const todaysDate = new Date().toLocaleDateString("en-US");
-      const filtered = data.bookings.filter(
+      const filtered = BookingData.bookings.filter(
         (booking) =>
           new Date(booking.serviceDate).toLocaleDateString("en-US") ===
           todaysDate
       );
       setFilteredServices(filtered);
     } else {
-      console.error("Error fetching bookings:", data?.message); // Log error message
+      console.BookingError(
+        "BookingError fetching bookings:",
+        BookingData?.message
+      ); // Log BookingError message
     }
-  }, [data]);
+  }, [BookingData]);
 
-  if (loading) {
-    return <p className="text-center p-4">Loading Appointments...</p>;
+  if (BookingLoading) {
+    return <p className="text-center p-4">BookingLoading Appointments...</p>;
   }
 
-  if (error) {
+  if (BookingError) {
     return (
       <div className="flex flex-col items-center p-4">
         <p className="text-red-500 text-center">
-          Error fetching Appointments: {error}
+          BookingError fetching Appointments: {BookingError}
         </p>
         <button
           className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          onClick={fetchData}
+          onClick={fetchBookingData}
         >
           Retry
         </button>
@@ -43,7 +48,18 @@ function TodyAppointments() {
   const bookingCount = filteredServices.length;
 
   if (!bookingCount) {
-    return <p className="text-center p-4">No appointments for today.</p>;
+    return (
+      <>
+        <div className="w-[100%] m-auto flex justify-center">
+          <div className="w-80 py-10 rounded  bg-white">
+            <p className="flex justify-center">
+              <FaCalendarXmark className="text-6xl text-[#DC2626]"/>
+            </p>
+            <p className="text-xl font-normal text-gray-500 mt-5 mb-6 text-center">No appointments for today !</p>
+          </div>
+        </div>
+      </>
+    );
   }
 
   return (

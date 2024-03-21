@@ -93,12 +93,14 @@ const MyAccount = () => {
   return (
     <>
       <nav className="flex items-center justify-center mt-4">
-        <NavLink
-          to="/MyAccount"
-          className="px-3 py-2 rounded-md text-blue-600 hover:text-blue-800 active:text-blue-700 font-medium"
-        >
-          Profile
-        </NavLink>
+        <div className=" py-2 px-2 rounded bg-yellow-400 shadow shadow-yellow-400 hover:opacity-80">
+          <NavLink
+            to="/MyAccount"
+            className="px-3 py-2 rounded-md text-blue-600 hover:text-blue-800 active:text-blue-700 font-medium"
+          >
+            Profile
+          </NavLink>
+        </div>
         <NavLink
           to="/MyOrder"
           className="px-3 py-2 rounded-md text-blue-600 hover:text-blue-800 active:text-blue-700 font-medium ml-2"
@@ -113,13 +115,22 @@ const MyAccount = () => {
         </NavLink>
       </nav>
 
-      <div className="bg-white max-w-md mx-auto w-full space-y-8 border p-4 rounded-xl mt-8">
-        <h2>My Account</h2>
+      <div className="overflow-auto mb-8 bg-white max-w-md mx-auto w-full space-y-8 border p-4 rounded-xl mt-8">
+        <h2 className="mt-3 text-center text-3xl font-extrabold text-gray-900">
+          My Account
+        </h2>
 
         {/* Display user info */}
         <div className="mb-4">
-          <p>Name: {user.name}</p>
-          <p>Email: {user.email}</p>
+          <div>
+            <p className="">
+              <span className="font-semibold text-x">Name: </span>
+              {user.name}
+            </p>
+            <p>
+              <span className="font-semibold">Email:</span> {user.email}
+            </p>
+          </div>
           {/* Add other user info if available (e.g., role, createdAt) */}
         </div>
 
@@ -140,7 +151,7 @@ const MyAccount = () => {
             </span>
           )}
 
-          <div className="rounded-md shadow-sm -space-y-px">
+          <div className="rounded-md shadow-sm">
             <div>
               <label htmlFor="user-name" className="sr-only">
                 User name
@@ -153,11 +164,11 @@ const MyAccount = () => {
                 required
                 value={user.name}
                 onChange={handleChangeForUser}
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="appearance-none bg-stone-100 rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="User Name"
               />
             </div>
-            <div>
+            <div className="mt-2">
               <label htmlFor="email-address" className="sr-only">
                 Email address
               </label>
@@ -169,7 +180,7 @@ const MyAccount = () => {
                 required
                 value={user.email}
                 onChange={handleChangeForUser}
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="appearance-none bg-stone-100 rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Email address"
               />
             </div>
@@ -221,7 +232,7 @@ const MyAccount = () => {
                 id="address"
                 name="address"
                 className="rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                value={address.address}
+                // value={address.address}
                 onChange={handleChangeForAddress}
                 required
               />
@@ -235,7 +246,7 @@ const MyAccount = () => {
                 id="city"
                 name="city"
                 className="rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                value={address.city}
+                // value={address.city}
                 onChange={handleChangeForAddress}
                 required
               />
@@ -249,7 +260,7 @@ const MyAccount = () => {
                 id="state"
                 name="state"
                 className="rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                value={address.state}
+                // value={address.state}
                 onChange={handleChangeForAddress}
                 required
               />
@@ -263,7 +274,7 @@ const MyAccount = () => {
                 id="pinCode"
                 name="pinCode"
                 className="rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                value={address.pinCode}
+                // value={address.pinCode}
                 onChange={handleChangeForAddress}
                 required
               />
@@ -277,7 +288,7 @@ const MyAccount = () => {
                 id="phoneNo"
                 name="phoneNo"
                 className="rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                value={address.phoneNo}
+                // value={address.phoneNo}
                 onChange={handleChangeForAddress}
                 size="10"
                 required
@@ -291,7 +302,7 @@ const MyAccount = () => {
             )} */}
             <button
               type="submit"
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md"
+              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
               Update shipping Address
             </button>

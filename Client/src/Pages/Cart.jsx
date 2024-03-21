@@ -93,35 +93,57 @@ export default function Cart() {
       setError("Please fill in all required shipping information fields.");
       return;
     }
-    console.log(order.paymentInfo);
+    // console.log(order.paymentInfo);
 
     try {
-      const response = await axiosInstance.post(
-        "http://localhost:4000/api/v1/order/new",
-        JSON.stringify(order),
+      const respons = await axiosInstance.post(
+        "http://localhost:4000/api/v1/payment/process",
+        JSON.stringify({ items: order.orderItems }),
         {
           headers: {
             "Content-Type": "application/json", // Adjust based on data format
           },
         }
       );
-
-      // ... (existing code)
-      console.log(response.data);
-      if (response.data && response.data.success) {
-        // Success case: reset form data
-        dispatch({ type: "DROP" });
-        setMessage("order processing successfully!");
-      } else {
-        // Handle validation or other errors
-        setError(response.data?.message || "order processing failed.");
-      }
+      console.log(respons.data.url);
+      window.location = respons.data.url;
+      setIsLoading(false);
     } catch (error) {
+      setIsLoading(false);
       setError(error.response?.data?.message || "order processing failed.");
       console.error(error);
     } finally {
       setIsLoading(false);
     }
+
+    // try {
+    //   setIsLoading(true);
+    //   const response = await axiosInstance.post(
+    //     "http://localhost:4000/api/v1/order/new",
+    //     JSON.stringify(order),
+    //     {
+    //       headers: {
+    //         "Content-Type": "application/json", // Adjust based on data format
+    //       },
+    //     }
+    //   );
+
+    //   // ... (existing code)
+    //   console.log(response.data);
+    //   if (response.data && response.data.success) {
+    //     // Success case: reset form data
+    //     dispatch({ type: "DROP" });
+    //     setMessage("order processing successfully!");
+    //   } else {
+    //     // Handle validation or other errors
+    //     setError(response.data?.message || "order processing failed.");
+    //   }
+    // } catch (error) {
+    //   setError(error.response?.data?.message || "order processing failed.");
+    //   console.error(error);
+    // } finally {
+    //   setIsLoading(false);
+    // }
   };
 
   if (state.length === 0) {
