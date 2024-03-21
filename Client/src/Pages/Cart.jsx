@@ -93,20 +93,40 @@ export default function Cart() {
       setError("Please fill in all required shipping information fields.");
       return;
     }
-    // console.log(order.paymentInfo);
+    // console.log(order.paymentInfo.totalPrice);
 
     try {
-      const respons = await axiosInstance.post(
-        "http://localhost:4000/api/v1/payment/process",
-        JSON.stringify({ items: order.orderItems }),
-        {
-          headers: {
-            "Content-Type": "application/json", // Adjust based on data format
-          },
-        }
+      const key = await axiosInstance.get(
+        "http://localhost:4000/api/v1/razorapikey"
       );
-      console.log(respons.data.url);
-      window.location = respons.data.url;
+      // console.log(key.data.stripeApiKey);
+      const amounte = await axiosInstance.post(
+        "http://localhost:4000/api/v1/payment/process",
+        { amount: order.paymentInfo.totalPrice }
+      );
+      // console.log(amounte.data.order.amount);
+
+      // console.log(window);
+      const options = {
+        key: key.data.stripeApiKey,
+        amount: amounte.data.order.amount,
+        currency: "INR",
+        name: "UNIQ'S AUTOMOTIVE",
+        description: "Razorpay tutorial",
+        image:
+          "https://i.pinimg.com/originals/d4/c4/e9/d4c4e9c85ee27739003ec459b64a89c7.jpg",
+        order_id: order.id,
+
+        notes: {
+          address: "razorapy official",
+        },
+        theme: {
+          color: "#3399cc",
+        },
+      };
+      const razor = new window.Razorpay(options);
+      razor.open();
+
       setIsLoading(false);
     } catch (error) {
       setIsLoading(false);
@@ -116,34 +136,34 @@ export default function Cart() {
       setIsLoading(false);
     }
 
-    // try {
-    //   setIsLoading(true);
-    //   const response = await axiosInstance.post(
-    //     "http://localhost:4000/api/v1/order/new",
-    //     JSON.stringify(order),
-    //     {
-    //       headers: {
-    //         "Content-Type": "application/json", // Adjust based on data format
-    //       },
-    //     }
-    //   );
+    try {
+      setIsLoading(true);
+      const response = await axiosInstance.post(
+        "http://localhost:4000/api/v1/order/new",
+        JSON.stringify(order),
+        {
+          headers: {
+            "Content-Type": "application/json", // Adjust based on data format
+          },
+        }
+      );
 
-    //   // ... (existing code)
-    //   console.log(response.data);
-    //   if (response.data && response.data.success) {
-    //     // Success case: reset form data
-    //     dispatch({ type: "DROP" });
-    //     setMessage("order processing successfully!");
-    //   } else {
-    //     // Handle validation or other errors
-    //     setError(response.data?.message || "order processing failed.");
-    //   }
-    // } catch (error) {
-    //   setError(error.response?.data?.message || "order processing failed.");
-    //   console.error(error);
-    // } finally {
-    //   setIsLoading(false);
-    // }
+      // ... (existing code)
+      console.log(response.data);
+      if (response.data && response.data.success) {
+        // Success case: reset form data
+        dispatch({ type: "DROP" });
+        setMessage("order processing successfully!");
+      } else {
+        // Handle validation or other errors
+        setError(response.data?.message || "order processing failed.");
+      }
+    } catch (error) {
+      setError(error.response?.data?.message || "order processing failed.");
+      console.error(error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   if (state.length === 0) {
