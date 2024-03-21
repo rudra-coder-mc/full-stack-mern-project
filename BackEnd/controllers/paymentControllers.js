@@ -2,7 +2,7 @@ const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 const Payment = require("../models/paymentModel");
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const razorpay = require("razorpay");
-// const crypto = 
+const crypto = require("crypto"); 
 
 // exports.processPayment = catchAsyncErrors(async (req, res, next) => {
 //   const myPayment = await stripe.paymentIntents.create({
@@ -69,9 +69,19 @@ exports.processPayment = catchAsyncErrors(async (req, res, next) => {
 exports.paymentVerification = catchAsyncErrors(async(req,res,next)=>{
      const {razorpay_order_id,razorpay_payment_id,razorpay_signature}=req.body;
      const body = razorpay_order_id + "|" + razorpay_payment_id;
-    //  const expectedsignature = 
+     const expectedsignature = crypto.createHash('sha256',process.env.RAYZORPAY_API_SECRET_KEY).update(body.toString('hex'));
+     const isauth = expectedsignature === razorpay_signature;
+     if(isauth){
+      await Payment.create({
+        razorpay_order_id,razorpay_payment_id,razorpay_signature
+      })
+      res.redireact(`http://localhost:5173/paymentsuccess?reference=${razorpay_payment_id}`)
+     }
+     else{
+      res.status(400).json({success:false})
+     }
 })
 
-exports.sendStripeApiKey = catchAsyncErrors(async (req, res, next) => {
-      res.status(200).json({ stripeApiKey: process.env.STRIPE_API_KEY });
+exports.sendRayzonApiKey = catchAsyncErrors(async (req, res, next) => {
+      res.status(200).json({ stripeApiKey: process.env.RAYZORPAY_API_KEY });
     });
