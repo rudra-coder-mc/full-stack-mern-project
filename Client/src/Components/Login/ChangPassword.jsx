@@ -38,10 +38,13 @@ const ChangPassword = () => {
       <div className="max-w-md w-full space-y-8 border p-4 rounded-xl bg-cyan-200">
         <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-            Chang Password to your UNIQ`S Account
+            Change Password to your UNIQ`S Account
           </h2>
         </div>
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+        <form
+          className="max-w-md w-full space-y-8 p-4 rounded-xl bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%"
+          onSubmit={handleSubmit}
+        >
           <input type="hidden" name="remember" value="true" />
           <div className="rounded-md shadow-sm -space-y-px">
             <div>
@@ -104,14 +107,14 @@ const ChangPassword = () => {
               type="submit"
               className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
-              ChangPassword
+              Change Password
             </button>
           </div>
-          <p className="mb-0 mt-2 pt-1 text-sm font-semibold">
+          <p className="mb-0 mt-2 pt-1 text-sm font-semibold text-white">
             go to{" "}
             <NavLink
               to="/MyAccount"
-              className="text-danger transition duration-150 ease-in-out hover:text-danger-600 focus:text-danger-600 active:text-danger-700"
+              className="text-danger text-white transition duration-150 ease-in-out hover:text-danger-600 focus:text-danger-600 active:text-danger-700"
             >
               {" "}
               MyAccount

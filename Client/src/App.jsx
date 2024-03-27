@@ -27,7 +27,7 @@ import MyOrder from "./Components/MyOrder/MyOrder";
 import MyBooking from "./Components/MyBooking/MyBooking";
 import ChangPassword from "./Components/Login/ChangPassword";
 import DHome from "./admin/Components/DHome/DHome";
-import Address from "./Pages/Address";
+import Address from "./Components/Address/Address";
 
 function App(prop) {
   const { location } = prop;
@@ -89,9 +89,9 @@ function App(prop) {
             <Route path="/Signup" element={<Signup />} />
             <Route path="/aboutus" element={<AboutUs />} />
             <Route path="/Cart" element={<Cart />} />
-            <Route path="/MyAccount" element={<MyAccount />}>
-              <Route path="address" element={<Address/>}/>
-            </Route>
+            <Route path="/MyAccount" element={<MyAccount />} />
+
+            <Route path="/MyAddress" element={<Address />} />
             <Route path="/MyOrder" element={<MyOrder />} />
             <Route path="/MyBooking" element={<MyBooking />} />
           </Routes>

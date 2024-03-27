@@ -59,7 +59,11 @@ const Card = (prop) => {
   return (
     <div className="w-full max-w-72 bg-white border border-gray-200 rounded-lg shadow p-3 mb-2">
       <Link to={`product/${prop.id}`}>
-        <img className="p-2 rounded-3xl object-contain h-48 w-96" src={prop.image} alt="Product" />
+        <img
+          className="p-2 rounded-3xl object-contain h-48 w-96"
+          src={prop.image}
+          alt="Product"
+        />
       </Link>
 
       <div className="p-1">
@@ -109,16 +113,6 @@ const Card = (prop) => {
           </p>
         )}
 
-        <div className="flex justify-between mb-2">
-          <div className="text-sm font-semibold text-gray-900">
-            {/* New Price: ${product.price.new} */}
-            category : {prop.category}
-          </div>
-          <div className="text-sm font-semibold text-gray-900">
-            {/* New Price: ${product.price.new} */}
-            stock: {prop.stock}
-          </div>
-        </div>
         <div className="flex justify-between">
           {/* Price and quantity display */}
           <div className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-gray-900">

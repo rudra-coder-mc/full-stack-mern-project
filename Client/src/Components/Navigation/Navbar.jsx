@@ -31,11 +31,19 @@ const Navbar = () => {
       <nav className="container mx-auto flex items-center justify-between p-4">
         <div className="text-2xl font-bold">
           <NavLink to="/">
-            <img src={logo} className="w-12 h-12 bg-transparent " alt="logo" />
+            <img
+              src={logo}
+              className=" w-12 h-12 bg-transparent mx-6"
+              alt="logo"
+            />
           </NavLink>
         </div>
         <div>
-          <NavItem NavItemStyle={"hidden md:flex gap-x-5 xl:gap-x-10 "} />
+          <NavItem
+            NavItemStyle={
+              "hidden md:flex gap-x-5 xl:gap-x-10 "
+            }
+          />
           <NavItem
             NavItemStyle={`${
               menuOpened

@@ -14,16 +14,16 @@ const NavItem = (prop) => {
       ) : (
         <>
           <ul className={NavItemStyle}>
-            <li>
+            <li className="hover:bg-white hover:text-black">
               <NavLink to="/">Home</NavLink>
             </li>
-            <li>
+            <li className="hover:bg-white hover:text-black">
               <NavLink to="/ProductCategory">Product</NavLink>
             </li>
-            <li>
+            <li className="hover:bg-white hover:text-black">
               <NavLink to="/ServicesCategory">Service</NavLink>
             </li>
-            <li>
+            <li className="hover:bg-white hover:text-black">
               <NavLink to="/MyAccount">MyAccount</NavLink>
             </li>
           </ul>

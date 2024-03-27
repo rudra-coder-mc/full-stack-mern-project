@@ -13,8 +13,8 @@ const ServiceDetailPage = (prop) => {
   });
   const [formData, setFormData] = useState({
     serviceName: prop.name,
-    name: "",
-    email: "",
+    name: prop.UName,
+    email: prop.UEmail,
     phone: "",
     serviceDate: null,
     serviceTime: "",
@@ -117,14 +117,14 @@ const ServiceDetailPage = (prop) => {
               {prop.ratings}
             </span>
           </div>
-          <p className="text-black text-sm mb-4">{prop.comments}</p>
+          <p className="text-black text-lg mb-4">{prop.description}</p>
           <div className="flex items-center mb-4">
             <span className="text-green-500">
               {" "}
               Booking Price : ${prop.price}
             </span>
           </div>
-          <p className="text-sm text-black mb-4">category : {prop.category}</p>
+
           <button
             className={`bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg `}
             onClick={() => setBooking((pre) => !pre)}
@@ -134,28 +134,31 @@ const ServiceDetailPage = (prop) => {
           <br />
           <br />
           {message && ( // Conditionally display error message
-            <span className="text-green-500 font-bold text-sm block mb-4">
+            <span className="text-green-500 font-bold text-lg block mb-4">
               {message}
             </span>
           )}
         </div>
       </div>
       {Booking && (
-        <div className="container mx-auto px-4 py-8">
+        <div className="container mx-auto w-[60%]  px-4 py-8 ">
           <h1 className="text-3xl font-bold mb-6">Service book</h1>
-          <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
+          <form
+            onSubmit={handleSubmit}
+            className=" w-full space-y-2 p-4 rounded-xl bg-gradient-to-r  from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%"
+          >
             {error && ( // Conditionally display error message
-              <span className="text-red-500 font-bold text-sm block mb-4">
+              <span className="text-red-500 font-bold text-lg block mb-4">
                 {error}
               </span>
             )}
             {message && ( // Conditionally display error message
-              <span className="text-green-500 font-bold text-sm block mb-4">
+              <span className="text-green-500 font-bold text-lg block mb-4">
                 {message}
               </span>
             )}
             <div className="flex flex-col">
-              <label htmlFor="name" className="text-sm font-medium mb-2">
+              <label htmlFor="name" className="text-lg font-medium mb-1">
                 User Name
               </label>
               <input
@@ -169,7 +172,7 @@ const ServiceDetailPage = (prop) => {
               />
             </div>
             <div className="flex flex-col">
-              <label htmlFor="email" className="text-sm font-medium mb-2">
+              <label htmlFor="email" className="text-lg font-medium mb-1">
                 email
               </label>
               <input
@@ -183,7 +186,7 @@ const ServiceDetailPage = (prop) => {
               />
             </div>
             <div className="flex flex-col">
-              <label htmlFor="phone" className="text-sm font-medium mb-2">
+              <label htmlFor="phone" className="text-lg font-medium mb-1">
                 phone
               </label>
               <input
@@ -199,7 +202,7 @@ const ServiceDetailPage = (prop) => {
               />
             </div>
             <div className="flex flex-col">
-              <label htmlFor="serviceDate" className="text-sm font-medium mb-2">
+              <label htmlFor="serviceDate" className="text-lg font-medium mb-1">
                 serviceDate
               </label>
               <input
@@ -213,7 +216,7 @@ const ServiceDetailPage = (prop) => {
               />
             </div>
             <div className="flex flex-col">
-              <label htmlFor="serviceTime" className="text-sm font-medium mb-2">
+              <label htmlFor="serviceTime" className="text-lg font-medium mb-1">
                 serviceTime
               </label>
               <select
@@ -231,7 +234,7 @@ const ServiceDetailPage = (prop) => {
               </select>
             </div>
             <div className="flex flex-col">
-              <label htmlFor="carType" className="text-sm font-medium mb-2">
+              <label htmlFor="carType" className="text-lg font-medium mb-1">
                 carType
               </label>
               <select
@@ -247,7 +250,7 @@ const ServiceDetailPage = (prop) => {
               </select>
             </div>
             <div className="flex flex-col">
-              <label htmlFor="comments" className="text-sm font-medium mb-2">
+              <label htmlFor="comments" className="text-lg font-medium mb-1">
                 comments
               </label>
               <textarea
@@ -260,13 +263,13 @@ const ServiceDetailPage = (prop) => {
             </div>
 
             {error && (
-              <span className="text-red-500 font-bold text-sm block mb-4">
+              <span className="text-red-500 font-bold text-lg block mb-4">
                 {error}
               </span>
             )}
             <button
               type="submit"
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md"
+              className="transition duration-300 ease-in-out hover:bg-blue-400 text-black bg-white font-bold py-2 px-4 rounded-md"
               disabled={isLoading}
             >
               {isLoading ? "booking..." : "book Service"}

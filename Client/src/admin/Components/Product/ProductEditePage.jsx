@@ -119,7 +119,7 @@ const ProductEditePage = () => {
 
                 <Link to={`ProductUpdate/${product._id}`}>
                   <button className="inline-block bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 text-white font-medium rounded-lg text-sm px-5 py-2.5">
-                    Edite
+                    Edit
                   </button>
                 </Link>
               </div>

@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import { AuthContext } from "../Context/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
+import bgLogin from "../assets/bgLogin.jpeg";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -21,7 +22,10 @@ const Signup = () => {
     }
   };
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#222d32] py-12 px-4 sm:px-6 lg:px-8">
+    <div
+      className="min-h-screen flex items-center justify-center  py-12 px-4 sm:px-6 lg:px-8 relative bg-cover bg-no-repeat bg-center  w-full h-full "
+      style={{ backgroundImage: `url(${bgLogin})` }}
+    >
       <div className="max-w-md w-full space-y-8  p-4 rounded-xl bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%">
         <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">

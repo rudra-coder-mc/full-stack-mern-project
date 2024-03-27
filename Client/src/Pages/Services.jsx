@@ -11,6 +11,10 @@ const Services = () => {
   const { data, loading, error } = useContext(ServicesContex); // Access context properties
   const [selectedServices, setSelectedServices] = useState(null); // State to store the filtered Services
   const { ServiceId } = useParams();
+  const [Udata, setUdata] = useState({
+    name: null,
+    email: null,
+  });
 
   // Fetch and filter data when component mounts
   useEffect(() => {
@@ -21,7 +25,16 @@ const Services = () => {
       );
 
       setSelectedServices(filteredServices);
-      console.log(data);
+      let temp = localStorage.getItem("user");
+      let user = JSON.parse(temp);
+      setUdata({
+        name: user.name,
+        email: user.email,
+      });
+
+      // console.log(user);
+      // console.log(user.name);
+      // console.log(user.email);
     }
   }, [data, loading, error, ServiceId]);
 
@@ -47,6 +60,8 @@ const Services = () => {
       price={selectedServices.price}
       category={selectedServices.category}
       ratings={selectedServices.ratings}
+      UName={Udata.name}
+      UEmail={Udata.email}
     />
   );
 };

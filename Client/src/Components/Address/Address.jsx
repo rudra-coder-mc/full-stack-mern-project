@@ -1,13 +1,40 @@
-import React from 'react'
+import { useState, useEffect } from "react";
+import SubNav from "../SubNav/SubNav";
 
-function Address() {
+const Address = () => {
+  const [address, setAddress] = useState({
+    address: "",
+    city: "",
+    state: "",
+    pinCode: 0,
+    phoneNo: 0,
+  });
+  const [AddressMessage, setAddressMessage] = useState(null);
+
+  const handleSubmitForAddress = async (e) => {
+    e.preventDefault(); // Prevent default form submission behavior
+    let data = JSON.stringify(address);
+    localStorage.setItem("address", data);
+    setAddressMessage("Update success");
+  };
+  useEffect(() => {
+    let data2 = localStorage.getItem("address");
+    let address = JSON.parse(data2);
+    setAddress(address);
+  }, []);
+  const handleChangeForAddress = (event) => {
+    setAddressMessage(null);
+    setAddress({ ...address, [event.target.name]: event.target.value });
+  };
   return (
     <>
-         <div className="container mx-auto px-4 py-8">
-          <h1 className="text-3xl font-bold mb-6">shipping Address</h1>
+      <SubNav />
+      <div className="overflow-auto mb-8 bg-blue-200 max-w-md mx-auto w-full space-y-8 border p-4 rounded-xl mt-8">
+        <div className="container mx-auto ">
+          <h1 className="text-3xl font-bold mb-6">Address</h1>
           <form
             onSubmit={handleSubmitForAddress}
-            className="flex flex-col space-y-4"
+            className="w-full space-y-2 p-4 rounded-xl bg-gradient-to-r  from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%"
           >
             {/* {AddressError && ( // Conditionally display error message
               <span className="text-red-500 font-bold text-sm block mb-4">
@@ -28,7 +55,7 @@ function Address() {
                 id="address"
                 name="address"
                 className="rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                // value={address.address}
+                value={address.address}
                 onChange={handleChangeForAddress}
                 required
               />
@@ -42,7 +69,7 @@ function Address() {
                 id="city"
                 name="city"
                 className="rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                // value={address.city}
+                value={address.city}
                 onChange={handleChangeForAddress}
                 required
               />
@@ -56,7 +83,7 @@ function Address() {
                 id="state"
                 name="state"
                 className="rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                // value={address.state}
+                value={address.state}
                 onChange={handleChangeForAddress}
                 required
               />
@@ -70,7 +97,7 @@ function Address() {
                 id="pinCode"
                 name="pinCode"
                 className="rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                // value={address.pinCode}
+                value={address.pinCode}
                 onChange={handleChangeForAddress}
                 required
               />
@@ -84,7 +111,7 @@ function Address() {
                 id="phoneNo"
                 name="phoneNo"
                 className="rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                // value={address.phoneNo}
+                value={address.phoneNo}
                 onChange={handleChangeForAddress}
                 size="10"
                 required
@@ -104,8 +131,8 @@ function Address() {
             </button>
           </form>
         </div>
+      </div>
     </>
-  )
-}
-
-export default Address
+  );
+};
+export default Address;
