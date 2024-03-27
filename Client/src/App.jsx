@@ -11,7 +11,6 @@ import Cart from "./Pages/Cart";
 import Footer from "./Components/Footer/Footer";
 import ProductCategory from "./Pages/ProductCategory";
 import ServicesCategory from "./Pages/ServicesCategory";
-import Page1 from "./admin/Components/Page1";
 import ProductInsertPage from "./admin/Components/Product/ProductInsertPage";
 import ProductEditePage from "./admin/Components/Product/ProductEditePage";
 import ProductUpdate from "./admin/Components/Product/ProductUpdate";
@@ -28,6 +27,7 @@ import MyBooking from "./Components/MyBooking/MyBooking";
 import ChangPassword from "./Components/Login/ChangPassword";
 import DHome from "./admin/Components/DHome/DHome";
 import Address from "./Components/Address/Address";
+import Booking from "./admin/Components/Booking";
 
 function App(prop) {
   const { location } = prop;
@@ -41,7 +41,7 @@ function App(prop) {
           <Routes>
             <Route path="/Dashboard/*" element={<Dashboard />}>
               <Route path="Home" element={<DHome />} />
-              <Route path="users" element={<Page1 />} />
+              <Route path="Booking" element={<Booking />} />
               <Route path="ProductInsert" element={<ProductInsertPage />} />
               <Route path="ProductEdite" element={<ProductEditePage />} />
               <Route path="ServicesInsert" element={<ServicesInsertPage />} />
