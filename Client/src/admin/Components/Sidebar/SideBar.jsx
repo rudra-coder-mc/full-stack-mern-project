@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider";
 import { FaSignInAlt } from "react-icons/fa";
+import { FaUser } from "react-icons/fa";
 
 const SideBar = () => {
   const { logout } = useContext(AuthContext);
@@ -139,7 +140,13 @@ const SideBar = () => {
                 />
               </svg>
               <NavLink to="/Dashboard/Booking" className="mx-2">
-              Booking
+                Booking
+              </NavLink>
+            </li>
+            <li className="py-2 hover:bg-gray-700 relative flex p-2 rounded">
+              <FaUser />
+              <NavLink to="/Dashboard/User" className="mx-2">
+                User
               </NavLink>
             </li>
             <li

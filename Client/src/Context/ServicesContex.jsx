@@ -1,17 +1,4 @@
-// import { createContext } from "react";
 
-// export const ServicesContex = createContext(null);
-
-// const ServicesContexProvider = (prop) => {
-//   const contextValue = "hii";
-//   return (
-//     <ServicesContex.Provider value={contextValue}>
-//       {prop.children}
-//     </ServicesContex.Provider>
-//   );
-// };
-
-// export default ServicesContexProvider;
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
 
@@ -35,7 +22,7 @@ const ServicesContexProvider = (prop) => {
 
     try {
       const response = await axiosInstance.get(
-        "http://localhost:4000/api/v1/service"
+        "/api/v1/service"
       );
       setData(response.data.services);
     } catch (error) {

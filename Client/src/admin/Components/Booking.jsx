@@ -141,7 +141,7 @@ const Booking = () => {
                   onClick={() => handelCancel(service.id)}
                   disabled={isCancelling} // Disable button while cancelling
                 >
-                  Delete
+                  Cancel
                 </button>
               </td>
             </tr>

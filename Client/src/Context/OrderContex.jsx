@@ -21,7 +21,7 @@ const OrderContextProvider = (prop) => {
 
     try {
       const response = await axiosInstance.get(
-        "http://localhost:4000/api/v1/admin/orders"
+        "/api/v1/admin/orders"
       );
       if (response.data.success) {
         setOrderData(response.data.orders);

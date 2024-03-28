@@ -1,9 +1,6 @@
-// import hero_img1 from "../../assets/hero_img1.jpeg";
-import autosale from "../../assets/service.jpg";
-
-const Offers = (props) => {
-  const {data} =props;
-  console.log(data)
+const Offers = (prop) => {
+  const { data } = prop;
+  // console.log(data)
   const offerData = {
     title: data.title,
     subtitle: data.subtitle,

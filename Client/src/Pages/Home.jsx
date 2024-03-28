@@ -6,7 +6,8 @@ import ServicesCategory from "./ServicesCategory";
 import Data from "../assets/Data/Data";
 
 const Home = () => {
-  console.log(Data[1]);
+  // console.log(Data[1]);
+
   return (
     <>
       <Hero />

@@ -28,6 +28,7 @@ import ChangPassword from "./Components/Login/ChangPassword";
 import DHome from "./admin/Components/DHome/DHome";
 import Address from "./Components/Address/Address";
 import Booking from "./admin/Components/Booking";
+import User from "./admin/Components/User/User";
 
 function App(prop) {
   const { location } = prop;
@@ -42,6 +43,7 @@ function App(prop) {
             <Route path="/Dashboard/*" element={<Dashboard />}>
               <Route path="Home" element={<DHome />} />
               <Route path="Booking" element={<Booking />} />
+              <Route path="User" element={<User />} />
               <Route path="ProductInsert" element={<ProductInsertPage />} />
               <Route path="ProductEdite" element={<ProductEditePage />} />
               <Route path="ServicesInsert" element={<ServicesInsertPage />} />
@@ -98,7 +100,6 @@ function App(prop) {
           {!isDashboardRoute && <Footer />}
         </Router>
       </div>
-      <div className="bg-[#EEF5FF]"></div>
     </>
   );
 }

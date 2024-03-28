@@ -59,6 +59,12 @@ const MyBooking = () => {
       </>
     );
   }
+  const newData = (date) => {
+    // console.log(date);
+    const formattedDate = new Date(date).toLocaleDateString("en-IN");
+    // console.log(formattedDate);
+    return formattedDate;
+  };
 
   const bookingContent = isLoading ? (
     <p>Loading bookings...</p>
@@ -100,7 +106,7 @@ const MyBooking = () => {
               {booking.phone}
             </td>
             <td className="px-4 py-2 border border-gray-200">
-              {booking.serviceDate}
+              {newData(booking.serviceDate)}
             </td>
             <td className="px-4 py-2 border border-gray-200">
               {booking.serviceTime}

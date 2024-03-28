@@ -20,9 +20,7 @@ const UserContexProvider = (prop) => {
     setUserError(null); // Clear any previous errors
 
     try {
-      const response = await axiosInstance.get(
-        "http://localhost:4000/api/v1/admin/users"
-      );
+      const response = await axiosInstance.get("/api/v1/admin/users");
       if (response.data.success) {
         setUserData(response.data);
       } else {

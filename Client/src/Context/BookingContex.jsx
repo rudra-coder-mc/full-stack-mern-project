@@ -21,7 +21,7 @@ const BookingContexProvider = (prop) => {
 
     try {
       const response = await axiosInstance.get(
-        "http://localhost:4000/api/v1/booking"
+        "/api/v1/booking"
       );
       if (response.data.success) {
         setBookingData(response.data || []); // Set default empty array for orders

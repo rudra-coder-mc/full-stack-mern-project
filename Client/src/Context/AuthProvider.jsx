@@ -5,7 +5,7 @@ export const AuthContext = createContext();
 
 const AuthProvider = (prop) => {
   const { children } = prop;
-  const API_URL = "http://localhost:4000/api/v1/";
+  const API_URL = "/api/v1/";
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -75,7 +75,7 @@ const AuthProvider = (prop) => {
     const data = { name, email, password };
     try {
       const response = await axiosInstance.post(
-        "http://localhost:4000/api/v1/register",
+        "/api/v1/register",
         data
       );
 
