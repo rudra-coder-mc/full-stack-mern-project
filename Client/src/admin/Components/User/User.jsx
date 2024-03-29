@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { UserContex } from "../../../Context/UserContex";
+import axios from "axios";
 
 const User = () => {
   const { UserData, UserLoading, UserError, fetchUserData } =
@@ -8,6 +9,9 @@ const User = () => {
     role: "",
     id: "",
   });
+  const [Loding, setLoding] = useState(false);
+  const [Error, setError] = useState("");
+  const axiosInstance = axios.create({ withCredentials: true });
 
   if (UserLoading) {
     return <p className="text-center p-4">UserLoading Users...</p>; // Render UserLoading indicator
@@ -34,6 +38,7 @@ const User = () => {
   const users = UserData.users;
 
   const UpdateRolw = (e, id) => {
+    setError(null);
     if (e != "Selete role") {
       setUpDateRole({
         role: e,
@@ -41,14 +46,60 @@ const User = () => {
       });
     }
   };
-  const handelUpdate = () => {
-    console.log(UpDateRole);
+  const handelUpdate = async (id) => {
+    setLoding(true);
+    // console.log(UpDateRole.role);
+    if (UpDateRole.id == id) {
+      try {
+        let Url = `/api/v1/admin/user/${id}`;
+        const response = await axiosInstance.put(Url, {
+          role: UpDateRole.role,
+        });
+        if (response.data.success) {
+          fetchUserData();
+        } else {
+          setError("Something went wrong. Please try again.");
+          console.log(response);
+        }
+      } catch (error) {
+        // Log error for debugging
+        console.error("Error fetching data:", error);
+        setError("Something went wrong. Please try again.");
+      } finally {
+        setLoding(false);
+      }
+    } else {
+      setError("on one time selected User can Update");
+    }
+
+    setLoding(false);
+  };
+
+  const handelDelete = async (id) => {
+    setLoding(true);
+    // console.log(id);
+    try {
+      let Url = `/api/v1/admin/user/${id}`;
+      const response = await axiosInstance.delete(Url);
+      if (response.data.success) {
+        fetchUserData();
+      } else {
+        setError("Something went wrong. Please try again.");
+        console.log(response);
+      }
+    } catch (error) {
+      // Log error for debugging
+      console.error("Error fetching data:", error);
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setLoding(false);
+    }
   };
 
   return (
     <div className="user-report w-full shadow-md rounded-lg px-4 py-4 overflow-auto">
       <h2 className="text-xl font-semibold text-gray-800 mb-4">UpDate User</h2>
-
+      {Error && <span className="text-xl text-red-800">{Error}</span>}
       <table className="w-full table-auto">
         <thead>
           <tr className="text-left bg-gray-200 border-b border-gray-400">
@@ -58,7 +109,7 @@ const User = () => {
             <th className="p-2">Role</th>
             <th className="p-2">Created At</th>
             <th className="p-2">UpDate Role</th>
-            <th className="p-2">Update button</th>
+            <th className="p-2">button</th>
           </tr>
         </thead>
         <tbody>
@@ -84,7 +135,20 @@ const User = () => {
                 </select>
               </td>
               <td>
-                <button onClick={handelUpdate}>Update</button>
+                <button
+                  className="m-1 bg-green-500 p-1 rounded-xl"
+                  onClick={() => handelUpdate(user._id)}
+                  disabled={Loding}
+                >
+                  Update
+                </button>
+                <button
+                  className="m-1 bg-red-500 p-1 rounded-xl"
+                  onClick={() => handelDelete(user._id)}
+                  disabled={Loding}
+                >
+                  Delete
+                </button>
               </td>
             </tr>
           ))}
