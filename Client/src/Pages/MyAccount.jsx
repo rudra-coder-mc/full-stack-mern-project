@@ -152,7 +152,7 @@ const MyAccount = () => {
 
           <div className="text-sm">
             <NavLink
-              to="/Login/UpdatePassword"
+              to="/MyAccount/UpdatePassword"
               className="font-medium text-white hover:text-black"
             >
               Change your password?
