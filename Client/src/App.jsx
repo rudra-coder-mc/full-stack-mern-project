@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, json } from "react-router-dom";
 import Home from "./Pages/Home";
 import Navbar from "./Components/Navigation/Navbar";
 import Service from "./Pages/Services";
@@ -33,6 +33,11 @@ import User from "./admin/Components/User/User";
 function App(prop) {
   const { location } = prop;
   const isDashboardRoute = location.pathname.startsWith("/Dashboard");
+  
+  const userRole = localStorage.getItem('user');
+  console.log(userRole.name)
+
+  
 
   return (
     <>

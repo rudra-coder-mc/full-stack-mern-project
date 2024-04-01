@@ -2,8 +2,7 @@ import { useContext, useEffect } from "react";
 import { OrderContext } from "../../../Context/OrderContex";
 import { BookingContex } from "../../../Context/BookingContex";
 import { UserContex } from "../../../Context/UserContex";
-
-
+import { FaCartArrowDown,FaUserFriends,FaCalendarAlt } from "react-icons/fa";
 
 const DHome = () => {
   const { OrderData, OrderLoading, OrderError, fetchOrderData } =
@@ -138,71 +137,66 @@ const DHome = () => {
   return (
     <>
       <div className="bg-gray-100 min-h-screen">
-    <div className="container mx-auto px-4 py-8">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        {OrderData && (
-          <div className="bg-yellow-400 rounded-lg shadow-md p-6 flex items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 text-blue-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M3 3a2 2 0 00-2 2v12a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2H3zm5 10a1 1 0 11-2 0 1 1 0 012 0zm4-4a1 1 0 11-2 0 1 1 0 012 0zm4 4a1 1 0 11-2 0 1 1 0 012 0zm-7-6h6v2H9V7z" clipRule="evenodd" />
-            </svg>
-            <div>
-              <h2 className="text-lg font-semibold text-gray-800">
-                Total Orders
-              </h2>
-              <p className="text-gray-600">
-                {OrderData.length}
-              </p>
-            </div>
+        <div className="container mx-auto px-4 py-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {OrderData && (
+              <div className="bg-yellow-400 rounded-lg shadow-md p-6 flex items-center">
+                <FaCartArrowDown  className="text-4xl "/>
+                <div className="mx-3">
+                  <h2 className="text-lg font-semibold text-gray-800">
+                    Total Orders
+                  </h2>
+                  <p className="text-gray-600">{OrderData.length}</p>
+                </div>
+              </div>
+            )}
+            {UserData.users && (
+              <div className="bg-green-400 rounded-lg shadow-md p-6 flex items-center">
+              <FaUserFriends className="text-4xl "/>
+                <div className="mx-3">
+                  <h2 className="text-lg font-semibold text-gray-800">
+                    Total Users
+                  </h2>
+                  <p className="text-gray-600">{UserData.users.length}</p>
+                </div>
+              </div>
+            )}
+            {BookingData && (
+              <div className=" rounded-lg shadow-md p-6 flex items-center bg-pink-600">
+              <FaCalendarAlt className="text-4xl text-white" />
+                <div className="mx-3">
+                  <h2 className="text-lg font-semibold text-gray-800">
+                    Total Bookings
+                  </h2>
+                  <p className="text-gray-600">{BookingData.bookingCount}</p>
+                </div>
+              </div>
+            )}
+            {OrderData && UserData && BookingData && (
+              <div className=" rounded-lg shadow-md p-6 flex items-center bg-blue-400">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-8 h-8 text-purple-500 mr-2"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M3 3a2 2 0 00-2 2v12a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2H3zm5 10a1 1 0 11-2 0 1 1 0 012 0zm4-4a1 1 0 11-2 0 1 1 0 012 0zm4 4a1 1 0 11-2 0 1 1 0 012 0zm-7-6h6v2H9V7z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                <div>
+                  <h2 className="text-lg font-semibold text-gray-800 ">
+                    Total Order Price
+                  </h2>
+                  <p className="text-gray-600">Rs.{totalAmount.toFixed(2)}</p>
+                </div>
+              </div>
+            )}
           </div>
-        )}
-        {UserData.users && (
-          <div className="bg-green-400 rounded-lg shadow-md p-6 flex items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M3 3a2 2 0 00-2 2v12a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2H3zm5 10a1 1 0 11-2 0 1 1 0 012 0zm4-4a1 1 0 11-2 0 1 1 0 012 0zm4 4a1 1 0 11-2 0 1 1 0 012 0zm-7-6h6v2H9V7z" clipRule="evenodd" />
-            </svg>
-            <div>
-              <h2 className="text-lg font-semibold text-gray-800">
-                Total Users
-              </h2>
-              <p className="text-gray-600">
-                {UserData.users.length}
-              </p>
-            </div>
-          </div>
-        )}
-        {BookingData && (
-          <div className=" rounded-lg shadow-md p-6 flex items-center bg-pink-600">
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 text-yellow-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M3 3a2 2 0 00-2 2v12a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2H3zm5 10a1 1 0 11-2 0 1 1 0 012 0zm4-4a1 1 0 11-2 0 1 1 0 012 0zm4 4a1 1 0 11-2 0 1 1 0 012 0zm-7-6h6v2H9V7z" clipRule="evenodd" />
-            </svg>
-            <div>
-              <h2 className="text-lg font-semibold text-gray-800">
-                Total Bookings
-              </h2>
-              <p className="text-gray-600">
-                {BookingData.bookingCount}
-              </p>
-            </div>
-          </div>
-        )}
-        {OrderData && UserData && BookingData && (
-          <div className=" rounded-lg shadow-md p-6 flex items-center bg-blue-400">
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 text-purple-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M3 3a2 2 0 00-2 2v12a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2H3zm5 10a1 1 0 11-2 0 1 1 0 012 0zm4-4a1 1 0 11-2 0 1 1 0 012 0zm4 4a1 1 0 11-2 0 1 1 0 012 0zm-7-6h6v2H9V7z" clipRule="evenodd" />
-            </svg>
-            <div>
-              <h2 className="text-lg font-semibold text-gray-800 ">
-                Total Order Price
-              </h2>
-              <p className="text-gray-600">
-                Rs.{totalAmount.toFixed(2)}
-              </p>
-            </div>
-          </div>
-        )}
+        </div>
       </div>
-    </div>
-  </div>
     </>
   );
 };
