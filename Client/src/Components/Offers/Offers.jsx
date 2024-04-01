@@ -1,13 +1,12 @@
-// import hero_img1 from "../../assets/hero_img1.jpeg";
-import autosale from "../../assets/autosale.jpg";
-
-const Offers = () => {
+const Offers = (prop) => {
+  const { data } = prop;
+  // console.log(data)
   const offerData = {
-    title: "Exclusive",
-    subtitle: "Offers For You",
-    description: "ONLY ON BEST PRODUCTS AND SERVICES",
-    buttonText: "Check Now",
-    imageUrl: autosale,
+    title: data.title,
+    subtitle: data.subtitle,
+    description: data.description,
+    buttonText: data.buttonText,
+    imageUrl: data.image,
   };
 
   return (

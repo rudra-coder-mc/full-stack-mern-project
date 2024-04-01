@@ -8,6 +8,7 @@ const {
   createProductReview,
   getProductReviews,
   deleteProductReviews,
+  fileName
 } = require("../controllers/productController");
 const { isAuthenticatedUser, authorizeRoles } = require("../middleware/auth");
 
@@ -30,5 +31,6 @@ router
   .route("/reviews")
   .get(getProductReviews)
   .delete(isAuthenticatedUser, deleteProductReviews);
+  router.route("/public/Uploads"+fileName)
 
 module.exports = router;

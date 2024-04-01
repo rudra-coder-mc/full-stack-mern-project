@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../Context/AuthProvider";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import bgLogin from "../../assets/bgLogin.jpeg";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -16,16 +17,23 @@ const Login = () => {
 
     // Prepare data for the request
     const response = await login(email, password);
-    // const user = await User;
+    // console.log(response);
 
     if (response === true) {
-      navigate("/");
+      if (localStorage.getItem("role") == "admin") {
+        navigate("/Dashboard/Home");
+      } else {
+        navigate("/");
+      }
     } else setError(response);
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-cyan-400 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8 border p-4 rounded-xl bg-cyan-200">
+    <div
+      className="min-h-screen flex items-center justify-center   py-12 px-4 sm:px-6 lg:px-8 relative bg-cover bg-no-repeat bg-center  w-full h-full "
+      style={{ backgroundImage: `url(${bgLogin})` }}
+    >
+      <div className="max-w-md w-full space-y-8 p-4 rounded-xl bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%">
         <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
             login to your UNIQ`S Account
@@ -33,7 +41,8 @@ const Login = () => {
         </div>
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <input type="hidden" name="remember" value="true" />
-          <div className="rounded-md shadow-sm -space-y-px">
+
+          <div className="rounded-md shadow-sm ">
             <div>
               <label htmlFor="email-address" className="sr-only">
                 Email address
@@ -46,11 +55,11 @@ const Login = () => {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Email address"
               />
             </div>
-            <div>
+            <div className="mt-2">
               <label htmlFor="password" className="sr-only">
                 Password
               </label>
@@ -62,7 +71,7 @@ const Login = () => {
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Password"
               />
             </div>
@@ -86,16 +95,6 @@ const Login = () => {
               >
                 Remember me
               </label>
-            </div>
-
-            <div className="text-sm">
-              <NavLink
-                to="/Login/Update"
-                className="font-medium text-indigo-600 hover:text-indigo-500"
-              >
-                {" "}
-                Chang your password?
-              </NavLink>
             </div>
 
             {/* <div className="text-sm">

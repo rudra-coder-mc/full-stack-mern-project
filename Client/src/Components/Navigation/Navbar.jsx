@@ -1,12 +1,29 @@
 import { NavLink } from "react-router-dom";
-import final_logo from "../../assets/final_logo.png";
+import logo from "../../assets/tirthlogo.png";
 import NavItem from "./NavItem";
 import AuthButton from "./AuthButton";
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import { MdMenu, MdClose } from "react-icons/md";
 import { FaOpencart } from "react-icons/fa";
+import { AuthContext } from "../../Context/AuthProvider";
+import { useCart } from "../../Context/ContextReducer";
 const Navbar = () => {
   const [menuOpened, setmenuOpened] = useState(false);
+  const { user } = useContext(AuthContext);
+  const [isAdmin, setIsAdmin] = useState(false); // Use clear variable name
+  const { state } = useCart();
+
+  useEffect(() => {
+    (async () => {
+      const response = await user;
+      // console.log(response);
+      if (response == "admin") {
+        setIsAdmin(true);
+      } else {
+        setIsAdmin(false);
+      }
+    })();
+  }, [user]);
   // console.log(localStorage.getItem("token"));
   const toggleMenu = () => setmenuOpened(!menuOpened);
   return (
@@ -14,11 +31,19 @@ const Navbar = () => {
       <nav className="container mx-auto flex items-center justify-between p-4">
         <div className="text-2xl font-bold">
           <NavLink to="/">
-            <img src={final_logo} className="w-12 h-12" alt="logo" />
+            <img
+              src={logo}
+              className=" w-12 h-12 bg-transparent mx-6"
+              alt="logo"
+            />
           </NavLink>
         </div>
         <div>
-          <NavItem NavItemStyle={"hidden md:flex gap-x-5 xl:gap-x-10 "} />
+          <NavItem
+            NavItemStyle={
+              "hidden md:flex gap-x-5 xl:gap-x-10 "
+            }
+          />
           <NavItem
             NavItemStyle={`${
               menuOpened
@@ -40,13 +65,17 @@ const Navbar = () => {
               onClick={toggleMenu}
             />
           )}
-          <div className="flex items-center justify-between sm:gap-x-6 gap-2 ">
-            <NavLink to="/Cart" className={"flex"}>
-              <FaOpencart className="p-1 ring-1 ring-white-900/30 h-8 w-8 rounded-full" />
-              <span className="relative w-5 h-5 rounded-full -top-2">0</span>
-            </NavLink>
-            <AuthButton />
-          </div>
+          {!isAdmin && (
+            <div className="flex items-center justify-between sm:gap-x-6 gap-2 ">
+              <NavLink to="/Cart" className={"flex"}>
+                <FaOpencart className="p-1 ring-1 ring-white-900/30 h-8 w-8 rounded-full" />
+                <span className="relative w-5 h-5 rounded-full -top-2">
+                  {state.length}
+                </span>
+              </NavLink>
+            </div>
+          )}
+          <AuthButton />
         </div>
       </nav>
     </header>

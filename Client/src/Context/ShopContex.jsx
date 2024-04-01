@@ -21,7 +21,7 @@ const ShopContextProvider = (prop) => {
 
     try {
       const response = await axiosInstance.get(
-        "http://localhost:4000/api/v1/products"
+        "/api/v1/products"
       );
       setData(response.data.products);
     } catch (error) {

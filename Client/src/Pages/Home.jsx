@@ -1,23 +1,31 @@
 import Hero from "../Components/Hero/Hero";
-import Card from "../Components/Card/Card";
+
 import Offers from "../Components/Offers/Offers";
-import Products from "../Components/Products/Products";
-// import { uploads } from "../improt";
+import ProductCategory from "./ProductCategory";
+import ServicesCategory from "./ServicesCategory";
+import Data from "../assets/Data/Data";
 
 const Home = () => {
+  // console.log(Data[1]);
+
   return (
     <>
       <Hero />
-      <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-1 items-center justify-center">
-        <Products />
-      </div>
-      <Offers />
-      <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-1 items-center justify-center">
-        <Card />
-        <Card />
-        <Card />
-      </div>
-      <Offers />
+      <>
+        <h1 className="text-4xl md:text-5xl font-extrabold text-center text-gray-900 mt-12 mb-8">
+          Our Best Selling Accessories
+        </h1>
+
+        <ProductCategory filter={"best selling"} />
+      </>
+      <Offers data={Data[0]} />
+      <>
+        <h1 className="text-4xl md:text-5xl font-extrabold text-center text-gray-900 mt-12 mb-8">
+          FREQUENTLY BOOKED SERVICES
+        </h1>
+        <ServicesCategory filter={"relevant"} />
+      </>
+      <Offers data={Data[1]} />
     </>
   );
 };

@@ -1,38 +1,79 @@
-import productImage from "../../assets/img1.jpg";
+// import productImage from "../../assets/img1.jpg";
 import { useState } from "react";
+// import "./card.css";
 import { Link } from "react-router-dom";
+import { useCart } from "../../Context/ContextReducer";
+import { useNavigate } from "react-router-dom";
 
-const Card = () => {
-  const product = {
-    id: 1,
-    name: "Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport",
-    description:
-      "Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.",
-    starRating: 3,
-    price: 300,
-    imageUrl: productImage,
-  };
+const Card = (prop) => {
+  const { state, dispatch } = useCart();
+  const navigate = useNavigate();
+
+  const quantity = 1;
 
   const [showFullDescription, setShowFullDescription] = useState(false);
 
   const toggleDescription = () => setShowFullDescription(!showFullDescription);
 
-  const truncatedDescription = product.description.slice(0, 50);
+  // Handle potential undefined prop.description:
+  const description = prop.description || "";
+  const truncatedDescription = description.slice(0, 70);
+
+  const addToCart = () => {
+    if (!localStorage.getItem("token")) {
+      navigate("/login");
+    } else {
+      let product = [];
+      for (const item of state) {
+        if (item.id === prop.id) {
+          product = item;
+          break;
+        }
+      }
+      if (product) {
+        if (product.quantity === quantity) {
+          dispatch({
+            type: "UPDATE_QUANTITY",
+            id: prop.id,
+            quantity: quantity,
+          });
+          return;
+        } else if (product.quantity !== quantity) {
+          dispatch({
+            type: "ADD",
+            ...prop, // Spread product details
+            quantity: quantity,
+          });
+          return;
+        }
+        return;
+      }
+      dispatch({
+        type: "ADD",
+        ...prop, // Spread product details
+        quantity: quantity,
+      });
+    }
+  };
 
   return (
-    <div className="w-full max-w-72 bg-white border border-gray-200 rounded-lg shadow">
-      <Link to={`product/${product.id}`}></Link>
-      <a href="#">
-        <img className="p-2 rounded-3xl" src={product.imageUrl} alt="Product" />
-      </a>
+    <div className="w-full max-w-72 bg-white border border-gray-200 rounded-lg shadow p-3 mb-2">
+      <Link to={`product/${prop.id}`}>
+        <img
+          className="p-2 rounded-3xl object-contain h-48 w-96"
+          src={prop.image}
+          alt="Product"
+        />
+      </Link>
+
       <div className="p-1">
-        <a href="#" className="mb-3 block">
+        <Link to={`product/${prop.id}`} className="mb-3 block">
           <h5 className="text-xl font-semibold tracking-tight text-gray-900">
-            {product.name}
+            {prop.name}
           </h5>
-        </a>
+        </Link>
         <div className="flex items-center mb-2">
-          {[...Array(product.starRating)].map((_, index) => (
+          {[...Array(prop.ratings)].map((_, index) => (
             <svg
               key={index}
               className="w-4 h-4 text-yellow-300"
@@ -45,9 +86,10 @@ const Card = () => {
             </svg>
           ))}
           <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded ml-3">
-            {product.starRating}
+            {prop.ratings}
           </span>
         </div>
+
         {!showFullDescription && (
           <p className="mb-3 text-gray-700">
             {truncatedDescription}...
@@ -61,7 +103,7 @@ const Card = () => {
         )}
         {showFullDescription && (
           <p className="mb-3 text-gray-700">
-            {product.description}
+            {description}
             <span
               onClick={toggleDescription}
               className="text-blue-500 hover:text-blue-700 cursor-pointer"
@@ -70,25 +112,21 @@ const Card = () => {
             </span>
           </p>
         )}
-        <div className="flex justify-between mb-2">
-          {/* <div className="text-sm text-gray-500">
-            Old Price: <del>${product.price.old}</del>
-          </div> */}
-          <div className="text-sm font-semibold text-gray-900">
-            {/* New Price: ${product.price.new} */}
-            Price: ${product.price}
-          </div>
-        </div>
+
         <div className="flex justify-between">
-          {/* <span className="sm:text-[1rem] md:text-[1.5rem] font-bold text-gray-900">
-            ${product.price}
-          </span> */}
-          <a
-            href="#"
+          {/* Price and quantity display */}
+          <div className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-gray-900">
+            Price: ₹ {prop.price}
+          </div>
+
+          {/* Add to Cart button */}
+          <button
             className="inline-block bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 text-white font-medium rounded-lg text-sm px-5 py-2.5"
+            // Disable if out of stock
+            onClick={addToCart}
           >
             Add to Cart
-          </a>
+          </button>
         </div>
       </div>
     </div>
