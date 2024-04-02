@@ -1,14 +1,15 @@
 import { createBrowserRouter } from "react-router-dom";
+import { Route, createRoutesFromElements } from "react-router-dom";
 import Home from "./Pages/Home";
-import ErrorPage from "./ErrorPage.jsx";
 
 import Service from "./Pages/Services";
 import Product from "./Pages/Product";
 import LoginPage from "./Pages/LoginPage";
 import Signup from "./Pages/Signup";
-import Dashboard from "./admin/Dashboard/";
+import Dashboard from "./admin/Dashboard";
 import AboutUs from "./Pages/About";
 import Cart from "./Pages/Cart";
+
 import ProductCategory from "./Pages/ProductCategory";
 import ServicesCategory from "./Pages/ServicesCategory";
 import ProductInsertPage from "./admin/Components/Product/ProductInsertPage";
@@ -29,221 +30,148 @@ import DHome from "./admin/Components/DHome/DHome";
 import Address from "./Components/Address/Address";
 import Booking from "./admin/Components/Booking";
 import User from "./admin/Components/User/User";
-import Layout from "./Layout.jsx";
+// import router from "./Routes";
+import Layout from "./Layout";
+import ProtectedRoute from "./ProtectedRoute";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Layout />,
-    errorElement: <ErrorPage />,
-    children: [
-      {
-        path: "",
-        element: <Home />,
-        errorElement: <ErrorPage />,
-      },
-      // product
-      {
-        path: "/product",
-        element: <Product />,
-        errorElement: <ErrorPage />,
-        children: [
-          {
-            path: ":ProductId",
-            element: <Product />,
-          },
-        ],
-      },
-      {
-        path: "/ProductCategory",
-        element: <ProductCategory />,
-        errorElement: <ErrorPage />,
-      },
-      {
-        path: "/ProductCategory/product",
-        element: <Product />,
-        errorElement: <ErrorPage />,
-        children: [
-          {
-            path: ":ProductId",
-            element: <Product />,
-          },
-        ],
-      },
-      //service
-      {
-        path: "/ServicesCategory",
-        element: <ServicesCategory />,
-        errorElement: <ErrorPage />,
-      },
-      {
-        path: "/service",
-        element: <Service />,
-        errorElement: <ErrorPage />,
-        children: [
-          {
-            path: ":ServiceId",
-            element: <Service />,
-          },
-        ],
-      },
-      {
-        path: "/ServicesCategory/service",
-        element: <Service />,
-        errorElement: <ErrorPage />,
-        children: [
-          {
-            path: ":ServiceId",
-            element: <Service />,
-          },
-        ],
-      },
-      //MyAccount
-      {
-        path: "/MyAccount",
-        element: <MyAccount />,
-        errorElement: <ErrorPage />,
-      },
-      {
-        path: "/MyAccount/UpdatePassword",
-        element: <ChangPassword />,
-        errorElement: <ErrorPage />,
-      },
-      {
-        path: "/MyAddress",
-        element: <Address />,
-        errorElement: <ErrorPage />,
-      },
-      {
-        path: "/MyOrder",
-        element: <MyOrder />,
-        errorElement: <ErrorPage />,
-      },
-      {
-        path: "/MyBooking",
-        element: <MyBooking />,
-        errorElement: <ErrorPage />,
-      },
-      //Login and SignUp
-      {
-        path: "/Login",
-        element: <LoginPage />,
-        errorElement: <ErrorPage />,
-      },
-      {
-        path: "/Signup",
-        element: <Signup />,
-        errorElement: <ErrorPage />,
-      },
-      //Cart
-      {
-        path: "/Cart",
-        element: <Cart />,
-        errorElement: <ErrorPage />,
-      },
-      //AboutUs
-      {
-        path: "/aboutus",
-        element: <AboutUs />,
-        errorElement: <ErrorPage />,
-      },
-    ],
-  },
-  {
-    path: "/Dashboard",
-    element: <Dashboard />,
-    errorElement: <ErrorPage />,
-    children: [
-      //home
-      {
-        path: "Home",
-        element: <DHome />,
-        errorElement: <ErrorPage />,
-      },
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <>
+      <Route path="/" element={<Layout />}>
+        <Route path="" element={<Home />} />
+        <Route path="/service" element={<Service />}>
+          <Route path=":ServiceId" element={<Service />} />
+        </Route>
+        <Route path="/ServicesCategory/service" element={<Service />}>
+          <Route path=":ServiceId" element={<Service />} />
+        </Route>
+        <Route path="/ProductCategory/product" element={<Product />}>
+          <Route path=":ProductId" element={<Product />} />
+        </Route>
+        <Route path="/product" element={<Product />}>
+          <Route path=":ProductId" element={<Product />} />
+        </Route>
+        <Route path="/ProductCategory" element={<ProductCategory />} />
+        <Route path="/ServicesCategory" element={<ServicesCategory />} />
+        <Route path="/service" element={<Service />} />
+        <Route path="/ServicesCategory/service" element={<Service />} />
+        <Route path="/ProductCategory/product" element={<Product />} />
+        <Route path="/product" element={<Product />} />
+        <Route path="/Login" element={<LoginPage />} />
+        <Route path="/MyAccount/UpdatePassword" element={<ChangPassword />} />
+        <Route path="/Signup" element={<Signup />} />
+        <Route path="/aboutus" element={<AboutUs />} />
+        <Route path="/Cart" element={<Cart />} />
+        <Route path="/MyAccount" element={<MyAccount />} />
+        <Route path="/MyAddress" element={<Address />} />
+        <Route path="/MyOrder" element={<MyOrder />} />
+        <Route path="/MyBooking" element={<MyBooking />} />
+        <Route path="*" element={<p>There`s nothing here: 404!</p>} />
+      </Route>
+      <Route path="/Dashboard" element={<Dashboard />}>
+        <Route
+          path="/Dashboard/Home"
+          element={
+            <ProtectedRoute>
+              <DHome />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="Booking"
+          element={
+            <ProtectedRoute>
+              <Booking />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="User"
+          element={
+            <ProtectedRoute>
+              <User />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="ProductInsert"
+          element={
+            <ProtectedRoute>
+              <ProductInsertPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="ProductEdite"
+          element={
+            <ProtectedRoute>
+              <ProductEditePage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="ServicesInsert"
+          element={
+            <ProtectedRoute>
+              <ServicesInsertPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="ServicesEdite"
+          element={
+            <ProtectedRoute>
+              <ServicesEditePage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="ProductRepor"
+          element={
+            <ProtectedRoute>
+              <ProductReport />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="ServiceReport"
+          element={
+            <ProtectedRoute>
+              <ServiceReport />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="UserReport"
+          element={
+            <ProtectedRoute>
+              <UserReport />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="TodyAppointments"
+          element={
+            <ProtectedRoute>
+              <TodyAppointments />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="ProductEdite/ProductUpdate/" element={<ProductUpdate />}>
+          <Route path=":ProductUpdateId" element={<ProductUpdate />} />
+        </Route>
+        <Route
+          path="ServicesEdite/ServicesUpdate/"
+          element={<ServicesUpdate />}
+        >
+          <Route path=":ServicesUpdateId" element={<ServicesUpdate />} />
+        </Route>
 
-      //booking
-      {
-        path: "Booking",
-        element: <Booking />,
-        errorElement: <ErrorPage />,
-      },
-
-      //user
-      {
-        path: "User",
-        element: <User />,
-        errorElement: <ErrorPage />,
-      },
-
-      //Report
-      {
-        path: "TodyAppointments",
-        element: <TodyAppointments />,
-        errorElement: <ErrorPage />,
-      },
-      {
-        path: "UserReport",
-        element: <UserReport />,
-        errorElement: <ErrorPage />,
-      },
-      {
-        path: "ServiceReport",
-        element: <ServiceReport />,
-        errorElement: <ErrorPage />,
-      },
-      {
-        path: "ProductRepor",
-        element: <ProductReport />,
-        errorElement: <ErrorPage />,
-      },
-
-      // Admin product
-      {
-        path: "ProductInsert",
-        element: <ProductInsertPage />,
-        errorElement: <ErrorPage />,
-      },
-      {
-        path: "ProductEdite",
-        element: <ProductEditePage />,
-        errorElement: <ErrorPage />,
-      },
-      {
-        path: "ProductEdite/ProductUpdate/",
-        element: <ProductUpdate />,
-        errorElement: <ErrorPage />,
-        children: [
-          {
-            path: ":ProductUpdateId",
-            element: <ProductUpdate />,
-          },
-        ],
-      },
-
-      // Admin Service
-      {
-        path: "ServicesInsert",
-        element: <ServicesInsertPage />,
-        errorElement: <ErrorPage />,
-      },
-      {
-        path: "ServicesEdite",
-        element: <ServicesEditePage />,
-        errorElement: <ErrorPage />,
-      },
-      {
-        path: "ServicesEdite/ServicesUpdate/",
-        element: <ServicesUpdate />,
-        errorElement: <ErrorPage />,
-        children: [
-          {
-            path: ":ServicesUpdateId",
-            element: <ServicesUpdate />,
-          },
-        ],
-      },
-    ],
-  },
-]);
+        <Route path="*" element={<p>There`s nothing here: 404!</p>} />
+      </Route>
+      <Route path="*" element={<p>There`s nothing here: 404!</p>} />
+    </>
+  )
+);
 
 export default router;
