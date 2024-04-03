@@ -19,7 +19,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             <BookingContexProvider>
               <UserContexProvider>
                 <AuthProvider>
-                  <App location={window.location} />
+                  <App />
                 </AuthProvider>
               </UserContexProvider>
             </BookingContexProvider>

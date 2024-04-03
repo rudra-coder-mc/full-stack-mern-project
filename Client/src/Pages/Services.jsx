@@ -25,12 +25,14 @@ const Services = () => {
       );
 
       setSelectedServices(filteredServices);
-      let temp = localStorage.getItem("user");
-      let user = JSON.parse(temp);
-      setUdata({
-        name: user.name,
-        email: user.email,
-      });
+      if (localStorage.getItem("user")) {
+        let temp = localStorage.getItem("user");
+        let user = JSON.parse(temp);
+        setUdata({
+          name: user.name,
+          email: user.email,
+        });
+      }
 
       // console.log(user);
       // console.log(user.name);

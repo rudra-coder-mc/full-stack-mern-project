@@ -26,7 +26,7 @@ const ServiceDetailPage = (prop) => {
     event.preventDefault();
     setError(null); // Clear previous error messages
     setIsLoading(true);
-    console.log(formData);
+    // console.log(formData);
 
     try {
       if (!validateServiceDate(formData.serviceDate)) {
@@ -50,8 +50,6 @@ const ServiceDetailPage = (prop) => {
         // Success case: reset form data
         setFormData({
           serviceName: prop.name,
-          name: "",
-          email: "",
           phone: "",
           serviceDate: null,
           serviceTime: "",
@@ -59,6 +57,7 @@ const ServiceDetailPage = (prop) => {
           comments: "",
         });
         setMessage("Service booking successfully!");
+        setBooking(false);
       } else {
         // Handle validation or other errors
         setError(response.data?.message || "Service booking failed.");

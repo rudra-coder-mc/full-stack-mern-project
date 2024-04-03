@@ -34,8 +34,8 @@ const ChangPassword = () => {
     }
   };
   return (
-    <div className="min-h-screen flex items-center justify-center bg-cyan-400 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8 border p-4 rounded-xl bg-cyan-200">
+    <div className="min-h-screen flex items-center justify-center  py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-md w-full space-y-8 border p-4 rounded-xl bg-blue-200">
         <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
             Change Password to your UNIQ`S Account
