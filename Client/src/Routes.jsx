@@ -68,95 +68,25 @@ const router = createBrowserRouter(
         <Route path="/MyBooking" element={<MyBooking />} />
         <Route path="*" element={<p>There`s nothing here: 404!</p>} />
       </Route>
-      <Route path="/Dashboard" element={<Dashboard />}>
-        <Route
-          path="/Dashboard/Home"
-          element={
-            <ProtectedRoute>
-              <DHome />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="Booking"
-          element={
-            <ProtectedRoute>
-              <Booking />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="User"
-          element={
-            <ProtectedRoute>
-              <User />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="ProductInsert"
-          element={
-            <ProtectedRoute>
-              <ProductInsertPage />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="ProductEdite"
-          element={
-            <ProtectedRoute>
-              <ProductEditePage />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="ServicesInsert"
-          element={
-            <ProtectedRoute>
-              <ServicesInsertPage />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="ServicesEdite"
-          element={
-            <ProtectedRoute>
-              <ServicesEditePage />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="ProductRepor"
-          element={
-            <ProtectedRoute>
-              <ProductReport />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="ServiceReport"
-          element={
-            <ProtectedRoute>
-              <ServiceReport />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="UserReport"
-          element={
-            <ProtectedRoute>
-              <UserReport />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="TodyAppointments"
-          element={
-            <ProtectedRoute>
-              <TodyAppointments />
-            </ProtectedRoute>
-          }
-        />
+      <Route
+        path="/Dashboard"
+        element={
+          <ProtectedRoute>
+            <Dashboard />
+          </ProtectedRoute>
+        }
+      >
+        <Route path="/Dashboard/Home" element={<DHome />} />
+        <Route path="Booking" element={<Booking />} />
+        <Route path="User" element={<User />} />
+        <Route path="ProductInsert" element={<ProductInsertPage />} />
+        <Route path="ProductEdite" element={<ProductEditePage />} />
+        <Route path="ServicesInsert" element={<ServicesInsertPage />} />
+        <Route path="ServicesEdite" element={<ServicesEditePage />} />
+        <Route path="ProductRepor" element={<ProductReport />} />
+        <Route path="ServiceReport" element={<ServiceReport />} />
+        <Route path="UserReport" element={<UserReport />} />
+        <Route path="TodyAppointments" element={<TodyAppointments />} />
         <Route path="ProductEdite/ProductUpdate/" element={<ProductUpdate />}>
           <Route path=":ProductUpdateId" element={<ProductUpdate />} />
         </Route>
