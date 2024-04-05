@@ -98,28 +98,29 @@ const SideBar = () => {
                     className="py-2"
                     onClick={(e) => e.stopPropagation()}
                   >
-                    <li className="p-2 hover:bg-gray-600">ProductRepor</li>
-                  </NavLink>
-                  <NavLink
-                    to="/Dashboard/ServiceReport"
-                    className="py-2"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <li className="p-2 hover:bg-gray-600">ServiceReport</li>
+                    <li className="p-2 hover:bg-gray-600">Product Reports</li>
                   </NavLink>
                   <NavLink
                     to="/Dashboard/UserReport"
                     className="py-2"
                     onClick={(e) => e.stopPropagation()}
                   >
-                    <li className="p-2 hover:bg-gray-600"> UserReport</li>
+                    <li className="p-2 hover:bg-gray-600"> User Reports</li>
                   </NavLink>
+                  <NavLink
+                    to="/Dashboard/ServiceReport"
+                    className="py-2"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <li className="p-2 hover:bg-gray-600">Service Reports</li>
+                  </NavLink>
+                 
                   <NavLink
                     to="/Dashboard/TodyAppointments"
                     className="py-2"
                     onClick={(e) => e.stopPropagation()}
                   >
-                    <li className="p-2 hover:bg-gray-600">TodyAppointments</li>
+                    <li className="p-2 hover:bg-gray-600">Today's Appointments</li>
                   </NavLink>
                 </ul>
               )}

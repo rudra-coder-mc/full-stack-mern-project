@@ -24,6 +24,7 @@ const ProductReport = () => {
     0
   );
 
+  
   return (
     <div className="p-4 overflow-auto">
       <h2 className="text-xl font-bold mb-4">Product Report</h2>
@@ -31,6 +32,7 @@ const ProductReport = () => {
   <div className="overflow-auto grid md:grid-cols-3 gap-4 sm:grid-cols-1">
       {OrderData.map((order) => (
         <OrderCard key={order._id} order={order} />
+      
       ))}
     </div>
       {OrderData && (
