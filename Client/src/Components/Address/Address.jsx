@@ -15,7 +15,7 @@ const Address = () => {
     e.preventDefault(); // Prevent default form submission behavior
     let data = JSON.stringify(address);
     localStorage.setItem("address", data);
-    setAddressMessage("Update success");
+    setAddressMessage("Update success...");
   };
   useEffect(() => {
     let data2 = localStorage.getItem("address");
@@ -42,7 +42,7 @@ const Address = () => {
               </span>
             )} */}
             {AddressMessage && ( // Conditionally display error message
-              <span className="text-green-500 font-bold text-sm block mb-4">
+              <span className="text-black font-bold text-sm block mb-4">
                 {AddressMessage}
               </span>
             )}

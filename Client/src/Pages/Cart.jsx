@@ -47,7 +47,6 @@ export default function Cart() {
   };
 
   useEffect(() => {
-    // Trigger calculation using the existing function
     setOrder((prevData) => ({
       ...prevData,
       paymentInfo: calculatePaymentInfo(prevData.orderItems),
@@ -57,8 +56,7 @@ export default function Cart() {
       ...prevData,
       shippingInfo: data,
     }));
-  }, [state]);
-  useEffect(() => {
+
     const updatedOrderItems = state.map((product) => ({
       name: product.name,
       price: product.price,
@@ -90,7 +88,7 @@ export default function Cart() {
       !order.shippingInfo.pinCode ||
       !order.shippingInfo.phoneNo
     ) {
-      setError("Please fill in all required shipping information fields.");
+      setError("Please fill in all required shipping information .");
       return;
     }
     // console.log(order.paymentInfo.totalPrice);

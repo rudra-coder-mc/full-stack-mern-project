@@ -80,7 +80,7 @@ const ProductDetailPage = (prop) => {
           </div>
           <p className="text-black text-sm mb-4">{prop.description}</p>
           <div className="flex items-center mb-4">
-            <span className="text-green-500">Price : ${prop.price}</span>
+            <span className="text-green-500">Price : ₹ {prop.price}</span>
           </div>
           <p className="text-sm text-black mb-4">category : {prop.category}</p>
           <div className="block mb-4">
@@ -100,6 +100,7 @@ const ProductDetailPage = (prop) => {
                 id="quantity"
                 className="quantity-input w-20 text-center border border-gray-300 rounded-lg px-2 py-1"
                 value={quantity}
+                disabled
                 onChange={(e) => setQuantity(parseInt(e.target.value))}
               />
               <button

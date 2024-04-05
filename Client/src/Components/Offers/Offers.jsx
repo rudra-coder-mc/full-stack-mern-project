@@ -1,11 +1,14 @@
+import { Link } from "react-router-dom";
+
 const Offers = (prop) => {
   const { data } = prop;
-  // console.log(data)
+  console.log(data);
   const offerData = {
     title: data.title,
     subtitle: data.subtitle,
     description: data.description,
     buttonText: data.buttonText,
+    buttonUrl: data.buttonUrl,
     imageUrl: data.image,
   };
 
@@ -22,7 +25,7 @@ const Offers = (prop) => {
           {offerData.description}
         </p>
         <button className="text-gray-900 hover:text-white bg-gray-200 hover:bg-gray-800 border border-gray-800 hover:border-transparent focus:ring-4 focus:ring-gray-300 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 inline-flex items-center">
-          {offerData.buttonText}
+          <Link to={offerData.buttonUrl}>{offerData.buttonText}</Link>
         </button>
       </div>
       <div className="w-1/2">

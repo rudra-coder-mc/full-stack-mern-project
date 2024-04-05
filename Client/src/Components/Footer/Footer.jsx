@@ -2,7 +2,7 @@ import logo from "../../assets/tirthlogo.png";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-gray-300 py-8">
+    <footer className="bg-gray-800 text-gray-300 py-8 ">
       <div className="container mx-auto px-4">
         <div className="flex flex-wrap justify-center">
           <div className="w-full md:w-1/4 mb-4 md:mb-0">

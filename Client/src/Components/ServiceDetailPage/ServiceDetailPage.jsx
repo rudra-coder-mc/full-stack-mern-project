@@ -120,7 +120,7 @@ const ServiceDetailPage = (prop) => {
           <div className="flex items-center mb-4">
             <span className="text-green-500">
               {" "}
-              Booking Price : ${prop.price}
+              Booking Price : ₹ {prop.price}
             </span>
           </div>
 

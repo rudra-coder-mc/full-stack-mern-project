@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { NavLink } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import axios from "axios";
 import SubNav from "../Components/SubNav/SubNav";
 
@@ -109,7 +108,7 @@ const MyAccount = () => {
             </span>
           )}
           {UserMessage && ( // Conditionally display error message
-            <span className="text-green-500 font-bold text-sm block mb-4">
+            <span className="text-black font-bold text-sm block mb-4">
               {UserMessage}
             </span>
           )}

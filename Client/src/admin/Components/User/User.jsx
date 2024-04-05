@@ -102,60 +102,7 @@ const User = () => {
     <div className="user-report w-full shadow-md rounded-lg px-4 py-4 overflow-auto">
       <h2 className="text-xl font-semibold text-gray-800 mb-4">UpDate User</h2>
       {Error && <span className="text-xl text-red-800">{Error}</span>}
-      {/* <table className="w-full table-auto">
-        <thead>
-          <tr className="text-left bg-gray-200 border-b border-gray-400">
-            <th className="p-2">ID</th>
-            <th className="p-2">Name</th>
-            <th className="p-2">Email</th>
-            <th className="p-2">Role</th>
-            <th className="p-2">Created At</th>
-            <th className="p-2">UpDate Role</th>
-            <th className="p-2">button</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users.map((user) => (
-            <tr
-              key={user._id}
-              className="border-b border-gray-400 hover:bg-gray-100"
-            >
-              <td className="p-2">{user._id}</td>
-              <td className="p-2">{user.name}</td>
-              <td className="p-2">{user.email}</td>
-              <td className="p-2">{user.role}</td>
-              <td className="p-2">
-                {new Date(user.createdAt).toLocaleDateString()}
-              </td>
-              <td>
-                <select
-                  onChange={() => UpdateRolw(event.target.value, user._id)}
-                >
-                  <option value="Selete role">Selete role</option>
-                  <option value="user">user</option>
-                  <option value="admin">admin</option>
-                </select>
-              </td>
-              <td>
-                <button
-                  className="m-1 bg-green-500 p-1 rounded-xl"
-                  onClick={() => handelUpdate(user._id)}
-                  disabled={Loding}
-                >
-                  Update
-                </button>
-                <button
-                  className="m-1 bg-red-500 p-1 rounded-xl"
-                  onClick={() => handelDelete(user._id)}
-                  disabled={Loding}
-                >
-                  Delete
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table> */}
+ 
 
       <div className="p-8 rounded-md w-full">
         <div>
