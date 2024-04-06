@@ -57,7 +57,7 @@ const Card = (prop) => {
   };
 
   return (
-    <div className="w-full max-w-72 bg-white border border-gray-200 rounded-lg shadow p-3 mb-2">
+    <div className="w-full h-auto max-w-72 bg-white border border-gray-200 rounded-lg shadow p-3 mb-2">
       <Link to={`product/${prop.id}`}>
         <img
           className="p-2 rounded-3xl object-contain h-48 w-96"
@@ -68,8 +68,8 @@ const Card = (prop) => {
 
       <div className="p-1">
         <Link to={`product/${prop.id}`} className="mb-3 block">
-          <h5 className="text-xl font-semibold tracking-tight text-gray-900">
-            {prop.name}
+          <h5 className="text-xl font-semibold tracking-tight text-gray-900 text-balance">
+            {prop.name.slice(0, 20)}...
           </h5>
         </Link>
         <div className="flex items-center mb-2">

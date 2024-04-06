@@ -68,33 +68,7 @@ function UserReport() {
           </div>
         </div>
       </div>
-      {/* <table className="w-full table-auto">
-        <thead>
-          <tr className="text-left bg-gray-200 border-b border-gray-400">
-            <th className="p-2">ID</th>
-            <th className="p-2">Name</th>
-            <th className="p-2">Email</th>
-            <th className="p-2">Role</th>
-            <th className="p-2">Created At</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users.map((user) => (
-            <tr
-              key={user._id}
-              className="border-b border-gray-400 hover:bg-gray-100"
-            >
-              <td className="p-2">{user._id}</td>
-              <td className="p-2">{user.name}</td>
-              <td className="p-2">{user.email}</td>
-              <td className="p-2">{user.role}</td>
-              <td className="p-2">
-                {new Date(user.createdAt).toLocaleDateString()}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table> */}
+     
 
       <div className="p-8 rounded-md w-full">
         <div>
