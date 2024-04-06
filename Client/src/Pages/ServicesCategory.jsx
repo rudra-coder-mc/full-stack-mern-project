@@ -73,19 +73,20 @@ const ServicesCategory = (prop) => {
           </select>
         </div>
       )}
-
-      <div className="my-3 mx-4 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-1 items-center justify-center">
-        {loading ? (
-          <p>Loading Services...</p>
-        ) : error ? (
-          <p>Error fetching Services: {error}</p>
-        ) : prop.filter ? (
-          <>
-            <Services services={filteredHomeServices} />
-          </>
-        ) : (
-          <Services services={filteredServices} /> // Pass filtered services to Services component
-        )}
+      <div className="flex items-center justify-center">
+        <div className="my-3 mx-4 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-1 items-center justify-center">
+          {loading ? (
+            <p>Loading Services...</p>
+          ) : error ? (
+            <p>Error fetching Services: {error}</p>
+          ) : prop.filter ? (
+            <>
+              <Services services={filteredHomeServices} />
+            </>
+          ) : (
+            <Services services={filteredServices} /> // Pass filtered services to Services component
+          )}
+        </div>
       </div>
     </>
   );

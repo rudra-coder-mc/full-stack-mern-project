@@ -73,18 +73,18 @@ const ProductCategory = (prop) => {
         </div>
       )}
 
-      <div className="category-filter flex mb-4"></div>
-
-      <div className="my-3 mx-4 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-1 items-center justify-center">
-        {loading ? (
-          <p>Loading products...</p>
-        ) : error ? (
-          <p>Error fetching products: {error}</p>
-        ) : prop.filter ? (
-          <Product products={filterHomeProducts} /> // Pass filtered products to Product component
-        ) : (
-          <Product products={filteredProducts} />
-        )}
+      <div className="flex items-center justify-center">
+        <div className="my-3 mx-4 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-1 items-center justify-center">
+          {loading ? (
+            <p>Loading products...</p>
+          ) : error ? (
+            <p>Error fetching products: {error}</p>
+          ) : prop.filter ? (
+            <Product products={filterHomeProducts} /> // Pass filtered products to Product component
+          ) : (
+            <Product products={filteredProducts} />
+          )}
+        </div>
       </div>
     </>
   );
