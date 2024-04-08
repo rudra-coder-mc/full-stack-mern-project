@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import { OrderContext } from "../../../Context/OrderContex";
 import { BookingContex } from "../../../Context/BookingContex";
 import { UserContex } from "../../../Context/UserContex";
-import { FaCartArrowDown,FaUserFriends,FaCalendarAlt } from "react-icons/fa";
+import { FaCartArrowDown, FaUserFriends, FaCalendarAlt } from "react-icons/fa";
 
 const DHome = () => {
   const { OrderData, OrderLoading, OrderError, fetchOrderData } =
@@ -136,12 +136,12 @@ const DHome = () => {
 
   return (
     <>
-      <div className="bg-gray-100 min-h-screen">
+      <div className="bg-gray-100 min-h-screen w-full">
         <div className="container mx-auto px-4 py-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {OrderData && (
               <div className="bg-yellow-400 rounded-lg shadow-md p-6 flex items-center">
-                <FaCartArrowDown  className="text-4xl "/>
+                <FaCartArrowDown className="text-4xl " />
                 <div className="mx-3">
                   <h2 className="text-lg font-semibold text-gray-800">
                     Total Orders
@@ -152,7 +152,7 @@ const DHome = () => {
             )}
             {UserData.users && (
               <div className="bg-green-400 rounded-lg shadow-md p-6 flex items-center">
-              <FaUserFriends className="text-4xl "/>
+                <FaUserFriends className="text-4xl " />
                 <div className="mx-3">
                   <h2 className="text-lg font-semibold text-gray-800">
                     Total Users
@@ -163,7 +163,7 @@ const DHome = () => {
             )}
             {BookingData && (
               <div className=" rounded-lg shadow-md p-6 flex items-center bg-pink-600">
-              <FaCalendarAlt className="text-4xl text-white" />
+                <FaCalendarAlt className="text-4xl text-white" />
                 <div className="mx-3">
                   <h2 className="text-lg font-semibold text-gray-800">
                     Total Bookings

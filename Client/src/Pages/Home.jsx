@@ -22,7 +22,7 @@ const Home = () => {
       <Offers data={Data[0]} />
       <>
         <h1 className="text-2xl md:text-3xl font-extrabold text-center text-gray-900 mt-12 mb-8">
-          FREQUENTLY BOOKED SERVICES
+          FREQUENTLY BOOKED SERVICES  
         </h1>
         <div className="flex items-center justify-center">
           <ServicesCategory filter={"relevant"} />

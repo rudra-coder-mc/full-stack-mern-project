@@ -51,24 +51,7 @@ const Footer = () => {
       <div className="mt-8 text-center">
         <p className="text-sm">
           © 2024 UNIQ`S AUTOMOTIVE. All rights reserved.
-        </p>
-        <p className="text-sm">
-          Built with{" "}
-          <a
-            href="https://reactjs.org/"
-            className="text-blue-400 hover:text-blue-300"
-          >
-            React
-          </a>{" "}
-          and{" "}
-          <a
-            href="https://tailwindcss.com/"
-            className="text-blue-400 hover:text-blue-300"
-          >
-            Tailwind CSS
-          </a>
-          .
-        </p>
+        </p>  
       </div>
     </footer>
   );
