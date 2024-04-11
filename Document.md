@@ -1,5 +1,6 @@
+<h1>Full stack MERN Project</h1>
 
- <h1>Index</h1>
+><h2>Index</h2>
 
 <ol>
 	<li>Introduction</li>
@@ -16,9 +17,9 @@
 	
 </ol>
 
-> 
 
-1.  **INTRODUCTION**
+
+<h2>INTRODUCTION</h2>
 
 > UNIQ'S AUTOMOTIVE is a website which is helpful for Users and Visitors
 > for viewing all car Accessories and buy them and view car regarding
@@ -47,53 +48,34 @@
 > committed to enhancing your driving experience with unparalleled
 > quality and convenience. Welcome to the future of automotive
 > excellence with UNIQ\'S AUTOMOTIVE.
->
-> Top of Form
 
-**2. Project Profile**
 
-+-----------------------------------+----------------------------------+
-| > Project Name                    | > "UNIQ'S AUTOMOTIVE"            |
-+===================================+==================================+
-| > Project Type                    | > Website                        |
-+-----------------------------------+----------------------------------+
-| > Duration                        | > 2 Month                        |
-+-----------------------------------+----------------------------------+
-| > Tools:                          | > React.js, Tailwind CSS, HTML5, |
-| >                                 | >                                |
-| > • Front-End                     | > Node.js,Express.js             |
-| >                                 | >                                |
-| > • Back-End                      | > Visual Studio Code             |
-| >                                 | >                                |
-| > • Code Editor                   | > MongoDB                        |
-| >                                 |                                  |
-| > • Database                      |                                  |
-+-----------------------------------+----------------------------------+
-| > Operating System                | > Windows 11                     |
-+-----------------------------------+----------------------------------+
-| > Project Guide                   | > Asst.Prof. Jagruti Joshi       |
-+-----------------------------------+----------------------------------+
-| > Submitted By                    | > Bhatt Tirthraj                 |
-|                                   | >                                |
-|                                   | > Ahir Saunak                    |
-|                                   | >                                |
-|                                   | > Modi Atul                      |
-+-----------------------------------+----------------------------------+
-| > Submitted To                    | > "C.B Patel Computer College &  |
-|                                   | > J.N.M Patel science College"   |
-+-----------------------------------+----------------------------------+
 
-> **3. Objective**
+<h2>2. Project Profile</h2>
 
-• Our system is able to manage details of users, vehicles as well as all
+| Project Name                 | Project Type  |
+|------------------------------|---------------|
+| UNIQ'S AUTOMOTIVE             | Website       |
+| Duration                     | 2 Months      |
+| Tools:                         |               |
+| • Front-End                  | React.js, Tailwind CSS, HTML5 |
+| • Back-End                   | Node.js, Express.js  |
+| • Code Editor                 | Visual Studio Code |
+| • Database                   | MongoDB        |
+| Operating System             | Windows 11     |
+| Project Guide                 | Asst.Prof. Jagruti Joshi |
+| Submitted By                 |    • Bhatt Tirthraj • Ahir Saunak • Modi Atul   |
+| Submitted To                 | "C.B Patel Computer College & J.N.M Patel science College" |
+
+
+<h2>3. Objective</h2>
+
+>• Our system is able to manage details of users, vehicles as well as all
 the bookings made by the users.
-
 > • System is able to send SMS to the user of booking confirmation
 > manually.
-
-• System is able to generate Booking reports so that admin can make
+>• System is able to generate Booking reports so that admin can make
 informed decisions.
-
 > • System will able to retrieve or add information about accessories
 > and their stock.
 >
@@ -113,12 +95,12 @@ informed decisions.
 > allowing users to add items to their cart, select preferred payment
 > methods, and complete transactions securely.
 >
->  **Home**
+  **Home**
 >
 > It is the default page for the site . All links are available in this
 > page.
 >
->  **Login**
+ **Login**
 >
 > User need to login to Buy accessories or book services the car of his
 > choice.
@@ -130,12 +112,12 @@ informed decisions.
 > contact details, password and Submit. After that they can login with
 > their email and password.
 >
->  **Logout**
+  **Logout**
 >
 > By clicking this link user logged out from this site all user session
 > rest to default value.
 >
-> **1) Increasing accuracy and work speed:**
+ **1) Increasing accuracy and work speed:**
 >
 >  By maintaining all the work on computer will increase accuracy as
 > well as speed of work.
@@ -145,7 +127,7 @@ informed decisions.
 >
 >  It can be easily used and the time is decreased.
 >
-> **2) To Store information safely:**
+ **2) To Store information safely:**
 >
 >  To store the information of all the registered Users.
 >
@@ -157,14 +139,14 @@ informed decisions.
 >
 >  To store information of Admin.
 >
-> **3) To evolve information the latest technology:**
+ **3) To evolve information the latest technology:**
 >
 >  To evolve the latest technology using internet of traditional style.
 >
 >  To minimize the human effort made by the Admin evolved in the manual
 > UNIQ'S AUTOMOTIVE.
 >
-> **4) Generate Reports in time:**
+ **4) Generate Reports in time:**
 >
 >  To provide timely reports to the admin as and when required.
 >
@@ -175,26 +157,24 @@ informed decisions.
 
 **5) Driving Business Growth and Expansion**:
 
--   Set ambitious targets for revenue growth and market expansion,
+>   Set ambitious targets for revenue growth and market expansion,
     leveraging digital marketing strategies and strategic partnerships
     to reach new audiences and territories.
-
--   Explore opportunities for vertical integration and diversification
+>   Explore opportunities for vertical integration and diversification
     to capitalize on emerging trends and maximize long-term
     profitability for UniQ\'s Automotive.
 
-> **6) Expanding Product and Service Offerings**:
+ **6) Expanding Product and Service Offerings**:
 
--   Continuously evaluate market trends and customer feedback to
+>   Continuously evaluate market trends and customer feedback to
     diversify the range of car accessories and services offered on the
     website.
-
--   Partner with reputable brands and service providers to provide a
+>   Partner with reputable brands and service providers to provide a
     comprehensive selection of options tailored to meet diverse customer
     needs and preferences.
 
-> **4. Project Category**
->
+<h2>4. Project Category</h2>
+
 > In the realm of automotive excellence, Uniq\'s Automotive introduces
 > an innovative online platform dedicated to car accessories and
 > services. With a focus on enhancing user experience and accessibility,
@@ -210,85 +190,61 @@ informed decisions.
 > for a wide range of car services, including detailing, maintenance,
 > and face lifting , ensuring optimal vehicle performance and
 > aesthetics.
->
-> **5.Environment**
->
-> ![](vertopal_ce2320211cc14b97bd3a0d83f299befe/media/image4.png)
-> **Description**
 
-**Hardware & Software Requirements**
+<h2>5.Environment</h2>
+
+
+
+<h3>Hardware & Software Requirements</h3>
 
  For Admin:
 
-+------------------------------------+---------------------------------+
-| > Software                         | > Nodejs Server, GitHub,        |
-|                                    | > VScode,postman.               |
-+====================================+=================================+
-| > Database                         | > MongoDB                       |
-+------------------------------------+---------------------------------+
-| > Operating System                 | > Windows                       |
-+------------------------------------+---------------------------------+
-| > RAM                              | > 512 MB(Minimum)               |
-+------------------------------------+---------------------------------+
-| > Microprocessor                   | > Any Microprocessor can be     |
-|                                    | > used but latest would be      |
-|                                    | > better for performance        |
-+------------------------------------+---------------------------------+
-| > Hard Disk Space                  | > 1 GB (Minimum)                |
-+------------------------------------+---------------------------------+
-| > Web Browser                      | ![](                            |
-|                                    | vertopal_ce2320211cc14b97bd3a0d |
-|                                    | 83f299befe/media/image6.jpeg)![ |
-|                                    | ](vertopal_ce2320211cc14b97bd3a |
-|                                    | 0d83f299befe/media/image7.jpeg) |
-|                                    |                                 |
-|                                    | > Mozilla Firefox Google Chrome |
-+------------------------------------+---------------------------------+
+
+|  Software                         |  Nodejs Server, GitHub,VScode,postman.|
+|-----------------------------------|---------------------------------|
+|  Database                         |  MongoDB                       |
+|  Operating System                 |  Windows                       |
+|  RAM                              |  512 MB(Minimum)               |
+|  Microprocessor                   |  Any Microprocessor can be , used but latest would be , better for performance |
+|  Hard Disk Space                  |  1 GB (Minimum)                |
+|  Web Browser                      |  Mozilla, Firefox ,Google Chrome |
+
 
  For Documentation:
 
-> Software MS Word, Draw.io, Photoshop
->
-> ![](vertopal_ce2320211cc14b97bd3a0d83f299befe/media/image7.jpeg)
+| Software | MS Word, Draw.io, Photoshop |
+|----------|-----------------------------|
+
 
  For User:
 
-+------------------------------------+---------------------------------+
-| > Operating System                 | > Windows, Android              |
-+====================================+=================================+
-| > RAM                              | > 512 MB(Minimum)               |
-+------------------------------------+---------------------------------+
-| > Web Browser                      | > ![                            |
-|                                    | ](vertopal_ce2320211cc14b97bd3a |
-|                                    | 0d83f299befe/media/image6.jpeg) |
-|                                    | >                               |
-|                                    | > Mozilla Firefox Google Chrome |
-+------------------------------------+---------------------------------+
-| > Microprocessor                   | > Any Microprocessor can be     |
-|                                    | > used but latest would be      |
-|                                    | > better for performance        |
-+------------------------------------+---------------------------------+
+
+|  Operating System                 |  Windows, Android              |
+|------------------------------------|---------------------------------|
+|  RAM                              |  512 MB(Minimum)               |
+|  Web Browser                      |  Mozilla Firefox Google Chrome |
+|  Microprocessor                   |  Any Microprocessor can be, used but latest would be, better for performance        |
 
 > ![](vertopal_ce2320211cc14b97bd3a0d83f299befe/media/image7.jpeg) For
 > Visitor:
 
-+------------------------------------+---------------------------------+
+|------------------------------------|---------------------------------|
 | > Operating System                 | > Windows, Android              |
-+====================================+=================================+
+|====================================|=================================|
 | > RAM                              | > 512 MB(Minimum)               |
-+------------------------------------+---------------------------------+
+|------------------------------------|---------------------------------|
 | > Web Browser                      | > ![                            |
 |                                    | ](vertopal_ce2320211cc14b97bd3a |
 |                                    | 0d83f299befe/media/image6.jpeg) |
 |                                    | >                               |
 |                                    | > Mozilla Firefox Google Chrome |
-+------------------------------------+---------------------------------+
+|------------------------------------|---------------------------------|
 | > Microprocessor                   | > Any Microprocessor can be     |
 |                                    | > used but                      |
 |                                    | >                               |
 |                                    | > latest would be better for    |
 |                                    | > performance                   |
-+------------------------------------+---------------------------------+
+|------------------------------------|---------------------------------|
 
 **Tools & Environment Use**
 
@@ -1017,50 +973,50 @@ height="7.923945756780403in"}
 
 **1) User collection**
 
-+------------------+---------------------------------------------------+
+|------------------|---------------------------------------------------|
 | > Name           | > User details                                    |
-+==================+===================================================+
+|==================|===================================================|
 | > Alias          | > None                                            |
-+------------------+---------------------------------------------------+
+|------------------|---------------------------------------------------|
 | > Where and How  | Admin Login (In / Out)                            |
 | > to             |                                                   |
 | >                | User Login(In/ out)                               |
 | > Use?           |                                                   |
 |                  | Register with System (In)                         |
-+------------------+---------------------------------------------------+
+|------------------|---------------------------------------------------|
 | > Content        | > user Details (id , name ,email, password ,role, |
 | >                | > createdAt )                                     |
 | > Description    |                                                   |
-+------------------+---------------------------------------------------+
+|------------------|---------------------------------------------------|
 
 > **2) Product collection**
 
-+-------------------+--------------------------------------------------+
+|-------------------|--------------------------------------------------|
 | > Name            | > Product Details                                |
-+===================+==================================================+
+|===================|==================================================|
 | > Alias           | > None                                           |
-+-------------------+--------------------------------------------------+
+|-------------------|--------------------------------------------------|
 | > Where and How   | > 2.0 Manage Product (In / Out) and View Product |
 | > to              |                                                  |
 | >                 |                                                  |
 | > Use?            |                                                  |
-+-------------------+--------------------------------------------------+
+|-------------------|--------------------------------------------------|
 | > Content         | Product Details                                  |
 | >                 | (id,name,description,price,ratings,image,c       |
 | > Description     | ategory,stock,numofReview,review,user,createdAt) |
-+-------------------+--------------------------------------------------+
+|-------------------|--------------------------------------------------|
 
 > **3) Order collection**
 
-+------------+---------------------------------------------------------+
+|------------|---------------------------------------------------------|
 | > Name     | > Order Details                                         |
-+============+=========================================================+
+|============|=========================================================|
 | > Alias    | > None                                                  |
-+------------+---------------------------------------------------------+
+|------------|---------------------------------------------------------|
 | > Where    | > 3.0 Manage order(In / Out)                            |
 | > and How  | >                                                       |
 | > to Use?  | > View order (In / Out)                                 |
-+------------+---------------------------------------------------------+
+|------------|---------------------------------------------------------|
 | > Content  | Order Detail(id,                                        |
 | >          |                                                         |
 | > D        | ship                                                    |
@@ -1070,228 +1026,228 @@ height="7.923945756780403in"}
 |            | >                                                       |
 |            | > paymentInfo\[id, status, paidAt, itemsPrices,         |
 |            | > taxPrices,shippingPrices,deliverAt,createdAt )        |
-+------------+---------------------------------------------------------+
+|------------|---------------------------------------------------------|
 
 > **4) Services Collection**
 
-+-------------------+--------------------------------------------------+
+|-------------------|--------------------------------------------------|
 | > Name            | > Service Details                                |
-+===================+==================================================+
+|===================|==================================================|
 | > Alias           | > None                                           |
-+-------------------+--------------------------------------------------+
+|-------------------|--------------------------------------------------|
 | > Where and How   | > Manage Service (In / Out)                      |
 | > to              | >                                                |
 | >                 | > View Service (In / Out)                        |
 | > Use?            |                                                  |
-+-------------------+--------------------------------------------------+
+|-------------------|--------------------------------------------------|
 | > Content         | > Service Details (id, name, description,        |
 | >                 | > price,ratings,image, category,                 |
 | > Description     | > reviews\[user,name,rating,comment \],          |
 |                   | > user,createdAt)                                |
-+-------------------+--------------------------------------------------+
+|-------------------|--------------------------------------------------|
 
 > **5) Appointment Collection**
 
-+-------------------+--------------------------------------------------+
+|-------------------|--------------------------------------------------|
 | > Name            | > Booking Details                                |
-+===================+==================================================+
+|===================|==================================================|
 | > Alias           | > None                                           |
-+-------------------+--------------------------------------------------+
+|-------------------|--------------------------------------------------|
 | > Where and How   | > Manage Booking (In / Out)                      |
 | > to              | >                                                |
 | >                 | > Make Booking (In)                              |
 | > Use?            |                                                  |
-+-------------------+--------------------------------------------------+
+|-------------------|--------------------------------------------------|
 | > Content         | > Booking Details (id , name, email, phone       |
 | >                 | > ,serviceDate, serviceTime, comments,           |
 | > Description     | > carType,user)                                  |
 |                   | >                                                |
 |                   | > )                                              |
-+-------------------+--------------------------------------------------+
+|-------------------|--------------------------------------------------|
 
 **Database Design**
 
 > **1) user collection**
 
-+-------+-------------+-----------+-----+--------------+--------------+
+|-------|-------------|-----------|-----|--------------|--------------|
 | > **  | > **        | > **D     | >   | > **         | > **D        |
 | No.** | FieldName** | ataType** |  ** | Constraint** | escription** |
 |       |             |           | Siz |              |              |
 |       |             |           | e** |              |              |
-+=======+=============+===========+=====+==============+==============+
+|=======|=============|===========|=====|==============|==============|
 | > 1\. | > id        | > Int     | >   | > unique     | > It is used |
 |       |             |           |  24 |              | > to         |
 |       |             |           |     |              | > automatic  |
 |       |             |           |     |              | > store user |
 |       |             |           |     |              | > id.        |
-+-------+-------------+-----------+-----+--------------+--------------+
+|-------|-------------|-----------|-----|--------------|--------------|
 | > 2\. | > name      | > String  | >   | > Not Null   | > It is used |
 |       |             |           |  30 |              | > to         |
 |       |             |           |     |              | >            |
 |       |             |           |     |              | > store user |
 |       |             |           |     |              | > name.      |
-+-------+-------------+-----------+-----+--------------+--------------+
+|-------|-------------|-----------|-----|--------------|--------------|
 | > 3\. | > email     | > String  | >   | > Not Null   | > It is used |
 |       |             |           |  \- |              | > to store   |
 |       |             |           |     |              | > Email of   |
 |       |             |           |     |              | > user.      |
-+-------+-------------+-----------+-----+--------------+--------------+
+|-------|-------------|-----------|-----|--------------|--------------|
 | > 4\. | > password  | > String  | >   | > Not Null   | > It is used |
 |       |             |           |  \- |              | > to store   |
 |       |             |           |     |              | > the        |
 |       |             |           |     |              | > password   |
 |       |             |           |     |              | > of user.   |
-+-------+-------------+-----------+-----+--------------+--------------+
+|-------|-------------|-----------|-----|--------------|--------------|
 | > 5\. | > role      | > String  | >   | >            | > It is used |
 |       |             |           |  \- | Default:user | > for set    |
 |       |             |           |     |              | > the role   |
 |       |             |           |     |              | > of user    |
-+-------+-------------+-----------+-----+--------------+--------------+
+|-------|-------------|-----------|-----|--------------|--------------|
 | > 6\. | > createdAt | > Date    | >   |              | > It is use  |
 |       |             |           |  \- |              | > to store   |
 |       |             |           |     |              | > date.      |
-+-------+-------------+-----------+-----+--------------+--------------+
+|-------|-------------|-----------|-----|--------------|--------------|
 
 **2) Product Collection**
 
-+-------+--------------+-----------+----+--------------+--------------+
+|-------|--------------|-----------|----|--------------|--------------|
 | > **  | > *          | > **D     | >  | > **         | > **D        |
 | No.** | *FieldName** | ataType** | ** | Constraint** | escription** |
 |       |              |           | Si |              |              |
 |       |              |           | ze |              |              |
 |       |              |           | ** |              |              |
-+=======+==============+===========+====+==============+==============+
+|=======|==============|===========|====|==============|==============|
 | > 1\. | > id         | > int     | >  | > unique     | > It is used |
 |       |              |           | 24 |              | > to store   |
 |       |              |           |    |              | > product id |
 |       |              |           |    |              | > id.        |
-+-------+--------------+-----------+----+--------------+--------------+
+|-------|--------------|-----------|----|--------------|--------------|
 | > 2\. | > name       | > String  | >  | > Required   | It is used   |
 |       |              |           | \- |              | to store     |
 |       |              |           |    |              | name of      |
 |       |              |           |    |              | product      |
-+-------+--------------+-----------+----+--------------+--------------+
+|-------|--------------|-----------|----|--------------|--------------|
 | > 3\. | Description  | > String  | >  | > Not null   | > It is used |
 |       |              |           | \- |              | > to store   |
 |       |              |           |    |              | > product    |
 |       |              |           |    |              | >            |
 |       |              |           |    |              | description. |
-+-------+--------------+-----------+----+--------------+--------------+
+|-------|--------------|-----------|----|--------------|--------------|
 | > 4\. | > price      | > number  | >  | > Not Null   | > It is used |
 |       |              |           | \- |              | > to store   |
 |       |              |           |    |              | > product    |
 |       |              |           |    |              | > price.     |
-+-------+--------------+-----------+----+--------------+--------------+
+|-------|--------------|-----------|----|--------------|--------------|
 | > 5\. | > ratings    | > number  | >  | > \-         | > It is used |
 |       |              |           | \- |              | > to store   |
 |       |              |           |    |              | > rating.    |
-+-------+--------------+-----------+----+--------------+--------------+
+|-------|--------------|-----------|----|--------------|--------------|
 | > 6\. | > image      | > url     | >  | > Not null   | > It is used |
 |       |              |           | \- |              | > to store   |
 |       |              |           |    |              | > product    |
 |       |              |           |    |              | > image      |
-+-------+--------------+-----------+----+--------------+--------------+
+|-------|--------------|-----------|----|--------------|--------------|
 | > 7\. | > category   | > String  | >  | > Not null   | > It is used |
 |       |              |           | \- |              | > to store   |
 |       |              |           |    |              | > product    |
 |       |              |           |    |              | > category.  |
-+-------+--------------+-----------+----+--------------+--------------+
+|-------|--------------|-----------|----|--------------|--------------|
 | > 8\. | > Stock      | > number  | >  | > Not null   | > It is used |
 |       |              |           |  4 |              | > to store   |
 |       |              |           |    |              | > stock of   |
 |       |              |           |    |              | > product.   |
-+-------+--------------+-----------+----+--------------+--------------+
+|-------|--------------|-----------|----|--------------|--------------|
 | > 9\. | >            | > number  | >  | > \-         | > It is used |
 |       |  numofReview |           | \- |              | > to store   |
 |       |              |           |    |              | > number of  |
 |       |              |           |    |              | > review     |
-+-------+--------------+-----------+----+--------------+--------------+
+|-------|--------------|-----------|----|--------------|--------------|
 | >     | > reviews    | > string  | >  | > Referenced | > It is used |
 |  10\. |              |           | \- | > by user id | > to store   |
 |       |              |           |    |              | > reviews.   |
-+-------+--------------+-----------+----+--------------+--------------+
+|-------|--------------|-----------|----|--------------|--------------|
 | >     | > user       | > Number  | \- | > Referenced | > It is used |
 |  11\. |              |           |    | > by user id | > for fetch  |
 |       |              |           |    |              | > user data. |
-+-------+--------------+-----------+----+--------------+--------------+
+|-------|--------------|-----------|----|--------------|--------------|
 | >     | > createdAt  | > Date    | >  | > Current    | > It is used |
 |  12\. |              |           | \- | > timestamp  | > to store   |
 |       |              |           |    |              | > date.      |
-+-------+--------------+-----------+----+--------------+--------------+
+|-------|--------------|-----------|----|--------------|--------------|
 
 **3) Order collection**
 
-+-------+---------------+---------+-----+-------------+--------------+
+|-------|---------------|---------|-----|-------------|--------------|
 | > **  | >             | > **Dat | >   | > **C       | > **D        |
 | No.** | **FieldName** | aType** |  ** | onstraint** | escription** |
 |       |               |         | Siz |             |              |
 |       |               |         | e** |             |              |
-+=======+===============+=========+=====+=============+==============+
+|=======|===============|=========|=====|=============|==============|
 | > 1\. | > id          | >       | >   | > unique    | > It is used |
 |       |               |  number |  24 |             | > to store   |
 |       |               |         |     |             | > order id.  |
-+-------+---------------+---------+-----+-------------+--------------+
+|-------|---------------|---------|-----|-------------|--------------|
 | > 2\. | >             |         |     |             |              |
 |       |  shippingInfo |         |     |             |              |
 |       | > :           |         |     |             |              |
-+-------+---------------+---------+-----+-------------+--------------+
+|-------|---------------|---------|-----|-------------|--------------|
 | > a\. | > address     | >       | >   | > Not null  | > It is used |
 |       |               |  String |  \- |             | > to store   |
 |       |               |         |     |             | > shipping   |
 |       |               |         |     |             | > address.   |
-+-------+---------------+---------+-----+-------------+--------------+
+|-------|---------------|---------|-----|-------------|--------------|
 | > b\. | > city        | >       | >   | > Not null  | > It is used |
 |       |               |  String |  \- |             | > to store   |
 |       |               |         |     |             | > city.      |
-+-------+---------------+---------+-----+-------------+--------------+
+|-------|---------------|---------|-----|-------------|--------------|
 | > c\. | > state       | >       | >   | > Not Null  | > It is used |
 |       |               |  String |  \- |             | > to store   |
 |       |               |         |     |             | > state of   |
 |       |               |         |     |             | > order      |
 |       |               |         |     |             | > shipping.  |
-+-------+---------------+---------+-----+-------------+--------------+
+|-------|---------------|---------|-----|-------------|--------------|
 | > d\. | > country     | >       | >   | > Not Null  | > It is used |
 |       |               |  String |  \- |             | > to store   |
 |       |               |         |     |             | > country    |
 |       |               |         |     |             | > for order  |
 |       |               |         |     |             | > shipping.  |
-+-------+---------------+---------+-----+-------------+--------------+
+|-------|---------------|---------|-----|-------------|--------------|
 | > e\. | > pincode     | >       | >   | > Not Null  | > It is used |
 |       |               |  number |  \- |             | > to store   |
 |       |               |         |     |             | > pincode    |
 |       |               |         |     |             | > for order  |
 |       |               |         |     |             | > shipping.  |
-+-------+---------------+---------+-----+-------------+--------------+
+|-------|---------------|---------|-----|-------------|--------------|
 | > f\. | > phoneNo     | >       | >   | > Not Null  | > It is used |
 |       |               |  number |  \- |             | > to store   |
 |       |               |         |     |             | > contact    |
 |       |               |         |     |             | > number.    |
-+-------+---------------+---------+-----+-------------+--------------+
+|-------|---------------|---------|-----|-------------|--------------|
 | > 3\. | > orderItems  |         |     |             |              |
 |       | > :           |         |     |             |              |
-+-------+---------------+---------+-----+-------------+--------------+
+|-------|---------------|---------|-----|-------------|--------------|
 | > a\. | > name        | >       | >   | > Not Null  | It is used   |
 |       |               |  String |  \- |             | to store     |
 |       |               |         |     |             | name of      |
 |       |               |         |     |             | product.     |
-+-------+---------------+---------+-----+-------------+--------------+
+|-------|---------------|---------|-----|-------------|--------------|
 | > b\. | > price       | >       | >   | > Not Null  | It is used   |
 |       |               |  number |  \- |             | to store     |
 |       |               |         |     |             | price of     |
 |       |               |         |     |             | product.     |
-+-------+---------------+---------+-----+-------------+--------------+
+|-------|---------------|---------|-----|-------------|--------------|
 
-+-------+------------+-----------+------+-------------+--------------+
+|-------|------------|-----------|------|-------------|--------------|
 | > c\. | > quantity | > number  | > \- | > Not Null  | It is used   |
 |       |            |           |      |             | to store     |
 |       |            |           |      |             | quantity of  |
 |       |            |           |      |             | product.     |
-+=======+============+===========+======+=============+==============+
+|=======|============|===========|======|=============|==============|
 | > d\. | > image    | > String  | > \- | > Not Null  | It is used   |
 |       |            |           |      |             | to store     |
 |       |            |           |      |             | product      |
 |       |            |           |      |             | image .      |
-+-------+------------+-----------+------+-------------+--------------+
+|-------|------------|-----------|------|-------------|--------------|
 | > e\. | > product  | > number  | > \- | > Not Null, | > It is used |
 |       |            |           |      | >           | > to store   |
 |       |            |           |      | >           | > product    |
@@ -1300,7 +1256,7 @@ height="7.923945756780403in"}
 |       |            |           |      | > product   |              |
 |       |            |           |      | >           |              |
 |       |            |           |      |  collection |              |
-+-------+------------+-----------+------+-------------+--------------+
+|-------|------------|-----------|------|-------------|--------------|
 | > 4\. | > user     | > number  | > \- | > Not Null, | > It is used |
 |       |            |           |      | >           | > to store   |
 |       |            |           |      | >           | >            |
@@ -1308,167 +1264,167 @@ height="7.923945756780403in"}
 |       |            |           |      | > by user   | > user       |
 |       |            |           |      | >           | >            |
 |       |            |           |      |  collection | information. |
-+-------+------------+-----------+------+-------------+--------------+
+|-------|------------|-----------|------|-------------|--------------|
 | > 5\. | p          |           |      |             |              |
 |       | aymentInfo |           |      |             |              |
 |       | :          |           |      |             |              |
-+-------+------------+-----------+------+-------------+--------------+
+|-------|------------|-----------|------|-------------|--------------|
 | > a\. | id         | > String  | > \- | > Not Null  | > It is used |
 |       |            |           |      |             | > to store   |
 |       |            |           |      |             | > payment    |
 |       |            |           |      |             | > id.        |
-+-------+------------+-----------+------+-------------+--------------+
+|-------|------------|-----------|------|-------------|--------------|
 | > b\. | > status   | > String  | > \- | > Not Null  | > It is used |
 |       |            |           |      |             | > to store   |
 |       |            |           |      |             | > status of  |
 |       |            |           |      |             | > payment.   |
-+-------+------------+-----------+------+-------------+--------------+
+|-------|------------|-----------|------|-------------|--------------|
 | > c\. | > paidAt   | > Date    | > \- | > \-        | > It is used |
 |       |            |           |      |             | > to store   |
 |       |            |           |      |             | > date of    |
 |       |            |           |      |             | > payment.   |
-+-------+------------+-----------+------+-------------+--------------+
+|-------|------------|-----------|------|-------------|--------------|
 | > d\. | > i        | > number  | > \- | > \-        | > It is used |
 |       | temsPrices |           |      |             | > to store   |
 |       |            |           |      |             | >            |
 |       |            |           |      |             | > Price of   |
 |       |            |           |      |             | > item.      |
-+-------+------------+-----------+------+-------------+--------------+
+|-------|------------|-----------|------|-------------|--------------|
 | > e\. | >          | > number  | > \- | > \-        | > It is used |
 |       |  taxPrices |           |      |             | > to store   |
 |       |            |           |      |             | > tax price. |
-+-------+------------+-----------+------+-------------+--------------+
+|-------|------------|-----------|------|-------------|--------------|
 
-+-------+--------------+-------+------+------------+------------------+
+|-------|--------------|-------|------|------------|------------------|
 | > f\. | > s          | > n   | > \- | > \-       | > It is used to  |
 |       | hippingprice | umber |      |            | > store shipping |
 |       |              |       |      |            | > price.         |
-+=======+==============+=======+======+============+==================+
+|=======|==============|=======|======|============|==================|
 | > g\. | >            | > n   | > \- | > \-       | > It is used to  |
 |       |  totalprices | umber |      |            | > store sum of   |
 |       |              |       |      |            | > the price.     |
-+-------+--------------+-------+------+------------+------------------+
+|-------|--------------|-------|------|------------|------------------|
 | > h\. | >            | > s   | > \- | > \-       | > It is used to  |
 |       |  orderstatus | tring |      |            | > store status   |
 |       |              |       |      |            | > of order.      |
-+-------+--------------+-------+------+------------+------------------+
+|-------|--------------|-------|------|------------|------------------|
 | > i\. | >            | >     | > \- | > Not null | > It is used to  |
 |       |  deliveredAt |  date |      |            | > store          |
 |       |              |       |      |            | >                |
 |       |              |       |      |            | > Date of        |
 |       |              |       |      |            | > deliver.       |
-+-------+--------------+-------+------+------------+------------------+
+|-------|--------------|-------|------|------------|------------------|
 | > j\. | > createdAt  | >     | > \- | > Current  | > It is used to  |
 |       |              |  date |      | >          | > store          |
 |       |              |       |      |  timestamp | >                |
 |       |              |       |      |            | > Date of order. |
-+-------+--------------+-------+------+------------+------------------+
+|-------|--------------|-------|------|------------|------------------|
 
 **4) services collection**
 
-+-----+-------------+----------+----+--------------+-----------------+
+|-----|-------------|----------|----|--------------|-----------------|
 | > * | > **        | > **Da   | >  | > **         | >               |
 | *No | FieldName** | taType** | ** | Constraint** | **Description** |
 | .** |             |          | Si |              |                 |
 |     |             |          | ze |              |                 |
 |     |             |          | ** |              |                 |
-+=====+=============+==========+====+==============+=================+
+|=====|=============|==========|====|==============|=================|
 | >   | > id        | > number | >  | > Unique     | > It is used to |
 | 1\. |             |          | 24 |              | > store servce  |
 |     |             |          |    |              | > id.           |
-+-----+-------------+----------+----+--------------+-----------------+
+|-----|-------------|----------|----|--------------|-----------------|
 | >   | > name      | > string | >  | > Not Null   | > It is used to |
 | 2\. |             |          | \- |              | > store service |
 |     |             |          |    |              | > name.         |
-+-----+-------------+----------+----+--------------+-----------------+
+|-----|-------------|----------|----|--------------|-----------------|
 | >   | price       | > number |    | > Not Null   | > It is used to |
 | 3\. |             |          |    |              | > store price   |
 |     |             |          |    |              | > of service.   |
-+-----+-------------+----------+----+--------------+-----------------+
+|-----|-------------|----------|----|--------------|-----------------|
 | >   | > rating    | > number | >  | > \-         | > It is used to |
 | 4\. |             |          | \- |              | > store         |
 |     |             |          |    |              | >               |
 |     |             |          |    |              | > rating.       |
-+-----+-------------+----------+----+--------------+-----------------+
+|-----|-------------|----------|----|--------------|-----------------|
 | >   | > image     | > string | >  | Not null     | > It is used to |
 | 5\. |             |          | \- |              | > store image   |
 |     |             |          |    |              | > of service.   |
-+-----+-------------+----------+----+--------------+-----------------+
+|-----|-------------|----------|----|--------------|-----------------|
 | >   | > category  | > string | >  | Not null     | > It is used to |
 | 6\. |             |          | \- |              | > store         |
 |     |             |          |    |              | > category of   |
 |     |             |          |    |              | > service.      |
-+-----+-------------+----------+----+--------------+-----------------+
+|-----|-------------|----------|----|--------------|-----------------|
 | >   | >           | > number | >  | \-           | > It is used to |
 | 7\. | numofReview |          | \- |              | > store number  |
 |     |             |          |    |              | > of review.    |
-+-----+-------------+----------+----+--------------+-----------------+
+|-----|-------------|----------|----|--------------|-----------------|
 | >   | > reviews   | > string | >  | Referenced   | > It is used to |
 | 8\. |             |          | \- | by user      | > store review  |
 |     |             |          |    | collection   | > by user       |
-+-----+-------------+----------+----+--------------+-----------------+
+|-----|-------------|----------|----|--------------|-----------------|
 
-+------+------------+----------+-----+-------------+------------------+
+|------|------------|----------|-----|-------------|------------------|
 | >    | > user     | number   | >   | >           | > It is used to  |
 |  9\. |            |          |  24 |  Referenced | > store and      |
 |      |            |          |     | > by user   | > fetch user     |
 |      |            |          |     | >           | > data           |
 |      |            |          |     |  collection |                  |
-+======+============+==========+=====+=============+==================+
+|======|============|==========|=====|=============|==================|
 | >    | >          | > date   | >   | > Current   | > It is used to  |
 | 10\. |  createdAt |          |  \- | > timestamp | > store date .   |
-+------+------------+----------+-----+-------------+------------------+
+|------|------------|----------|-----|-------------|------------------|
 
 **5) Appointment collection**
 
-+-----+------------+----------+-----+-------------+-------------------+
+|-----|------------|----------|-----|-------------|-------------------|
 | > * | > **F      | > **Da   | >   | > **C       | > **Description** |
 | *No | ieldName** | taType** |  ** | onstraint** |                   |
 | .** |            |          | Siz |             |                   |
 |     |            |          | e** |             |                   |
-+=====+============+==========+=====+=============+===================+
+|=====|============|==========|=====|=============|===================|
 | >   | > id       | > number | >   | > Unique    | > It is used to   |
 | 1\. |            |          |  24 | > key       | > store           |
 |     |            |          |     |             | > appointment id. |
-+-----+------------+----------+-----+-------------+-------------------+
+|-----|------------|----------|-----|-------------|-------------------|
 | >   | > name     | > string | >   | > Not null  | > It is use to    |
 | 2\. |            |          |  \- |             | > store name of   |
 |     |            |          |     |             | > client.         |
-+-----+------------+----------+-----+-------------+-------------------+
+|-----|------------|----------|-----|-------------|-------------------|
 | >   | > email    | > string | >   | > Not null  | > It is use to    |
 | 3\. |            |          |  \- |             | > store email of  |
 |     |            |          |     |             | > client.         |
-+-----+------------+----------+-----+-------------+-------------------+
+|-----|------------|----------|-----|-------------|-------------------|
 | >   | > phone    | > string | >   | > Not null  | > It is used to   |
 | 4\. |            |          |  \- |             | > store contact   |
 |     |            |          |     |             | > no. of client.  |
-+-----+------------+----------+-----+-------------+-------------------+
+|-----|------------|----------|-----|-------------|-------------------|
 | >   | > s        | > Date   | >   | > Not null  | > It is used to   |
 | 5\. | erviceDate |          |  \- |             | > store           |
 |     |            |          |     |             | > appointment     |
 |     |            |          |     |             | > date.           |
-+-----+------------+----------+-----+-------------+-------------------+
+|-----|------------|----------|-----|-------------|-------------------|
 | >   | > s        | > String | >   | > Not null  | > It is used to   |
 | 6\. | erviceTime |          |  \- |             | > store           |
 |     |            |          |     |             | > appointment     |
 |     |            |          |     |             | > time.           |
-+-----+------------+----------+-----+-------------+-------------------+
+|-----|------------|----------|-----|-------------|-------------------|
 | >   | > comments | > String | >   | > \-        | > It is used to   |
 | 7\. |            |          |  \- |             | > store           |
 |     |            |          |     |             | > instruction of  |
 |     |            |          |     |             | > client.         |
-+-----+------------+----------+-----+-------------+-------------------+
+|-----|------------|----------|-----|-------------|-------------------|
 | >   | > carType  | > String | >   | > Not null  | > It is used to   |
 | 8\. |            |          |  \- |             | > store the type  |
 |     |            |          |     |             | > of car.         |
-+-----+------------+----------+-----+-------------+-------------------+
+|-----|------------|----------|-----|-------------|-------------------|
 | >   | > user     | > string | >   | > It is     | > It is used to   |
 | 9\. |            |          |  \- | >           | > store and fetch |
 |     |            |          |     |  referenced | > the user        |
 |     |            |          |     | > by user   | > information.    |
 |     |            |          |     | >           |                   |
 |     |            |          |     |  collection |                   |
-+-----+------------+----------+-----+-------------+-------------------+
+|-----|------------|----------|-----|-------------|-------------------|
 
 > **6.9. Relationship**
 >
@@ -1778,7 +1734,7 @@ Plan**
 >
 > **Testing of Login**
 
-+---+-------------+---------+----------+---------+----------+------+
+|---|-------------|---------|----------|---------|----------|------|
 | > | > **De      | > **I   |          | > **    | > **     | >    |
 |   | scription** | nputted |          | Expecte | Actual** |  **P |
 | * |             | > v     |          | > d     | >        | ass/ |
@@ -1787,11 +1743,11 @@ Plan**
 | o |             |         |          |         |          |      |
 | * |             |         |          |         |          |      |
 | * |             |         |          |         |          |      |
-+===+=============+=========+==========+=========+==========+======+
+|===|=============|=========|==========|=========|==========|======|
 |   |             | > User  | >        |         |          |      |
 |   |             | >       | Password |         |          |      |
 |   |             | > Name  |          |         |          |      |
-+---+-------------+---------+----------+---------+----------+------+
+|---|-------------|---------|----------|---------|----------|------|
 | > | > Check     | >       | > Ah     | > R     | >        | >    |
 |   | >           |  Saunak | ir@9890# | edirect | Redirect | Pass |
 | 1 | > for Login | .nxs@gm |          | >       | >        |      |
@@ -1799,30 +1755,30 @@ Plan**
 | . |  Validation |         |          | >       | >        |      |
 |   |             |         |          | Dashboa | > D      |      |
 |   |             |         |          | > rd    | ashboard |      |
-+---+-------------+---------+----------+---------+----------+------+
+|---|-------------|---------|----------|---------|----------|------|
 | > | > Check     | >       | Null     | > Error | > Error  | >    |
 |   | >           |  Saunak |          | >       | >        | Fail |
 | 2 | > for Login | .nxs@gm |          | >       | > Please |      |
 | \ | >           | ail.com |          |  Please | > Enter  |      |
 | . |  Validation |         |          | > Enter | > Field  |      |
 |   |             |         |          | > Field |          |      |
-+---+-------------+---------+----------+---------+----------+------+
+|---|-------------|---------|----------|---------|----------|------|
 | > | > Check for | > Null  | > Null   | > Error | > Error  | >    |
 |   | > Login     |         |          | >       | > Please | Fail |
 | 3 | >           |         |          |  Please | > Enter  |      |
 | \ | >           |         |          | > Enter | > Field  |      |
 | . |  Validation |         |          | > Field |          |      |
-+---+-------------+---------+----------+---------+----------+------+
+|---|-------------|---------|----------|---------|----------|------|
 
 **Testing of Registration**
 
-+-----+--------------+-------------+-----------+-------------+------+
+|-----|--------------|-------------|-----------|-------------|------|
 | >   | > **D        | >           | > **E     | >           | >    |
 | **N | escription** |  **Inputted | xpected** |  **Actual** |  **P |
 | o** |              | > values**  | >         | >           | ass/ |
 |     |              |             | > *       | >           | > Fa |
 |     |              |             | *Result** |  **Result** | il** |
-+=====+==============+=============+===========+=============+======+
+|=====|==============|=============|===========|=============|======|
 | >   | > Check      | > Enter     | >         | > Redirect  | >    |
 | 1\. | > Interface  | > R         |  Redirect | > to login  | Pass |
 |     | > link       | egistration | > to      | > page      |      |
@@ -1830,7 +1786,7 @@ Plan**
 |     | > login and  | > and click | > page    |             |      |
 |     | >            | > register  |           |             |      |
 |     | registration |             |           |             |      |
-+-----+--------------+-------------+-----------+-------------+------+
+|-----|--------------|-------------|-----------|-------------|------|
 | >   | > Check      | > Click On  | > Enter   | > Please    | >    |
 | 2\. | >            | >           | >         | > Enter     | Fail |
 |     | >            | > register  | >         | >           |      |
@@ -1838,11 +1794,11 @@ Plan**
 |     |              | > without   | > value   | > values    |      |
 |     |              | > filling   |           |             |      |
 |     |              | > form      |           |             |      |
-+-----+--------------+-------------+-----------+-------------+------+
+|-----|--------------|-------------|-----------|-------------|------|
 
 > **Testing of Change Password**
 
-+---+----------+---------+---------+----------+--------+------+----+
+|---|----------|---------|---------|----------|--------|------|----|
 | > | > **Des  | > **I   |         |          | >      | >    | >  |
 |   | cripti** | nputted |         |          | **Expe | **Ac | ** |
 | * | >        | > v     |         |          | cted** | tu** | Pa |
@@ -1856,12 +1812,12 @@ Plan**
 |   |          |         |         |          |        |      | Fa |
 |   |          |         |         |          |        |      | il |
 |   |          |         |         |          |        |      | ** |
-+===+==========+=========+=========+==========+========+======+====+
+|===|==========|=========|=========|==========|========|======|====|
 |   |          | > Old   | > New   | >        |        |      |    |
 |   |          | > Pa    | > P     |  Confirm |        |      |    |
 |   |          | ssw-ord | assword | >        |        |      |    |
 |   |          |         |         | Password |        |      |    |
-+---+----------+---------+---------+----------+--------+------+----+
+|---|----------|---------|---------|----------|--------|------|----|
 | > | > Check  | > Ahi   | > Admin | > Admin  | >      | > R  | >  |
 |   | >        | r@9890# |         |          | Redire | edir | Pa |
 | 1 | > Change |         |         |          | >      | >    | ss |
@@ -1872,7 +1828,7 @@ Plan**
 |   |          |         |         |          | > page | ogin |    |
 |   |          |         |         |          |        | >    |    |
 |   |          |         |         |          |        | page |    |
-+---+----------+---------+---------+----------+--------+------+----+
+|---|----------|---------|---------|----------|--------|------|----|
 | > | > Check  | > Ahi   | > Admin |          | >      | > P  | >  |
 |   | > Change | r@9890# |         |          |  Enter | leas | Pa |
 | 2 | >        |         |         |          | >      | > e  | ss |
@@ -1886,7 +1842,7 @@ Plan**
 |   |          |         |         |          |        | alue |    |
 |   |          |         |         |          |        | >    |    |
 |   |          |         |         |          |        | > s  |    |
-+---+----------+---------+---------+----------+--------+------+----+
+|---|----------|---------|---------|----------|--------|------|----|
 | > | > Check  | > Null  | > Null  | > Null   | >      | > E  | >  |
 |   | >        |         |         |          |  Error | rror | Pa |
 | 3 | > Change |         |         |          | >      | >    | ss |
@@ -1897,7 +1853,7 @@ Plan**
 |   |          |         |         |          | >      | nter |    |
 |   |          |         |         |          |  Field | > F  |    |
 |   |          |         |         |          |        | ield |    |
-+---+----------+---------+---------+----------+--------+------+----+
+|---|----------|---------|---------|----------|--------|------|----|
 
 > **8.2. Testing issue**
 >
