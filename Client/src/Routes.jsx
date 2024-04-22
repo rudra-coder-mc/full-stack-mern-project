@@ -6,7 +6,7 @@ import Service from "./Pages/Services";
 import Product from "./Pages/Product";
 import LoginPage from "./Pages/LoginPage";
 import Signup from "./Pages/Signup";
-import Dashboard from "./admin/Dashboard";
+import Dashboard from "./admin/DashBoard";
 import AboutUs from "./Pages/About";
 import Cart from "./Pages/Cart";
 
