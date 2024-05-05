@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { UserContex } from "../../../Context/UserContex";
+import { UserContex } from "../../Context/UserContex";
 import { FaRegTrashAlt, FaRegEdit } from "react-icons/fa";
 import axios from "axios";
 

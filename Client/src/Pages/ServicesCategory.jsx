@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import Services from "../Components/Services/Services";
+import { Services } from "../Components/";
 import { ServicesContex } from "../Context/ServicesContex";
 
 const ServicesCategory = (prop) => {

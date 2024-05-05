@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import OrderCard from "./OrderCard";
-import { OrderContext } from "../../../Context/OrderContex";
+import { OrderContext } from "../../Context/OrderContex";
 
 const ProductReport = () => {
   const { OrderData, OrderLoading, OrderError, fetchOrderData } =

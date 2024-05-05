@@ -3,7 +3,7 @@
 // };
 // export default ServicesUpdate;
 import { useParams } from "react-router-dom";
-import { ServicesContex } from "../../../Context/ServicesContex";
+import { ServicesContex } from "../../Context/ServicesContex";
 import { useContext, useEffect, useState } from "react";
 // import Updatep from "./Updatep";
 import Updates from "./Updates";

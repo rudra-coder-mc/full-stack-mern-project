@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
 import axios from "axios";
-import SubNav from "../Components/SubNav/SubNav";
+import { SubNav } from "../Components/";
 
 const MyAccount = () => {
   const [user, setUser] = useState({ name: "", email: "" });

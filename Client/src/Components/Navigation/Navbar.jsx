@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/tirthlogo.png";
-import NavItem from "./NavItem";
-import AuthButton from "./AuthButton";
+import { NavItem } from "../";
+import { AuthButton } from "../";
 import { useState, useContext, useEffect } from "react";
 import { MdMenu, MdClose } from "react-icons/md";
 import { FaOpencart } from "react-icons/fa";
@@ -39,11 +39,7 @@ const Navbar = () => {
           </NavLink>
         </div>
         <div>
-          <NavItem
-            NavItemStyle={
-              "hidden md:flex gap-x-5 xl:gap-x-10 "
-            }
-          />
+          <NavItem NavItemStyle={"hidden md:flex gap-x-5 xl:gap-x-10 "} />
           <NavItem
             NavItemStyle={`${
               menuOpened

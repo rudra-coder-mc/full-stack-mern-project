@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import SubNav from "../SubNav/SubNav";
+import { SubNav } from "../";
 
 const Address = () => {
   const [address, setAddress] = useState({

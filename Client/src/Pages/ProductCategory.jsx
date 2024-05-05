@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import Product from "../Components/Products/Products";
+import { Products } from "../Components/";
 import { ShopContext } from "../Context/ShopContex";
 
 const ProductCategory = (prop) => {
@@ -80,9 +80,9 @@ const ProductCategory = (prop) => {
           ) : error ? (
             <p>Error fetching products: {error}</p>
           ) : prop.filter ? (
-            <Product products={filterHomeProducts} /> // Pass filtered products to Product component
+            <Products products={filterHomeProducts} /> // Pass filtered products to Product component
           ) : (
-            <Product products={filteredProducts} />
+            <Products products={filteredProducts} />
           )}
         </div>
       </div>

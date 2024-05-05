@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import SubNav from "../SubNav/SubNav";
+import { SubNav } from "../";
 
 const MyOrder = () => {
   const [user, setUser] = useState(null); // Use null for initial state

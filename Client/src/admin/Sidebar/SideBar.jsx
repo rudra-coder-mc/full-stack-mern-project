@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../../Context/AuthProvider";
+import { AuthContext } from "../../Context/AuthProvider";
 import { FaSignInAlt } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
 

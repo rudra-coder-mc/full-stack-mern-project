@@ -1,6 +1,4 @@
-
-
-import Card from "../Card/Card";
+import { Card } from "../";
 
 const Products = (prop) => {
   const { products } = prop;

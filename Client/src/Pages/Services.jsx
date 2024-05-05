@@ -5,7 +5,7 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ServicesContex } from "../Context/ServicesContex";
-import ServiceDetailPage from "../Components/ServiceDetailPage/ServiceDetailPage";
+import {ServiceDetailPage} from "../Components/";
 
 const Services = () => {
   const { data, loading, error } = useContext(ServicesContex); // Access context properties

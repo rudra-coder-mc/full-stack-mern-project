@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect } from "react";
-import { BookingContex } from "../../../Context/BookingContex"; // Assuming BookingContext
+import { BookingContex } from "../../Context/BookingContex"; // Assuming BookingContext
 import { FaCalendarXmark } from "react-icons/fa6";
 
 function TodyAppointments() {
