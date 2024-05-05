@@ -15,46 +15,28 @@ import {
 
 import {
   DHome,
-  ProductCard,
   ProductEditePage,
   ProductInsertPage,
   ProductReport,
   ProductUpdate,
-  Updatep,
   ServiceReport,
-  ServicesCard,
   ServicesEditePage,
   ServicesInsertPage,
   ServicesUpdate,
-  Updates,
-  SideBar,
   User,
   Booking,
   Dashboard,
-  OrderCard,
   TodyAppointments,
   UserReport,
 } from "../admin/";
 
 import {
   Address,
-  Card,
-  Footer,
-  Hero,
   Login,
   ChangPassword,
   MyBooking,
   MyOrder,
-  AuthButton,
-  NavItem,
-  Navbar,
-  Offers,
-  ProductDetailPage,
-  Products,
   ProtectedRoute,
-  ServiceDetailPage,
-  SubNav,
-  ErrorPage,
 } from "../Components";
 
 // import router from "./Routes";

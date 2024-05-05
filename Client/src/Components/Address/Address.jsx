@@ -55,7 +55,7 @@ const Address = () => {
                 id="address"
                 name="address"
                 className="rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                value={address.address}
+                value={address?.address}
                 onChange={handleChangeForAddress}
                 required
               />
@@ -69,7 +69,7 @@ const Address = () => {
                 id="city"
                 name="city"
                 className="rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                value={address.city}
+                value={address?.city}
                 onChange={handleChangeForAddress}
                 required
               />
@@ -83,7 +83,7 @@ const Address = () => {
                 id="state"
                 name="state"
                 className="rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                value={address.state}
+                value={address?.state}
                 onChange={handleChangeForAddress}
                 required
               />
@@ -97,7 +97,7 @@ const Address = () => {
                 id="pinCode"
                 name="pinCode"
                 className="rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                value={address.pinCode}
+                value={address?.pinCode}
                 onChange={handleChangeForAddress}
                 required
               />
@@ -111,18 +111,14 @@ const Address = () => {
                 id="phoneNo"
                 name="phoneNo"
                 className="rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                value={address.phoneNo}
+                value={address?.phoneNo}
                 onChange={handleChangeForAddress}
                 size="10"
                 required
               />
             </div>
 
-            {/* {AddressError && (
-              <span className="text-red-500 font-bold text-sm block mb-4">
-                {AddressError}
-              </span>
-            )} */}
+            
             <button
               type="submit"
               className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"

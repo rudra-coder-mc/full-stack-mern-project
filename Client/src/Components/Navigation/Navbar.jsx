@@ -1,6 +1,6 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/tirthlogo.png";
-import { NavItem } from "../";
+// import { NavItem } from "../";
 import { AuthButton } from "../";
 import { useState, useContext, useEffect } from "react";
 import { MdMenu, MdClose } from "react-icons/md";
@@ -12,6 +12,25 @@ const Navbar = () => {
   const { user } = useContext(AuthContext);
   const [isAdmin, setIsAdmin] = useState(false); // Use clear variable name
   const { state } = useCart();
+
+  const NavItem = [
+    {
+      name: "Home",
+      Url: "/",
+    },
+    {
+      name: "Product",
+      Url: "/ProductCategory",
+    },
+    {
+      name: "Services",
+      Url: "/ServicesCategory",
+    },
+    {
+      name: "MyAccount",
+      Url: "/MyAccount",
+    },
+  ];
 
   useEffect(() => {
     (async () => {
@@ -39,14 +58,21 @@ const Navbar = () => {
           </NavLink>
         </div>
         <div>
-          <NavItem NavItemStyle={"hidden md:flex gap-x-5 xl:gap-x-10 "} />
-          <NavItem
-            NavItemStyle={`${
+          <ul
+            className={
               menuOpened
-                ? "flex items-start flex-col gap-y-12 fixed top-20 right-8 p-12 bg-gray-100 shadow-md w-34 text-black rounded-md font-medium right-1 ring-slate-900/5 transition-all duration-300 z-10"
-                : "hidden"
-            }`}
-          />
+                ? `flex items-start flex-col gap-y-12 fixed top-20 right-8 p-12 bg-gray-100 shadow-md w-34 text-black rounded-md font-medium  ring-slate-900/5 transition-all duration-300 z-10`
+                : `hidden md:flex gap-x-5 xl:gap-x-10 `
+            }
+          >
+            {NavItem.map((Item) => (
+              <li
+                className={`px-4 py-2 hover:bg-white hover:text-black hover:rounded hover:shadow-2xl hover:transition hover:duration-300 hover:ease-in-out `}
+              >
+                <Link to={Item.Url}>{Item.name}</Link>
+              </li>
+            ))}
+          </ul>
         </div>
 
         <div className="flex items-center justify-between sm:gap-x-6 space-x-2 ">

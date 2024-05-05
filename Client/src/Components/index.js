@@ -7,7 +7,7 @@ import ChangPassword from "./Login/ChangPassword";
 import MyBooking from "./MyBooking/MyBooking";
 import MyOrder from "./MyOrder/MyOrder";
 import AuthButton from "./Navigation/AuthButton";
-import NavItem from "./Navigation/NavItem";
+
 import Navbar from "./Navigation/Navbar";
 import Offers from "./Offers/Offers";
 import ProductDetailPage from "./ProductDetailPage/ProductDetailPage";
@@ -28,7 +28,6 @@ export {
   MyBooking,
   MyOrder,
   AuthButton,
-  NavItem,
   Navbar,
   Offers,
   ProductDetailPage,
