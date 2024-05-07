@@ -1,31 +1,66 @@
-import { useContext, useState } from "react";
-import { AuthContext } from "../../Context/AuthProvider";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import bgLogin from "../../assets/bgLogin.jpeg";
+import { useSelector, useDispatch } from "react-redux";
+import { login } from "../../Feachers/Auth/AuthSlice";
+import axios from "axios";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
   const [error, setError] = useState(null); // State to store any errors
-  const { login } = useContext(AuthContext);
-
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleError = (error) => {
+    if (error.response) {
+      return error.response.data.message || "An error occurred.";
+    } else if (error.request) {
+      return "No response received from the server. Please check your internet connection.";
+    } else {
+      return "An error occurred while processing your request.";
+    }
+  };
+  const axiosInstance = axios.create({
+    withCredentials: true,
+  });
+
+  const useLogin = async (data) => {
+    try {
+      const response = await axiosInstance.post(`/api/v1/login`, data, {
+        "Content-Type": "application/json",
+      });
+      return response.data;
+    } catch (error) {
+      console.log(error);
+      setError(handleError(error));
+      return handleError(error);
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Prepare data for the request
-    const response = await login(email, password);
+    const response = await useLogin(user);
     // console.log(response);
 
-    if (response === true) {
-      if (localStorage.getItem("role") == "admin") {
+    if (response.success == true) {
+      dispatch(
+        login({
+          Token: response.token,
+          userData: response.user,
+        })
+      );
+      // console.log(response.user.role);
+      if (response.user.role == "admin") {
         navigate("/Dashboard/Home");
       } else {
         navigate("/");
       }
-    } else setError(response);
+    }
   };
 
   return (
@@ -53,8 +88,10 @@ const Login = () => {
                 type="email"
                 autoComplete="email"
                 required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={user.email}
+                onChange={(e) =>
+                  setUser((pre) => ({ ...pre, email: e.target.value }))
+                }
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Email address"
               />
@@ -69,8 +106,10 @@ const Login = () => {
                 type="password"
                 autoComplete="current-password"
                 required
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                value={user.password}
+                onChange={(e) =>
+                  setUser((pre) => ({ ...pre, password: e.target.value }))
+                }
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Password"
               />

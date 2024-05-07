@@ -37,5 +37,4 @@ export {
   Services,
   SubNav,
   ErrorPage,
-  Products,
 };
