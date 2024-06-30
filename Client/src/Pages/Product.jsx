@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ShopContext } from "../Context/ShopContex";
 
-import ProductDetailPage from "../Components/ProductDetailPage/ProductDetailPage";
+import { ProductDetailPage } from "../Components/";
 
 const Product = () => {
   const { data, loading, error } = useContext(ShopContext); // Access context properties

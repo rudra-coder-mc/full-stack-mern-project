@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
-import { OrderContext } from "../../../Context/OrderContex";
-import { BookingContex } from "../../../Context/BookingContex";
-import { UserContex } from "../../../Context/UserContex";
+import { OrderContext } from "../../Context/OrderContex";
+import { BookingContex } from "../../Context/BookingContex";
+import { UserContex } from "../../Context/UserContex";
 import { FaCartArrowDown, FaUserFriends, FaCalendarAlt } from "react-icons/fa";
 
 const DHome = () => {

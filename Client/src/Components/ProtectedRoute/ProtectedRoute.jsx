@@ -1,11 +1,13 @@
 import { Navigate, useLocation } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 
 const ProtectedRoute = ({ children }) => {
   const location = useLocation();
 
-  // Replace with your actual authentication check using a state management library, context, or custom logic
-  const isAuthenticated = localStorage.getItem("token") !== null; // Example using a token
-  const isAdmin = localStorage.getItem("role") == "admin"; // Example using a token
+  const isAuthenticated = useSelector((state) => state.Auth.status);
+
+  const role = useSelector((state) => state.Auth.userData.role);
+  const isAdmin = role == "admin";
   // console.log(isAdmin);
   // console.log(isAuthenticated);
 

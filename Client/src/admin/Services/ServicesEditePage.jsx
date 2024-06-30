@@ -3,7 +3,7 @@
 // };
 // export default ServicesEditePage;
 import { useContext, useState } from "react";
-import { ServicesContex } from "../../../Context/ServicesContex";
+import { ServicesContex } from "../../Context/ServicesContex";
 import axios from "axios";
 import { Link } from "react-router-dom";
 

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Offers = (prop) => {
   const { data } = prop;
-  console.log(data);
+  // console.log(data);
   const offerData = {
     title: data.title,
     subtitle: data.subtitle,

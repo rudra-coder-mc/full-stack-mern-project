@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import SubNav from "../SubNav/SubNav";
+import { SubNav } from "../";
 
 const MyBooking = () => {
   const [user, setUser] = useState(null); // Use null for initial state
@@ -137,60 +137,76 @@ const MyBooking = () => {
                 <thead>
                   <tr>
                     <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                    Service Name
+                      Service Name
                     </th>
                     <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                    Name
+                      Name
                     </th>
                     <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                    Email
+                      Email
                     </th>
                     <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                    Phone
+                      Phone
                     </th>
                     <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                    Service Date
+                      Service Date
                     </th>
                     <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                    Service Time
+                      Service Time
                     </th>
                     <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                    Comments
+                      Comments
                     </th>
                     <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                    Car Type
+                      Car Type
                     </th>
                   </tr>
                 </thead>
                 <tbody>
                   {bookings.map((booking) => (
-            <tr key={booking._id} className="hover:bg-gray-100">
-              <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                <p className="text-gray-900 whitespace-no-wrap">{booking.serviceName}</p>
-              </td>
-              <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                 <p className="text-gray-900 whitespace-no-wrap">{booking.name}</p>
-              </td>
-              <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                 <p className="text-gray-900 whitespace-no-wrap">{booking.email}</p>
-              </td>
-              <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                 <p className="text-gray-900 whitespace-no-wrap">{booking.phone}</p>
-              </td>
-              <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                 <p className="text-gray-900 whitespace-no-wrap">{newData(booking.serviceDate)}</p>
-              </td>
-              <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                 <p className="text-gray-900 whitespace-no-wrap">{booking.serviceTime}</p>
-              </td>
-              <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                 <p className="text-gray-900 whitespace-no-wrap">{booking.comments}</p>
-              </td>
-              <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                 <p className="text-gray-900 whitespace-no-wrap">{booking.carType}</p>
-              </td>
-            </tr>
-          ))}
+                    <tr key={booking._id} className="hover:bg-gray-100">
+                      <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                        <p className="text-gray-900 whitespace-no-wrap">
+                          {booking.serviceName}
+                        </p>
+                      </td>
+                      <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                        <p className="text-gray-900 whitespace-no-wrap">
+                          {booking.name}
+                        </p>
+                      </td>
+                      <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                        <p className="text-gray-900 whitespace-no-wrap">
+                          {booking.email}
+                        </p>
+                      </td>
+                      <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                        <p className="text-gray-900 whitespace-no-wrap">
+                          {booking.phone}
+                        </p>
+                      </td>
+                      <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                        <p className="text-gray-900 whitespace-no-wrap">
+                          {newData(booking.serviceDate)}
+                        </p>
+                      </td>
+                      <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                        <p className="text-gray-900 whitespace-no-wrap">
+                          {booking.serviceTime}
+                        </p>
+                      </td>
+                      <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                        <p className="text-gray-900 whitespace-no-wrap">
+                          {booking.comments}
+                        </p>
+                      </td>
+                      <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                        <p className="text-gray-900 whitespace-no-wrap">
+                          {booking.carType}
+                        </p>
+                      </td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>

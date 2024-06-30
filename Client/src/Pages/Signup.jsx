@@ -1,24 +1,56 @@
-import { useState, useContext } from "react";
-import { AuthContext } from "../Context/AuthProvider";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import bgLogin from "../assets/bgLogin.jpeg";
+import { useSelector, useDispatch } from "react-redux";
+import { login } from "../Feachers/Auth/AuthSlice";
+import axiso from "axios";
+
+const handleError = (error) => {
+  if (error.response) {
+    return error.response.data.message || "An error occurred.";
+  } else if (error.request) {
+    return "No response received from the server. Please check your internet connection.";
+  } else {
+    return "An error occurred while processing your request.";
+  }
+};
 
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [name, setname] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(null); //
-  const { SignUp } = useContext(AuthContext);
+  const [error, setError] = useState(null);
+
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent default form submission behavior
-    const responce = await SignUp(name, email, password);
-    if (responce === true) {
-      navigate("/login");
-    } else {
-      setError(responce);
+
+    const data = { name, email, password };
+    console.log(data);
+    try {
+      const response = await axiso.post("/api/v1/register", data);
+
+      console.log(response.data);
+
+      if (response.data.success) {
+        console.log("Signup successful!");
+        dispatch(
+          login({
+            Token: response.data.token,
+            userData: response.data.user,
+          })
+        );
+        navigate("/");
+      } else {
+        console.log(response.data.message);
+        setEmail(response.data.message);
+      }
+    } catch (error) {
+      console.log(error);
+      setEmail(handleError(error));
     }
   };
   return (

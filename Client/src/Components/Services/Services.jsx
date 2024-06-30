@@ -1,4 +1,4 @@
-import ServicesCard from "../../admin/Components/Services/ServicesCard";
+import { ServicesCard } from "../../admin/";
 
 const Services = (prop) => {
   const { services } = prop;

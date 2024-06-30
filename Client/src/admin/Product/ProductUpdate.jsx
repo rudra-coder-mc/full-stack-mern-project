@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { ShopContext } from "../../../Context/ShopContex";
+import { ShopContext } from "../../Context/ShopContex";
 import { useContext, useEffect, useState } from "react";
 import Updatep from "./Updatep";
 

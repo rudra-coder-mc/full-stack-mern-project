@@ -1,12 +1,14 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../../Context/AuthProvider";
+import axios from "axios";
 import { FaSignInAlt } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../../Feachers/Auth/AuthSlice";
 
 const SideBar = () => {
-  const { logout } = useContext(AuthContext);
+ 
   const [openProductMenu, setOpenProductMenu] = useState(false);
   const [openServiceMenu, setOpenServiceMenu] = useState(false);
   const [openReportMenu, setOpenReportMenu] = useState(false);
@@ -43,13 +45,15 @@ const SideBar = () => {
       setOpenProductMenu(false);
     }, 2000);
   };
+
   const handleLogout = async () => {
     try {
-      await logout(); // Perform logout asynchronously
+      await axios.get(`/api/v1/logout`);
+      dispatch(logout());
       navigate("/login");
     } catch (error) {
-      console.error("Logout error:", error);
-      // Handle logout errors if needed (e.g., display a message)
+      console.error("Logout error :: ", error);
+      throw handleError(error);
     }
   };
 
@@ -114,13 +118,15 @@ const SideBar = () => {
                   >
                     <li className="p-2 hover:bg-gray-600">Service Reports</li>
                   </NavLink>
-                 
+
                   <NavLink
                     to="/Dashboard/TodyAppointments"
                     className="py-2"
                     onClick={(e) => e.stopPropagation()}
                   >
-                    <li className="p-2 hover:bg-gray-600">Today's Appointments</li>
+                    <li className="p-2 hover:bg-gray-600">
+                      Today's Appointments
+                    </li>
                   </NavLink>
                 </ul>
               )}

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { UserContex } from "../../../Context/UserContex"; // Likely typo fixed
+import { UserContex } from "../../Context/UserContex"; // Likely typo fixed
 import { FaUserGroup, FaUsers, FaUserTie } from "react-icons/fa6";
 
 function UserReport() {
@@ -68,7 +68,6 @@ function UserReport() {
           </div>
         </div>
       </div>
-     
 
       <div className="p-8 rounded-md w-full">
         <div>
@@ -78,19 +77,19 @@ function UserReport() {
                 <thead>
                   <tr>
                     <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                    ID
+                      ID
                     </th>
                     <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                    Name
+                      Name
                     </th>
                     <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                    Email
+                      Email
                     </th>
                     <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                    Role
+                      Role
                     </th>
                     <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                    Created At
+                      Created At
                     </th>
                   </tr>
                 </thead>
@@ -99,27 +98,27 @@ function UserReport() {
                     <tr key={user._id} className="hover:bg-gray-100">
                       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                         <p className="text-gray-900 whitespace-no-wrap">
-                        {user._id}
+                          {user._id}
                         </p>
                       </td>
                       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                         <p className="text-gray-900 whitespace-no-wrap">
-                        {user.name}
+                          {user.name}
                         </p>
                       </td>
                       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                         <p className="text-gray-900 whitespace-no-wrap">
-                        {user.email}
+                          {user.email}
                         </p>
                       </td>
                       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                         <p className="text-gray-900 whitespace-no-wrap">
-                        {user.role}
+                          {user.role}
                         </p>
                       </td>
                       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                         <p className="text-gray-900 whitespace-no-wrap">
-                        {new Date(user.createdAt).toLocaleDateString()}
+                          {new Date(user.createdAt).toLocaleDateString()}
                         </p>
                       </td>
                     </tr>
